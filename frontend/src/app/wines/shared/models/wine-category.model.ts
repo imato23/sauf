@@ -1,6 +1,6 @@
 export enum WineCategory {
-    WhiteWine = 'WhiteWine',
-    RedWine = 'RedWine',
-    RoseWine = 'RoseWine',
-    SparklingWine = 'SparklingWine'
+    whiteWine = 'WhiteWine',
+    redWine = 'RedWine',
+    roseWine = 'RoseWine',
+    sparklingWine = 'SparklingWine'
 }

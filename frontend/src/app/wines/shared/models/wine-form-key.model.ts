@@ -1,7 +1,7 @@
 export enum WineFormKey {
-    Name = 'name',
-    Category = 'category',
-    Producer = 'producer',
-    Region = 'region',
-    Country = 'country'
+    name = 'name',
+    category = 'category',
+    producer = 'producer',
+    region = 'region',
+    country = 'country'
 }
