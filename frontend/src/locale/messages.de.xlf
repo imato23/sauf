@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Menu" datatype="html">
+        <source>Menu</source>
+        <target>Menü</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Wines" datatype="html">
+        <source>Wines</source>
+        <target>Weine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Settings" datatype="html">
+        <source>Settings</source>
+        <target>Einstellungen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="WineCategory" datatype="html">
+        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine}}</source>
+        <target>{VAR_SELECT, select, RedWine {Rotwein} WhiteWine {Weißwein} RoseWine {Roséwein}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NumberOfBottles" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Flasche} other {<x id="INTERPOLATION"/> Flaschen}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

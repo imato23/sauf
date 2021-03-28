@@ -1,0 +1,13 @@
+
+FROM node:14
+WORKDIR /app
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN npm install
+COPY . .
+COPY environments/tripoli.crt /etc/ssl/sauf-backend.crt
+COPY environments/tripoli.key /etc/ssl/sauf-backend.key
+COPY environments/environment.prod.env /etc/sauf/environment.env
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "run", "start:prod"]
