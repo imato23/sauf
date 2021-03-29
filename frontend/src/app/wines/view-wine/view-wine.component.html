@@ -1,1 +1,37 @@
-<h3>WineId: {{wineId}}</h3>
+<div class="form-container">
+    <div [formGroup]="commonDataFormGroup" *ngIf="wine$ | async; else loading">
+        <mat-form-field>
+            <mat-label i18n="@@WineCategory2|WineCategory">Category</mat-label>
+            <mat-select formControlName="category" required readonly>
+                <mat-option *ngFor="let category of categories$ | async" value="{{category}}" i18n="@@WineCategory">
+                    {category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine
+                    {SparklingWine}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label i18n="@@WineName">Name</mat-label>
+            <input matInput formControlName="name" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label i18n="@@WineProducer">Producer</mat-label>
+            <input matInput formControlName="producer" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label i18n="@@Country">Country</mat-label>
+            <input matInput formControlName="country">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label i18n="@@Region">Region</mat-label>
+            <input matInput formControlName="region" required>
+        </mat-form-field>
+    </div>
+
+    <ng-template #loading i18n="@@LoadingWine">
+        Loading wine...
+    </ng-template>
+</div>

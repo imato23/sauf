@@ -35,7 +35,7 @@ describe('WineListComponent', () => {
   it('hould calcalute the number of wine bottles if getWines is triggered', () => {
     const wine: Wine = {
       _id: '', name: '', producer: '', region: '',
-      country: '', category: WineCategory.RedWine, image: null,
+      country: '', category: WineCategory.redWine, image: null,
       vintageInfos: [{
         vintage: 2020, numberOfBottles: 5, price: 0, alcoholicStrength: 0,
         residualSugar: 0, tartaricAcid: 0, storageLocations: []

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Wine } from '../models/wine.model';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { WineCategory } from '../models/wine-category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,10 @@ export class WineService {
 
   public deleteWine(wineId: string): Observable<Wine> {
     return this.httpClient.delete<Wine>(`${this.winesApiUrl}/${wineId}`);
+  }
+
+  public getWineCategories(): Observable<string[]> {
+    const enumKeys: string[] = Object.keys(WineCategory);
+    return of(enumKeys);
   }
 }

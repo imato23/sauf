@@ -7,5 +7,10 @@
 			"path": "backend"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			".xtm": "xml",
+			".ngI18nconfig": "json"
+		}
+	}
 }

@@ -1,19 +1,26 @@
-<mat-nav-list>
-    <ng-container *ngFor="let wine of wines$ | async">
-        <mat-list-item routerLink="/wines/view-wine/{{wine._id}}">
-            <img matListAvatar [src]="wine.image" alt="..." class="wine-image">
-            <h3 matLine>{{wine.name}}</h3>
-            <p matLine>
-                <span> {{wine.producer}} </span>
-            </p>
-            <p matLine>
-                <span i18n="@@WineCategory">{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine
-                    {RoseWine}}</span>
-            </p>
-            <div fxLayout="row">
-                <div fxFlex i18n="@@NumberOfBottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}} Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
+<div>
+    <mat-nav-list *ngIf="wines$ | async; else loading">
+        <ng-container *ngFor="let wine of wines$ | async">
+            <mat-list-item routerLink="/wines/view-wine/{{wine._id}}">
+                <img matListAvatar [src]="wine.image" alt="..." class="wine-image">
+                <h3 matLine>{{wine.name}}</h3>
+                <p matLine>
+                    <span> {{wine.producer}} </span>
+                </p>
+                <p matLine>
+                    <span i18n="@@WineCategory1|WineCategory">{wine.category, select, redWine {RedWine} whiteWine
+                        {WhiteWine} roseWine
+                        {RoseWine} sparklingWine {SparklingWine}}</span>
+                </p>
+                <div fxLayout="row">
+                    <div fxFlex i18n="@@Bottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}} Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
             </div>
         </mat-list-item>
         <mat-divider></mat-divider>
     </ng-container>
 </mat-nav-list>
+
+    <ng-template #loading i18n="@@LoadingWines">
+        <h3>Loading wines...</h3>
+    </ng-template>
+    </div>
