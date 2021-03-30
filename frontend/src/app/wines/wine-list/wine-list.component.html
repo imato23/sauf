@@ -25,13 +25,19 @@
                 </p>
                 <div fxLayout="row">
                     <div fxFlex i18n="@@Bottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}} Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
-            </div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-    </ng-container>
-</mat-nav-list>
+                </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </ng-container>
+    </mat-nav-list>
 
     <ng-template #loading i18n="@@LoadingWines">
         <h3>Loading wines...</h3>
     </ng-template>
-    </div>
+</div>
+
+<div class="floating-action-button">
+    <button mat-fab color="primary" routerLink="/wines/add-wine">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

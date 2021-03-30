@@ -6,3 +6,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+
+.floating-action-button {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}

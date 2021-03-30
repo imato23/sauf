@@ -7,7 +7,7 @@ export class Wine extends Document {
     @Prop({ required: true })
     name: string;
 
-    @Prop({ required: true, enum: ['WhiteWine', 'RedWine', 'RoseWine', 'SparklingWine'] })
+    @Prop({ required: true, enum: ['whiteWine', 'redWine', 'roseWine', 'sparklingWine'] })
     category: string;
 
     @Prop({ required: true })
