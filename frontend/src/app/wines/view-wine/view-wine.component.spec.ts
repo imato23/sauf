@@ -7,6 +7,8 @@ import { FormBuilder } from '@angular/forms';
 import { WineService } from '../shared/services/wine.service';
 import { Wine } from '../shared/models/wine.model';
 import { WineCategory } from '../shared/models/wine-category.model';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ViewWineComponent', () => {
   let component: ViewWineComponent;
@@ -26,6 +28,7 @@ describe('ViewWineComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ViewWineComponent],
+      imports: [SharedModule, NoopAnimationsModule],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteMock },
         { provide: WineService, useValue: wineServiceSpy },
