@@ -1,3 +1,24 @@
+<mat-toolbar color="primary">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button [routerLink]="['/wines/wine-list']">
+        <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
+    </button>
+    <span>{{(wine$ | async)?.name}}</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button aria-label="Save">
+        <mat-icon>save</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span i18n="@@DeleteWine">Löschen</span>
+    </button>
+</mat-menu>
+
 <div class="form-container">
     <div [formGroup]="commonDataFormGroup" *ngIf="wine$ | async; else loading">
         <mat-form-field>
