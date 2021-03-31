@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewWineComponent } from './view-wine.component';
+import { WineDetailsComponent } from './wine-details.component';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { of } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
@@ -10,9 +10,9 @@ import { WineCategory } from '../shared/models/wine-category.model';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('ViewWineComponent', () => {
-  let component: ViewWineComponent;
-  let fixture: ComponentFixture<ViewWineComponent>;
+describe('WineDetailsComponent', () => {
+  let component: WineDetailsComponent;
+  let fixture: ComponentFixture<WineDetailsComponent>;
 
   beforeEach(async () => {
     const wineServiceSpy = jasmine.createSpyObj('WineService', ['getWine', 'getWineCategories']);
@@ -27,7 +27,7 @@ describe('ViewWineComponent', () => {
     activatedRouteMock.snapshot.params = { params: of({ wineId: '' }) };
 
     await TestBed.configureTestingModule({
-      declarations: [ViewWineComponent],
+      declarations: [WineDetailsComponent],
       imports: [SharedModule, NoopAnimationsModule],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteMock },
@@ -37,7 +37,7 @@ describe('ViewWineComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewWineComponent);
+    fixture = TestBed.createComponent(WineDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

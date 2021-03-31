@@ -10,10 +10,10 @@ import { WineCategory } from '../shared/models/wine-category.model';
 
 @Component({
   selector: 'app-view-wine',
-  templateUrl: './view-wine.component.html',
-  styleUrls: ['./view-wine.component.scss']
+  templateUrl: './wine-details.component.html',
+  styleUrls: ['./wine-details.component.scss']
 })
-export class ViewWineComponent implements OnInit {
+export class WineDetailsComponent implements OnInit {
   public wineId: string;
   public wineFormGroup!: FormGroup;
   public categories$: Observable<string[]>;
