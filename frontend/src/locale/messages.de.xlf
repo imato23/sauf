@@ -15,15 +15,31 @@
         <target>Weine</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Statistics" datatype="html">
+        <source>Statistics</source>
+        <target>Statistik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="History" datatype="html">
+        <source>history</source>
+        <target>Historie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Settings" datatype="html">
-        <source>Settings</source>
+        <source>settings</source>
         <target>Einstellungen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="DeleteWine" datatype="html">
@@ -103,7 +119,7 @@
         <target>Die Änderungen wurden gespeichert.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/view-wine/view-wine.component.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineListTitle" datatype="html">
