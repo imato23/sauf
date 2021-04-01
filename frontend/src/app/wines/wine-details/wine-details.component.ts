@@ -18,6 +18,7 @@ export class WineDetailsComponent implements OnInit {
   public wineFormGroup!: FormGroup;
   public categories$: Observable<string[]>;
   public wine$: Observable<Wine>;
+  public currentImage: string | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
     private wineService: WineService, private snackBar: MatSnackBar) {

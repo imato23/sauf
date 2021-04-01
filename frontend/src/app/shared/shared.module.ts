@@ -45,6 +45,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -52,6 +54,7 @@ import { MatTreeModule } from '@angular/material/tree';
     ReactiveFormsModule,
     A11yModule,
     ClipboardModule,
+    FlexLayoutModule,
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
@@ -99,6 +102,7 @@ import { MatTreeModule } from '@angular/material/tree';
     ReactiveFormsModule,
     A11yModule,
     ClipboardModule,
+    FlexLayoutModule,
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
