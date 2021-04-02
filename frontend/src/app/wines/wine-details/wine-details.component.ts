@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { WineCategory } from '../shared/models/wine-category.model';
 import { WebcamImage } from 'ngx-webcam';
 import { MatDialog } from '@angular/material/dialog';
+import { ImageCapturingComponent } from '../image-capturing/image-capturing.component';
 
 @Component({
   selector: 'app-view-wine',
@@ -38,6 +39,7 @@ export class WineDetailsComponent implements OnInit {
     if (this.wineId) {
       this.wine$ = wineService.getWine(this.wineId).pipe(tap((wine: Wine) => {
         console.log(`Loading wine with id ${this.wineId}.`);
+        this.currentImage = wine.image;
         return this.wineFormGroup.patchValue(wine);
       }));
     } else {
@@ -52,10 +54,13 @@ export class WineDetailsComponent implements OnInit {
   }
 
   public onSave() {
+    const wine: Wine = this.wineFormGroup.value;
+    wine.image = this.currentImage;
+
     if (this.wineId) {
-      this.wineService.updateWine(this.wineId, this.wineFormGroup.value).subscribe();
+      this.wineService.updateWine(this.wineId, wine).subscribe();
     } else {
-      this.wineService.addWine(this.wineFormGroup.value).subscribe();
+      this.wineService.addWine(wine).subscribe();
     }
 
     this.snackBar.open($localize`:@@ChangesHaveBeenSaved:Changes have been saved.`, undefined, { duration: 2000 });
@@ -63,13 +68,23 @@ export class WineDetailsComponent implements OnInit {
 
   public onCaptureImage() {
     const dialogRef = this.dialog.open(ImageCapturingComponent, {
-      height: '600px',
-      width: '600px',
+      // height: '600px',
+      // width: '600px',
     });
 
     dialogRef.afterClosed().subscribe((result: WebcamImage) => {
-      this.currentImage = result.imageAsDataUrl;
+      if (result) {
+        this.currentImage = result.imageAsDataUrl;
+      }
     });
+
+    // this.wine$ = dialogRef.afterClosed().pipe(
+    //   startWith(this.wine$),
+    //   switchMap((webcamImage: WebcamImage) =>
+    //     this.wine$.pipe(map((wine: Wine) => {
+    //       wine.image = webcamImage.imageAsDataUrl;
+    //       return wine;
+    //     }))));
   }
 
   private createWine(): Observable<Wine> {

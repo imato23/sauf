@@ -1,0 +1,28 @@
+<div fxLayout="column">
+    <div *ngIf="!webcamImage" fxLayout="column">
+        <div>
+            <webcam [trigger]="triggerObservable" (imageCapture)="onCaptureImage($event)"></webcam>
+        </div>
+        <div fxFlexAlign="center">
+            <button mat-icon-button (click)="onTriggerSnapshot()">
+                <mat-icon>camera</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="webcamImage">
+        <div>
+            <img [src]="webcamImage.imageAsDataUrl" />
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-evenly">
+            <button mat-icon-button (click)="onRetry()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onApply()">
+                <mat-icon>done</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onCancel()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

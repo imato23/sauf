@@ -7,7 +7,7 @@
             </button>
             <span>{{wineFormGroup.value.name}}</span>
             <span class="toolbar-spacer"></span>
-            <button mat-icon-button aria-label="Save" (click)="onSave()">
+            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid">
                 <mat-icon>save</mat-icon>
             </button>
             <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
@@ -22,9 +22,13 @@
         <!-- image-->
         <div fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="stretch">
             <div class="image-container">
-                <img [src]="(wine$ | async)?.image" class="wine-image" />
+                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
+                <div *ngIf="!currentImage" class="wine-image" style="width: 300px; border: 1px dashed;"
+                    fxLayoutAlign="center center">
+                    <div i18n="NoImageAvailable">No image available</div>
+                </div>
                 <div class="image-floating-action-button">
-                    <button mat-fab color="primary" (click)=onCaptureImage()>
+                    <button mat-mini-fab color="accent" (click)=onCaptureImage()>
                         <mat-icon>photo_camera</mat-icon>
                     </button>
                 </div>
@@ -34,6 +38,11 @@
         <!-- form -->
         <div fxFlex>
             <div [formGroup]="wineFormGroup" *ngIf="wine$ | async; else loading">
+                <mat-form-field>
+                    <mat-label i18n="@@WineName">Name</mat-label>
+                    <input matInput formControlName="name" required>
+                </mat-form-field>
+                <br>
                 <mat-form-field>
                     <mat-label i18n="@@WineCategory2|WineCategory">Category</mat-label>
                     <mat-select formControlName="category" required readonly>
@@ -46,18 +55,13 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field>
-                    <mat-label i18n="@@WineName">Name</mat-label>
-                    <input matInput formControlName="name" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
                     <mat-label i18n="@@WineProducer">Producer</mat-label>
                     <input matInput formControlName="producer" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                     <mat-label i18n="@@Country">Country</mat-label>
-                    <input matInput formControlName="country">
+                    <input matInput formControlName="country" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
