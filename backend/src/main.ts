@@ -5,10 +5,10 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.interface';
 import * as fs from 'fs';
 
-const httpsOptions: HttpsOptions = {
-  key: fs.readFileSync('/etc/ssl/sauf-backend.key'),
-  cert: fs.readFileSync('/etc/ssl/sauf-backend.crt'),
-};
+// const httpsOptions: HttpsOptions = {
+//   key: fs.readFileSync('/etc/ssl/sauf-backend.key'),
+//   cert: fs.readFileSync('/etc/ssl/sauf-backend.crt'),
+// };
 
 async function bootstrap() {
 
