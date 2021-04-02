@@ -13,3 +13,13 @@
 .content-container{
     overflow-y: auto;;
 }
+
+.image-container{
+    position: relative;
+}
+
+.image-floating-action-button {
+  position: absolute;
+  top: 300px-56px-16px;
+  right: 16px;
+}

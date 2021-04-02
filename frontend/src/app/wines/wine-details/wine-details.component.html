@@ -21,8 +21,13 @@
 
         <!-- image-->
         <div fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="stretch">
-            <div>
+            <div class="image-container">
                 <img [src]="(wine$ | async)?.image" class="wine-image" />
+                <div class="image-floating-action-button">
+                    <button mat-fab color="primary" routerLink="/wines/add-wine">
+                        <mat-icon>photo_camera</mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
 
