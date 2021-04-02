@@ -13,7 +13,7 @@
     <mat-nav-list *ngIf=" wines$ | async; else loading">
         <ng-container *ngFor="let wine of wines$ | async">
             <mat-list-item routerLink="/wines/view-wine/{{wine._id}}">
-                <img matListAvatar [src]="wine.image" alt="..." class="wine-image">
+                <img matListAvatar [src]="wine.image ? wine.image : dummyAvatar" class="wine-image">
                 <h3 matLine>{{wine.name}}</h3>
                 <p matLine>
                     <span> {{wine.producer}} </span>
@@ -24,7 +24,8 @@
                         {RoseWine} sparklingWine {SparklingWine}}</span>
                 </p>
                 <div fxLayout="row">
-                    <div fxFlex i18n="@@Bottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}} Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
+                    <div fxFlex i18n="@@Bottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}}
+                        Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
                 </div>
             </mat-list-item>
             <mat-divider></mat-divider>

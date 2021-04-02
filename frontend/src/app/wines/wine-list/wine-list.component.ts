@@ -13,6 +13,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class WineListComponent implements OnInit {
   public wines$: Observable<Wine[]>;
+  public dummyAvatar = 'assets/dummy-avatar.png';
 
   public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
