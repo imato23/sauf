@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WebcamModule } from 'ngx-webcam';
 
 import { WinesRoutingModule } from './wines-routing.module';
 import { WineListComponent } from './wine-list/wine-list.component';
@@ -12,7 +13,8 @@ import { WineDetailsComponent } from './wine-details/wine-details.component';
   imports: [
     CommonModule,
     WinesRoutingModule,
-    SharedModule
+    SharedModule,
+    WebcamModule,
   ]
 })
 export class WinesModule { }

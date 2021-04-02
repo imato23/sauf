@@ -7,6 +7,8 @@ import { Wine } from '../shared/models/wine.model';
 import { tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { WineCategory } from '../shared/models/wine-category.model';
+import { WebcamImage } from 'ngx-webcam';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-wine',
@@ -21,7 +23,7 @@ export class WineDetailsComponent implements OnInit {
   public currentImage: string | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
-    private wineService: WineService, private snackBar: MatSnackBar) {
+    private wineService: WineService, private snackBar: MatSnackBar, private dialog: MatDialog) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
     this.categories$ = this.wineService.getWineCategories();
 
@@ -57,6 +59,17 @@ export class WineDetailsComponent implements OnInit {
     }
 
     this.snackBar.open($localize`:@@ChangesHaveBeenSaved:Changes have been saved.`, undefined, { duration: 2000 });
+  }
+
+  public onCaptureImage() {
+    const dialogRef = this.dialog.open(ImageCapturingComponent, {
+      height: '600px',
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: WebcamImage) => {
+      this.currentImage = result.imageAsDataUrl;
+    });
   }
 
   private createWine(): Observable<Wine> {

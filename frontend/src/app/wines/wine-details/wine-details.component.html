@@ -24,7 +24,7 @@
             <div class="image-container">
                 <img [src]="(wine$ | async)?.image" class="wine-image" />
                 <div class="image-floating-action-button">
-                    <button mat-fab color="primary" routerLink="/wines/add-wine">
+                    <button mat-fab color="primary" (click)=onCaptureImage()>
                         <mat-icon>photo_camera</mat-icon>
                     </button>
                 </div>
