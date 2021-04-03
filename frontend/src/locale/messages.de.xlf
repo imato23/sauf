@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2"
-  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="Menu" datatype="html">
@@ -43,6 +42,119 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="ViewVintage" datatype="html">
+        <source>Vintage <x id="INTERPOLATION" equiv-text="{{vintage}}"/></source>
+        <target>Jahrgang <x id="INTERPOLATION" equiv-text="{{vintage}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NewVintage" datatype="html">
+        <source>New Vintage</source>
+        <target>Neuer Jahrgang</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Vintage" datatype="html">
+        <source>Vintage</source>
+        <target>Jahrgang</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VintageRequired" datatype="html">
+        <source>Vintage is required. </source>
+        <target>Der Jahrgang muss eingegeben werden.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VintageToSmall" datatype="html">
+        <source>Vintage is to small. </source>
+        <target>Die Jahreszahl ist zu klein.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VintageToBig" datatype="html">
+        <source>Vintage is to big. </source>
+        <target>Die Jahreszahl ist zu groß.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Price" datatype="html">
+        <source>Price</source>
+        <target>Preis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="AlcoholicStrength" datatype="html">
+        <source>Alcoholic strength</source>
+        <target>Alkohol (% vol)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ResidualSugar" datatype="html">
+        <source>Residual sugar</source>
+        <target>Restsüße (g/l)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="TartaricAcid" datatype="html">
+        <source>Tartaric acid</source>
+        <target>Säure (g/l)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="LoadingVintageInfo" datatype="html">
+        <source> Loading vintage info... </source>
+        <target>Lade Jahrgang</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="DeleteVintage" datatype="html">
+        <source>Delete vintage</source>
+        <target>Jahrgang löschen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VintageInfoHasBeenSaved" datatype="html">
+        <source>Changes have been saved.</source>
+        <target>Die Änderungen wurden gespeichert.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VintageInfoHasBeenDeleted" datatype="html">
+        <source> Vintage info has been deleted.</source>
+        <target>Der Jahrgang wurde gelöscht</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description"> </note>
+      </trans-unit>
       <trans-unit id="4447590913805017818" datatype="html">
         <source>No image available</source>
         <target>Kein Bild vorhanden</target>
@@ -52,12 +164,20 @@
         </context-group>
         <note priority="1" from="description">NoImageAvailable</note>
       </trans-unit>
+      <trans-unit id="WineName" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="WineCategory2|WineCategory" datatype="html">
         <source>Category</source>
         <target>Kategorie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8145791288179866246" datatype="html">
@@ -65,27 +185,17 @@
         <target>{VAR_SELECT, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Rosewein} sparklingWine {Schaumwein}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">46,47</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineCategory" datatype="html">
-        <source>
-          <x id="ICU" equiv-text="{category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine&#xA;                            {SparklingWine}}"/>
-        </source>
+        <source> <x id="ICU" equiv-text="{category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine&#xA;                            {SparklingWine}}"/> </source>
         <target>
           <x id="ICU" equiv-text="{category, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Rosewein} sparklingWine&#xA;                    {Schaumwein}}"/>
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">46,48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="WineName" datatype="html">
-        <source>Name</source>
-        <target>Name</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">52,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineProducer" datatype="html">
@@ -93,7 +203,7 @@
         <target>Hersteller</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Country" datatype="html">
@@ -101,7 +211,7 @@
         <target>Land</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Region" datatype="html">
@@ -109,7 +219,15 @@
         <target>Region</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Bottles2" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Flasche} other {<x id="INTERPOLATION"/> Flaschen}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
+          <context context-type="linenumber">80,81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="LoadingWine" datatype="html">
@@ -117,7 +235,7 @@
         <target>Lade Wein...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">74,75</context>
+          <context context-type="linenumber">91,92</context>
         </context-group>
       </trans-unit>
       <trans-unit id="DeleteWine" datatype="html">
@@ -125,16 +243,25 @@
         <target>Wein löschen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="ChangesHaveBeenSaved" datatype="html">
-        <source>Changes have been saved.</source>
+      <trans-unit id="WineHasBeenSaved" datatype="html">
+        <source> Changes have been saved.</source>
         <target>Die Änderungen wurden gespeichert.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">69</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="WineHasBeenDeleted" datatype="html">
+        <source> Wine has been deleted.</source>
+        <target>Der Wein wurde gelöscht.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description"> </note>
       </trans-unit>
       <trans-unit id="WineListTitle" datatype="html">
         <source>Wine List</source>
@@ -154,30 +281,26 @@
       </trans-unit>
       <trans-unit id="Bottles" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/>
- Bottle} other {<x id="INTERPOLATION"/>
- Bottles}}</source>
-      <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/>
+                        Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/>
  Flasche} other {<x id="INTERPOLATION"/>
  Flaschen}}</target>
-    <context-group purpose="location">
-      <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-      <context context-type="linenumber">27</context>
-    </context-group>
-  </trans-unit>
-  <trans-unit id="LoadingWines" datatype="html">
-    <source>
-      <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>
-Loading wines...<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
-    </source>
-    <target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="LoadingWines" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Loading wines...<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target>
       <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>
 Lade Weine...<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
     </target>
-    <context-group purpose="location">
-      <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-      <context context-type="linenumber">35</context>
-    </context-group>
-  </trans-unit>
-</body>
-</file>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

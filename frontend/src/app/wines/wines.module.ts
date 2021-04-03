@@ -7,10 +7,11 @@ import { WineListComponent } from './wine-list/wine-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { WineDetailsComponent } from './wine-details/wine-details.component';
 import { ImageCapturingComponent } from './image-capturing/image-capturing.component';
+import { VintageDetailsComponent } from './vintage-details/vintage-details.component';
 
 
 @NgModule({
-  declarations: [WineListComponent, WineDetailsComponent, ImageCapturingComponent],
+  declarations: [WineListComponent, WineDetailsComponent, ImageCapturingComponent, VintageDetailsComponent],
   imports: [
     CommonModule,
     WinesRoutingModule,
