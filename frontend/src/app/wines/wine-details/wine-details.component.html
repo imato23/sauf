@@ -42,32 +42,42 @@
                 <mat-form-field>
                     <mat-label i18n="@@WineName">Name</mat-label>
                     <input matInput formControlName="name" required>
+                    <mat-error *ngIf="nameField?.errors?.required" i18n="@@NameRequired">Name is required.
+                    </mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                     <mat-label i18n="@@WineCategory2|WineCategory">Category</mat-label>
-                    <mat-select formControlName="category" required readonly>
-                        <mat-option *ngFor="let category of categories$ | async" value="{{category}}"
+                    <mat-select formControlName="category" required>
+                        <mat-option *ngFor="let category of categories$ | async" [value]="category"
                             i18n="@@WineCategory">
                             {category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine
                             {SparklingWine}}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="categoryField?.errors?.required" i18n="@@CategoryRequired">Category is required.
+                    </mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                     <mat-label i18n="@@WineProducer">Producer</mat-label>
                     <input matInput formControlName="producer" required>
+                    <mat-error *ngIf="producerField?.errors?.required" i18n="@@ProducerRequired">Producer is required.
+                    </mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                     <mat-label i18n="@@Country">Country</mat-label>
                     <input matInput formControlName="country" required>
+                    <mat-error *ngIf="countryField?.errors?.required" i18n="@@CountryRequired">Country is required.
+                    </mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                     <mat-label i18n="@@Region">Region</mat-label>
                     <input matInput formControlName="region" required>
+                    <mat-error *ngIf="regionField?.errors?.required" i18n="@@RegionRequired">Region is required.
+                    </mat-error>
                 </mat-form-field>
 
                 <!-- vintages -->

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { WineService } from '../shared/services/wine.service';
 import { Observable, of } from 'rxjs';
 import { Wine } from '../shared/models/wine.model';
@@ -23,13 +23,33 @@ export class WineDetailsComponent implements OnInit {
   public wine$: Observable<Wine>;
   public currentImage: string | null = null;
 
+  get nameField(): AbstractControl | null {
+    return this.wineFormGroup.get('name');
+  }
+
+  get producerField(): AbstractControl | null {
+    return this.wineFormGroup.get('producer');
+  }
+
+  get countryField(): AbstractControl | null {
+    return this.wineFormGroup.get('country');
+  }
+
+  get regionField(): AbstractControl | null {
+    return this.wineFormGroup.get('region');
+  }
+
+  get categoryField(): AbstractControl | null {
+    return this.wineFormGroup.get('category');
+  }
+
   constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
     private wineService: WineService, private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
     this.categories$ = this.wineService.getWineCategories();
 
     this.wineFormGroup = this.formBuilder.group({
-      category: ['', Validators.required],
+      category: ['A---', Validators.required],
       name: ['', Validators.required],
       producer: ['', Validators.required],
       country: ['', Validators.required],
