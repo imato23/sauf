@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Put, Delete, NotFoundException } from '@nestjs/common';
-import { CreateWineDto } from './dto/create-wine.dto';
+import { WineDto } from './dto/wine.dto';
 import { Wine } from './schemas/wine.schema';
 import { WineService } from './wine.service';
 
@@ -25,12 +25,12 @@ export class WinesController {
     }
 
     @Post()
-    async create(@Body() createWineDto: CreateWineDto): Promise<Wine> {
+    async create(@Body() createWineDto: WineDto): Promise<Wine> {
         return await this.winesService.addWine(createWineDto);
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() updateWineDto: CreateWineDto): Promise<void> {
+    async update(@Param('id') id: string, @Body() updateWineDto: WineDto): Promise<void> {
         await this.winesService.updateWine(id, updateWineDto);
     }
 

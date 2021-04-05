@@ -1,0 +1,30 @@
+<div [formGroup]="vintageDetailsFormGroup">
+    <div formArrayName="storageLocations">
+        <div *ngFor="let storageLocationFormGroup of storageLocationsFormArray.controls; index as storageLocationIndex">
+            <div [formGroupName]="storageLocationIndex">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <div fxFlex="grow">
+                        <mat-form-field>
+                            <mat-label i18n="@@Row">Row</mat-label>
+                            <input matInput type="number" formControlName="row" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="grow">
+                        <mat-form-field>
+                            <mat-label i18n="@@Shelf">Shelf</mat-label>
+                            <input matInput type="number" formControlName="shelf" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button type="button" color="accent" mat-icon-button
+                            (click)="onRemoveStorageLocation(storageLocationIndex)">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button mat-button type="button" color="accent" (click)="onAddStorageLocation()" i18n="@@AddBottle">Add bottle
+        </button>
+    </div>
+</div>

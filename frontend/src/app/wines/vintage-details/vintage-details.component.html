@@ -23,6 +23,7 @@
         <div fxFlex>
             <form [formGroup]="vintageFormGroup" autocomplete="off"
                 *ngIf="(vintageInfo$ | async) as vintageInfo; else loading">
+                <h3 i18n="CommonData@@CommonData">Common Data</h3>
                 <mat-form-field *ngIf="!vintage">
                     <mat-label i18n="@@Vintage">Vintage</mat-label>
                     <input matInput type="number" formControlName="vintage" required>
@@ -33,26 +34,25 @@
                     <mat-error *ngIf="vintageFormItem?.errors?.max" i18n="@@VintageToBig">Vintage is to big.
                     </mat-error>
                 </mat-form-field>
-                <br />
                 <mat-form-field>
                     <mat-label i18n="@@Price">Price</mat-label>
                     <input matInput type="number" formControlName="price">
                 </mat-form-field>
-                <br />
                 <mat-form-field>
                     <mat-label i18n="@@AlcoholicStrength">Alcoholic strength</mat-label>
                     <input matInput type="number" formControlName="alcoholicStrength">
                 </mat-form-field>
-                <br />
                 <mat-form-field>
                     <mat-label i18n="@@ResidualSugar">Residual sugar</mat-label>
                     <input matInput type="number" formControlName="residualSugar">
                 </mat-form-field>
-                <br />
                 <mat-form-field>
                     <mat-label i18n="@@TartaricAcid">Tartaric acid</mat-label>
                     <input matInput type="number" formControlName="tartaricAcid">
                 </mat-form-field>
+                <h3 i18n="@@Storages">Storages</h3>
+                <app-store-bottles [parentForm]="vintageFormGroup" [data]="vintageInfo?.storageLocations">
+                </app-store-bottles>
             </form>
 
             <ng-template #loading i18n="@@LoadingVintageInfo">

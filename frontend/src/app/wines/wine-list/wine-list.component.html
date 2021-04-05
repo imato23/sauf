@@ -19,12 +19,13 @@
                     <span> {{wine.producer}} </span>
                 </p>
                 <p matLine>
-                    <span i18n="@@WineCategory1|WineCategory">{wine.category, select, redWine {RedWine} whiteWine
+                    <span i18n="WineCategorySelect@@WineCategorySelect2">{wine.category, select, redWine {RedWine}
+                        whiteWine
                         {WhiteWine} roseWine
                         {RoseWine} sparklingWine {SparklingWine}}</span>
                 </p>
                 <div fxLayout="row">
-                    <div fxFlex i18n="@@Bottles">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}}
+                    <div fxFlex i18n="Bottles@@Bottles1">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}}
                         Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
                 </div>
             </mat-list-item>

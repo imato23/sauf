@@ -23,7 +23,7 @@ export class VintageInfo extends Document {
     tartaricAcid: number;
 
     @Prop()
-    storageLocations: [StorageLocation]
+    storageLocations: StorageLocation[]
 }
 
 export const VintageInfoSchema = SchemaFactory.createForClass(VintageInfo);

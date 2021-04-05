@@ -42,6 +42,30 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="Row" datatype="html">
+        <source>Row</source>
+        <target>Reihe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/store-bottles/store-bottles.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Shelf" datatype="html">
+        <source>Shelf</source>
+        <target>Fach</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/store-bottles/store-bottles.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="AddBottle" datatype="html">
+        <source>Add bottle </source>
+        <target>Flasche hinzufügen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/store-bottles/store-bottles.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="ViewVintage" datatype="html">
         <source>Vintage <x id="INTERPOLATION" equiv-text="{{vintage}}"/></source>
         <target>Jahrgang <x id="INTERPOLATION" equiv-text="{{vintage}}"/></target>
@@ -58,12 +82,25 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="CommonData" datatype="html">
+        <source>Common Data</source>
+        <target>Allgemeine Daten</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">CommonData</note>
+      </trans-unit>
       <trans-unit id="Vintage" datatype="html">
         <source>Vintage</source>
         <target>Jahrgang</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="VintageRequired" datatype="html">
@@ -71,7 +108,7 @@
         <target>Jahrgang ist ein Pflichtfeld.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">29,30</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="VintageToSmall" datatype="html">
@@ -79,7 +116,7 @@
         <target>Die Jahreszahl ist zu klein.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="VintageToBig" datatype="html">
@@ -87,12 +124,12 @@
         <target>Die Jahreszahl ist zu groß.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Price" datatype="html">
         <source>Price</source>
-        <target>Preis</target>
+        <target>Preis (€)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
           <context context-type="linenumber">38</context>
@@ -103,7 +140,7 @@
         <target>Alkohol (% vol)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ResidualSugar" datatype="html">
@@ -111,12 +148,20 @@
         <target>Restsüße (g/l)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="TartaricAcid" datatype="html">
         <source>Tartaric acid</source>
         <target>Säure (g/l)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Storages" datatype="html">
+        <source>Storages</source>
+        <target>Einlagerungen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
           <context context-type="linenumber">53</context>
@@ -180,38 +225,37 @@
           <context context-type="linenumber">45,46</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="WineCategory2|WineCategory" datatype="html">
+      <trans-unit id="WineCategory" datatype="html">
         <source>Category</source>
         <target>Kategorie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8145791288179866246" datatype="html">
         <source>{VAR_SELECT, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine {SparklingWine}}</source>
-        <target>{VAR_SELECT, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Rosewein} sparklingWine {Schaumwein}}</target>
+        <target>{VAR_SELECT, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine {Schaumwein}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">54,55</context>
+          <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="WineCategory" datatype="html">
+      <trans-unit id="WineCategorySelect1" datatype="html">
         <source> <x id="ICU" equiv-text="{category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine&#xA;                            {SparklingWine}}"/> </source>
-        <target>
-          <x id="ICU" equiv-text="{category, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Rosewein} sparklingWine&#xA;                    {Schaumwein}}"/>
-        </target>
+        <target> <x id="ICU" equiv-text="{category, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine&#xA;                            {Schaumwein}}"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">54,56</context>
+          <context context-type="linenumber">53,55</context>
         </context-group>
+        <note priority="1" from="description">WineCategorySelect</note>
       </trans-unit>
       <trans-unit id="CategoryRequired" datatype="html">
         <source>Category is required. </source>
         <target>Kategorie ist ein Pflichtfeld.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineProducer" datatype="html">
@@ -219,7 +263,7 @@
         <target>Hersteller</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ProducerRequired" datatype="html">
@@ -227,7 +271,7 @@
         <target>Hersteller ist ein Pflichtfeld.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">65,66</context>
+          <context context-type="linenumber">63,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Country" datatype="html">
@@ -235,7 +279,7 @@
         <target>Land</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="CountryRequired" datatype="html">
@@ -243,7 +287,7 @@
         <target>Land ist ein Pflichtfeld.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">72,73</context>
+          <context context-type="linenumber">69,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Region" datatype="html">
@@ -251,7 +295,7 @@
         <target>Region</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="RegionRequired" datatype="html">
@@ -259,7 +303,15 @@
         <target>Region ist ein Pflichtfeld.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">79,80</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Vintages" datatype="html">
+        <source>Vintages</source>
+        <target>Jahrgänge</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Bottles2" datatype="html">
@@ -267,15 +319,16 @@
         <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Flasche} other {<x id="INTERPOLATION"/> Flaschen}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">90,91</context>
+          <context context-type="linenumber">86,87</context>
         </context-group>
+        <note priority="1" from="description">Bottles</note>
       </trans-unit>
       <trans-unit id="LoadingWine" datatype="html">
         <source> Loading wine... </source>
         <target>Lade Wein...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">101,102</context>
+          <context context-type="linenumber">97,98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="DeleteWine" datatype="html">
@@ -283,7 +336,7 @@
         <target>Wein löschen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">110</context>
+          <context context-type="linenumber">106</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineHasBeenSaved" datatype="html">
@@ -311,24 +364,25 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="WineCategory1|WineCategory" datatype="html">
+      <trans-unit id="WineCategorySelect2" datatype="html">
         <source>{VAR_SELECT, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine {SparklingWine}}</source>
-        <target>{VAR_SELECT, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Rosewein} sparklingWine {Schaumwein}}</target>
+        <target>{VAR_SELECT, select, redWine {Rowein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine {Schaumwein}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">22,24</context>
+          <context context-type="linenumber">22,25</context>
         </context-group>
+        <note priority="1" from="description">WineCategorySelect</note>
       </trans-unit>
-      <trans-unit id="Bottles" datatype="html">
+      <trans-unit id="Bottles1" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/>
                         Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
         <target>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/>
- Flasche} other {<x id="INTERPOLATION"/>
- Flaschen}}</target>
+                        Flasche} other {<x id="INTERPOLATION"/> Flaschen}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">27,28</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
+        <note priority="1" from="description">Bottles</note>
       </trans-unit>
       <trans-unit id="LoadingWines" datatype="html">
         <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Loading wines...<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
@@ -338,7 +392,7 @@ Lade Weine...<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/
     </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
     </body>

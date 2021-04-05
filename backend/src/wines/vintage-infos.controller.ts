@@ -1,9 +1,10 @@
 import { Controller, Get, Param, Post, Body, Put, Delete, NotFoundException } from '@nestjs/common';
 import { WineService } from './wine.service';
 import { Wine } from './schemas/wine.schema';
-import { CreateWineDto } from './dto/create-wine.dto';
+import { WineDto } from './dto/wine.dto';
 import { VintageInfo } from './schemas/vintage-info.schema';
 import { VintageInfoDto } from './dto/vintage-info.dto';
+import { StorageLocation } from './schemas/storage-location.schema';
 
 @Controller('wines/:wineId/vintage-infos')
 export class VintageInfosController {
@@ -46,7 +47,7 @@ export class VintageInfosController {
         }
 
         wine.vintageInfos.push(<VintageInfo>vintageInfo);
-        this.winesService.updateWine(wineId, <CreateWineDto>wine);
+        this.winesService.updateWine(wineId, <WineDto>wine);
         return Promise.resolve<VintageInfo>(<VintageInfo>vintageInfo);
     }
 
@@ -65,8 +66,9 @@ export class VintageInfosController {
         vintageInfoFromDb.alcoholicStrength = vintageInfo.alcoholicStrength;
         vintageInfoFromDb.price = vintageInfo.price;
         vintageInfoFromDb.residualSugar = vintageInfo.residualSugar;
+        vintageInfoFromDb.storageLocations = <StorageLocation[]>vintageInfo.storageLocations
 
-        await this.winesService.updateWine(wineId, <CreateWineDto>wine);
+        await this.winesService.updateWine(wineId, <WineDto>wine);
     }
 
     @Delete(':vintage')
@@ -84,6 +86,6 @@ export class VintageInfosController {
         }
 
         wine.vintageInfos.splice(index, 1);
-        await this.winesService.updateWine(wineId, <CreateWineDto>wine);
+        await this.winesService.updateWine(wineId, <WineDto>wine);
     }
 }

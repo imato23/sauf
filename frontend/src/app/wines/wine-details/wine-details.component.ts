@@ -49,7 +49,7 @@ export class WineDetailsComponent implements OnInit {
     this.categories$ = this.wineService.getWineCategories();
 
     this.wineFormGroup = this.formBuilder.group({
-      category: ['A---', Validators.required],
+      category: ['', Validators.required],
       name: ['', Validators.required],
       producer: ['', Validators.required],
       country: ['', Validators.required],

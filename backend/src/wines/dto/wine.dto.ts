@@ -1,7 +1,7 @@
 import { VintageInfo } from "../schemas/vintage-info.schema";
 import { WineCategoryDto } from "./wine-category.dto";
 
-export class CreateWineDto {
+export class WineDto {
     name: string;
     category: WineCategoryDto;
     country: string;

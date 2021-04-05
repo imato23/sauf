@@ -1,3 +1,5 @@
+import { StorageLocationDto } from './storage-location.dto';
+
 export class VintageInfoDto {
     vintage: number;
     numberOfBottles: number;
@@ -5,4 +7,5 @@ export class VintageInfoDto {
     alcoholicStrength: number;
     residualSugar: number;
     tartaricAcid: number;
+    storageLocations: StorageLocationDto[];
 }
