@@ -25,8 +25,8 @@
                         {RoseWine} sparklingWine {SparklingWine}}</span>
                 </p>
                 <div fxLayout="row">
-                    <div fxFlex i18n="Bottles@@Bottles1">{getNumberOfBottles(wine), plural, =1 {{{getNumberOfBottles(wine)}}
-                        Bottle} other {{{getNumberOfBottles(wine)}} Bottles}}</div>
+                    <div fxFlex i18n="Bottles@@Bottles1">{wine.bottleCount, plural, =1 {{{wine.bottleCount}}
+                        Bottle} other {{{wine.bottleCount}} Bottles}}</div>
                 </div>
             </mat-list-item>
             <mat-divider></mat-divider>

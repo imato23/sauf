@@ -83,7 +83,7 @@ export class VintageDetailsComponent implements OnInit {
       alcoholicStrength: undefined,
       residualSugar: undefined,
       tartaricAcid: undefined,
-      numberOfBottles: 0,
+      bottleCount: 0,
       storageLocations: []
     });
   }

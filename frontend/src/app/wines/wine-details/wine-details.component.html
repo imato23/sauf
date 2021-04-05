@@ -83,8 +83,8 @@
                         <mat-list-item routerLink="/wines/view-vintage/{{wine._id}}/{{vintageInfo.vintage}}">
                             <h3 matLine>{{vintageInfo.vintage}}</h3>
                             <div fxLayout="row">
-                                <div fxFlex i18n="Bottles@@Bottles2">{vintageInfo.numberOfBottles,
-                                    plural, =1 {{{vintageInfo.numberOfBottles}} Bottle} other {{{vintageInfo.numberOfBottles}} Bottles}}</div>
+                                <div fxFlex i18n="Bottles@@Bottles2">{vintageInfo.bottleCount,
+                                    plural, =1 {{{vintageInfo.bottleCount}} Bottle} other {{{vintageInfo.bottleCount}} Bottles}}</div>
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>

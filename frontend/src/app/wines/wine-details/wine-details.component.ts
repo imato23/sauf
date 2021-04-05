@@ -118,7 +118,8 @@ export class WineDetailsComponent implements OnInit {
       region: '',
       producer: '',
       image: null,
-      vintageInfos: []
+      vintageInfos: [],
+      bottleCount: 0
     });
   }
 }

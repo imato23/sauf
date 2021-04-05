@@ -25,10 +25,6 @@ export class WineListComponent implements OnInit {
     this.wines$ = wineService.getWines();
   }
 
-  public getNumberOfBottles(wine: Wine): number {
-    return wine.vintageInfos.reduce((sum, current) => sum + current.numberOfBottles, 0);
-  }
-
   ngOnInit(): void {
   }
 

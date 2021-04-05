@@ -7,9 +7,6 @@ export class VintageInfo extends Document {
     @Prop({ required: true })
     vintage: number;
 
-    @Prop({ required: true })
-    numberOfBottles: number;
-
     @Prop()
     price: number;
 

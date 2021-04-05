@@ -10,4 +10,5 @@ export interface Wine {
     category: WineCategory;
     vintageInfos: VintageInfo[];
     image: string | null;
+    bottleCount: number;
 }

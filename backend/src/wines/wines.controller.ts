@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Body, Param, Put, Delete, NotFoundException } from '@nestjs/common';
 import { WineDto } from './dto/wine.dto';
-import { Wine } from './schemas/wine.schema';
 import { WineService } from './wine.service';
 
 @Controller('wines')
@@ -8,14 +7,14 @@ export class WinesController {
     constructor(private winesService: WineService) { }
 
     @Get()
-    async findAll(): Promise<Wine[]> {
+    async findAll(): Promise<WineDto[]> {
         const wines = await this.winesService.getAllWines();
         return wines;
     }
 
     @Get(':id')
-    async findById(@Param('id') id: string): Promise<Wine> {
-        const wine: Wine = await this.winesService.getWineById(id);
+    async findById(@Param('id') id: string): Promise<WineDto> {
+        const wine: WineDto = await this.winesService.getWineById(id);
 
         if (!wine) {
             throw new NotFoundException(`The wine with id '${id}' does not exist.`);
@@ -25,7 +24,7 @@ export class WinesController {
     }
 
     @Post()
-    async create(@Body() createWineDto: WineDto): Promise<Wine> {
+    async create(@Body() createWineDto: WineDto): Promise<WineDto> {
         return await this.winesService.addWine(createWineDto);
     }
 
@@ -35,7 +34,7 @@ export class WinesController {
     }
 
     @Delete(':id')
-    async delete(@Param('id') id: string): Promise<Wine> {
+    async delete(@Param('id') id: string): Promise<WineDto> {
         return await this.winesService.deleteWine(id);
     }
 }
