@@ -1,5 +1,6 @@
 export interface StorageInfo {
-    vintage: number;
-    row: number;
-    shelf: number;
+    vintage: number | undefined;
+    bottleCount: number;
+    row: number | undefined;
+    shelf: number | undefined;
 }

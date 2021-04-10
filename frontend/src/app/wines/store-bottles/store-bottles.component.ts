@@ -35,7 +35,7 @@ export class StoreBottlesComponent implements OnInit {
   }
 
   public onAddStorageLocation(): void {
-    const storageLocation: StorageLocation = {};
+    const storageLocation: StorageLocation = { row: undefined, shelf: undefined };
     this.storageLocations.push(storageLocation);
     this.storageLocationsFormArray.push(this.buildStorageLocationFormGroup(storageLocation));
   }

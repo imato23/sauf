@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
-import { flatMap, map, mergeMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { StorageInfo } from '../shared/models/storage-info.model';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { VintageInfoService } from '../shared/services/vintage-info.service';
-import { WineService } from '../shared/services/wine.service';
+import { RemoveBottleDialogComponent } from '../remove-bottle-dialog/remove-bottle-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-remove-bottle',
@@ -17,21 +16,40 @@ import { WineService } from '../shared/services/wine.service';
 })
 export class RemoveBottleComponent implements OnInit {
   public wineId: string;
-  public vintageInfo$: Observable<VintageInfo[]>;
   public storageInfo$: Observable<StorageInfo[]>;
+  private readonly refreshToken$ = new BehaviorSubject(undefined);
 
-  constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
-    private wineService: WineService, private vintageInfoService: VintageInfoService,
-    private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private vintageInfoService: VintageInfoService,
+    private dialog: MatDialog, private snackBar: MatSnackBar) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
-    this.vintageInfo$ = this.vintageInfoService.getAllVintageInfo(this.wineId);
-    this.storageInfo$ = this.vintageInfo$.pipe(map((vintageInfoList: VintageInfo[]) =>
-      vintageInfoList
-        .filter((vintageInfo: VintageInfo) => vintageInfo.storageLocations.length > 0)
-        .map((vintageInfo: VintageInfo) => this.buildStorageInfo(vintageInfo))));
+
+    this.storageInfo$ = this.refreshToken$.pipe(switchMap(() =>
+      this.vintageInfoService.getAllVintageInfo(this.wineId)
+        .pipe(map((vintageInfoList: VintageInfo[]) =>
+          vintageInfoList
+            .filter((vintageInfo: VintageInfo) => vintageInfo.storageLocations.length > 0)
+            .map((vintageInfo: VintageInfo) => this.buildStorageInfo(vintageInfo))))));
   }
 
-  public removeBottle(storageInfo: any): void { }
+  public showRemoveBottleDialog(storageInfo: StorageInfo): void {
+    const dialogRef = this.dialog.open(RemoveBottleDialogComponent, {
+      data: { row: storageInfo.row, shelf: storageInfo.shelf }
+    });
+
+    dialogRef.afterClosed().subscribe((removalApproved: boolean) => {
+      if (!removalApproved) {
+        return;
+      }
+
+      this.vintageInfoService.removeBottle(
+        this.wineId,
+        storageInfo.vintage as number,
+        { row: storageInfo.row, shelf: storageInfo.shelf }).subscribe(() => {
+          this.refreshToken$.next(undefined);
+          this.snackBar.open($localize`:@@WineBottleRemoved: The wine bottle has been removed.`, undefined, { duration: 2000 });
+        });
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -40,7 +58,8 @@ export class RemoveBottleComponent implements OnInit {
     return {
       vintage: vintageInfo.vintage,
       row: vintageInfo.storageLocations[0].row,
-      shelf: vintageInfo.storageLocations[0].shelf
+      shelf: vintageInfo.storageLocations[0].shelf,
+      bottleCount: vintageInfo.bottleCount
     };
   }
 }

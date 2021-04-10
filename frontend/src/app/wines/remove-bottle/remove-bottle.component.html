@@ -11,6 +11,31 @@
     </div>
 
     <!-- content -->
-    <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+    <div class="content-container" fxFlex="auto" fxLayout="column" fxLayoutGap="20px">
+        <mat-action-list>
+            <ng-container *ngFor="let storageInfo of storageInfo$ | async">
+                <mat-list-item>
+                    <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between center" style="width: 100%;">
+                        <div>
+                            {{storageInfo.vintage}}
+                        </div>
+                        <div>
+                            <div>
+                                Reihe: {{storageInfo.row}}
+                            </div>
+                            <div>
+                                Fach: {{storageInfo.shelf}}
+                            </div>
+                        </div>
+                        <div i18n="Bottles@@Bottles2">{storageInfo.bottleCount,
+                            plural, =1 {{{storageInfo.bottleCount}} Bottle} other {{{storageInfo.bottleCount}} Bottles}}</div>
+                        <div>
+                            <button mat-flat-button color="accent" (click)="showRemoveBottleDialog(storageInfo)">Entnehmen</button>
+                        </div>
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-container>
+        </mat-action-list>
     </div>
 </div>
