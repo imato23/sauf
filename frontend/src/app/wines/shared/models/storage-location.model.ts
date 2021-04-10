@@ -1,4 +1,4 @@
 export interface StorageLocation {
-    row?: number;
-    shelf?: number;
+    row: number;
+    shelf: number;
 }

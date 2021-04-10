@@ -12,6 +12,10 @@ export class VintageInfoService {
 
   constructor(private httpClient: HttpClient) { }
 
+  public getAllVintageInfo(wineId: string): Observable<VintageInfo[]> {
+    return this.httpClient.get<VintageInfo[]>(`$(this.buildUrl(wineId))`);
+  }
+
   public getVintageInfo(wineId: string, vintage: number): Observable<VintageInfo> {
     return this.httpClient.get<VintageInfo>(`${this.buildUrl(wineId)}/${vintage}`);
   }

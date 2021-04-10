@@ -7,8 +7,11 @@
             </button>
             <span>{{wineFormGroup.value.name}}</span>
             <span class="toolbar-spacer"></span>
-            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid">
+            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid" matTooltip="Änderungen speichern">
                 <mat-icon>save</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="RemoveBottle" routerLink="/wines/remove-bottle/{{(wine$|async)?._id}}" [disabled]="!wineFormGroup.valid"  matTooltip="Weinflasche entnehmen">
+                <mat-icon>liquor</mat-icon>
             </button>
             <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>

@@ -96,6 +96,8 @@ export class WineDetailsComponent implements OnInit {
     });
   }
 
+  public onRemoveWineBottle(): void{}
+
   public onCaptureImage(): void {
     const dialogRef = this.dialog.open(ImageCapturingComponent, {
       // height: '600px',

@@ -9,10 +9,11 @@ import { WineDetailsComponent } from './wine-details/wine-details.component';
 import { ImageCapturingComponent } from './image-capturing/image-capturing.component';
 import { VintageDetailsComponent } from './vintage-details/vintage-details.component';
 import { StoreBottlesComponent } from './store-bottles/store-bottles.component';
+import { RemoveBottleComponent } from './remove-bottle/remove-bottle.component';
 
 
 @NgModule({
-  declarations: [WineListComponent, WineDetailsComponent, ImageCapturingComponent, VintageDetailsComponent, StoreBottlesComponent],
+  declarations: [WineListComponent, WineDetailsComponent, ImageCapturingComponent, VintageDetailsComponent, StoreBottlesComponent, RemoveBottleComponent],
   imports: [
     CommonModule,
     WinesRoutingModule,
