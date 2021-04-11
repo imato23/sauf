@@ -29,8 +29,8 @@ export class WinesController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() updateWineDto: WineDto): Promise<void> {
-        await this.winesService.updateWine(id, updateWineDto);
+    async update(@Param('id') id: string, @Body() updateWineDto: WineDto): Promise<WineDto> {
+        return await this.winesService.updateWine(id, updateWineDto);
     }
 
     @Delete(':id')

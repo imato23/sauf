@@ -16,12 +16,14 @@ export class WineService {
 
     async getWineById(wineId: string): Promise<WineDto> {
         const wine: Wine = await this.wineModel.findById(wineId).exec();
-        return this.mapper.mapToWineDto(wine);
+        const wineDto: WineDto = this.mapper.mapToWineDto(wine);
+        wineDto.vintageInfos = wineDto.vintageInfos.sort((first, second) => 0 - (first.vintage < second.vintage ? 1 : -1));
+        return wineDto;
     }
 
     async addWine(wine: WineDto): Promise<WineDto> {
         const newWine: Wine = new this.wineModel(wine);
-        return newWine.save() as unknown as Promise<WineDto>;
+        return await (newWine.save() as unknown as Promise<WineDto>);
     }
 
     async updateWine(wineId: string, wine: WineDto): Promise<WineDto> {

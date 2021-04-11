@@ -12,5 +12,4 @@ export class RemoveBottleDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

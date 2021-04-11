@@ -2,12 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { StorageLocationDto } from './dto/storage-location.dto';
 import { VintageInfoService } from './vintage-info.service';
 import { VintageInfoDto } from './dto/vintage-info.dto';
+import { WineDto } from './dto/wine.dto';
 
 @Injectable()
 export class StorageLocationService {
     constructor(private vintageInfoService: VintageInfoService) { }
 
-    async removeStorageLocation(wineId: string, vintage: number, storageLocation: StorageLocationDto): Promise<void> {
+    async removeStorageLocation(wineId: string, vintage: number, storageLocation: StorageLocationDto): Promise<WineDto> {
         const vintageInfo: VintageInfoDto = await this.vintageInfoService.getVintageInfoByVintage(wineId, vintage);
 
         const index: number = vintageInfo.storageLocations
@@ -19,6 +20,6 @@ export class StorageLocationService {
 
         vintageInfo.storageLocations.splice(index, 1);
 
-        this.vintageInfoService.updateVintageInfo(wineId, vintage, vintageInfo);
+        return await this.vintageInfoService.updateVintageInfo(wineId, vintage, vintageInfo);
     }
 }

@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
 import { VintageInfoDto } from './dto/vintage-info.dto';
 import { VintageInfoService } from './vintage-info.service';
+import { WineDto } from './dto/wine.dto';
 
 @Controller('wines/:wineId/vintage-infos')
 export class VintageInfosController {
@@ -22,12 +23,12 @@ export class VintageInfosController {
     }
 
     @Put(':vintage')
-    async update(@Param('wineId') wineId: string, @Param('vintage') vintage: number, @Body() vintageInfo: VintageInfoDto): Promise<void> {
+    async update(@Param('wineId') wineId: string, @Param('vintage') vintage: number, @Body() vintageInfo: VintageInfoDto): Promise<WineDto> {
         return await this.vintageInfoService.updateVintageInfo(wineId, vintage, vintageInfo);
     }
 
     @Delete(':vintage')
-    async delete(@Param('wineId') wineId: string, @Param('vintage') vintage: number): Promise<void> {
+    async delete(@Param('wineId') wineId: string, @Param('vintage') vintage: number): Promise<WineDto> {
         return await this.vintageInfoService.removeVintageInfo(wineId, vintage);
     }
 }

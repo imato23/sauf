@@ -2,29 +2,32 @@
     <!-- toolbar-->
     <div>
         <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button routerLink="/wines/view-wine/{{wineId}}">
+            <button type="button" aria-label="Back to wine details" mat-icon-button
+                routerLink="/wines/view-wine/{{wineId}}">
                 <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
             </button>
-            <span>Weinflasche entnehmen</span>
+            <span>{{(wine$|async)?.name}}</span>
             <span class="toolbar-spacer"></span>
         </mat-toolbar>
     </div>
 
     <!-- content -->
     <div class="content-container" fxFlex="auto" fxLayout="column" fxLayoutGap="20px">
-        <mat-action-list>
+        <mat-action-list *ngIf="(bottlesAvailable$ | async); else noBottlesAvailable">
             <ng-container *ngFor="let storageInfo of storageInfo$ | async">
                 <mat-list-item>
                     <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between center" style="width: 100%;">
                         <div>
                             {{storageInfo.vintage}}
                         </div>
-                        <div>
-                            <div>
-                                Reihe: {{storageInfo.row}}
+                        <div fxLayout="column" fxFlex="100px">
+                            <div fxLayout="row">
+                                <div fxFlex="50px" i18n="row">Row:</div>
+                                <div>{{storageInfo.row}}</div>
                             </div>
-                            <div>
-                                Fach: {{storageInfo.shelf}}
+                            <div fxLayout="row">
+                                <div fxFlex="50px" i18n="shelf">Shelf:</div>
+                                <div>{{storageInfo.shelf}}</div>
                             </div>
                         </div>
                         <div i18n="Bottles@@Bottles2">{storageInfo.bottleCount,
@@ -37,5 +40,8 @@
                 <mat-divider></mat-divider>
             </ng-container>
         </mat-action-list>
+        <ng-template #noBottlesAvailable i18n="@@NoBottlesAvailable">
+            There are not bottles.
+        </ng-template>
     </div>
 </div>

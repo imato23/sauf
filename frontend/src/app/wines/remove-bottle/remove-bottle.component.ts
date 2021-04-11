@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, filter } from 'rxjs/operators';
 import { StorageInfo } from '../shared/models/storage-info.model';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { VintageInfoService } from '../shared/services/vintage-info.service';
 import { RemoveBottleDialogComponent } from '../remove-bottle-dialog/remove-bottle-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { WineService } from '../shared/services/wine.service';
+import { Wine } from '../shared/models/wine.model';
 
 @Component({
   selector: 'app-remove-bottle',
@@ -16,12 +18,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RemoveBottleComponent implements OnInit {
   public wineId: string;
+  public wine$: Observable<Wine>;
   public storageInfo$: Observable<StorageInfo[]>;
+  public bottlesAvailable$: Observable<boolean>;
   private readonly refreshToken$ = new BehaviorSubject(undefined);
 
-  constructor(private activatedRoute: ActivatedRoute, private vintageInfoService: VintageInfoService,
+  constructor(private activatedRoute: ActivatedRoute, private wineService: WineService, private vintageInfoService: VintageInfoService,
     private dialog: MatDialog, private snackBar: MatSnackBar) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
+
+    this.wine$ = this.wineService.getWine(this.wineId);
 
     this.storageInfo$ = this.refreshToken$.pipe(switchMap(() =>
       this.vintageInfoService.getAllVintageInfo(this.wineId)
@@ -29,6 +35,8 @@ export class RemoveBottleComponent implements OnInit {
           vintageInfoList
             .filter((vintageInfo: VintageInfo) => vintageInfo.storageLocations.length > 0)
             .map((vintageInfo: VintageInfo) => this.buildStorageInfo(vintageInfo))))));
+
+    this.bottlesAvailable$ = this.storageInfo$.pipe(map((storageInfoList: StorageInfo[]) => storageInfoList.length > 0));
   }
 
   public showRemoveBottleDialog(storageInfo: StorageInfo): void {

@@ -43,11 +43,11 @@ export class VintageInfoService {
         }
 
         wine.vintageInfos.push(vintageInfo);
-        this.wineService.updateWine(wineId, <WineDto>wine);
-        return Promise.resolve<VintageInfoDto>(vintageInfo);
+        const wineDto: WineDto = await this.wineService.updateWine(wineId, <WineDto>wine);
+        return wineDto.vintageInfos.filter(x => x.vintage === vintageInfo.vintage)[0];
     }
 
-    async updateVintageInfo(wineId: string, vintage: number, vintageInfo: VintageInfoDto): Promise<void> {
+    async updateVintageInfo(wineId: string, vintage: number, vintageInfo: VintageInfoDto): Promise<WineDto> {
         const wine: WineDto = await this.wineService.getWineById(wineId);
 
         if (!wine) {
@@ -63,10 +63,10 @@ export class VintageInfoService {
         vintageInfoFromDb.residualSugar = vintageInfo.residualSugar;
         vintageInfoFromDb.storageLocations = <StorageLocation[]>vintageInfo.storageLocations
 
-        await this.wineService.updateWine(wineId, <WineDto>wine);
+        return await this.wineService.updateWine(wineId, <WineDto>wine);
     }
 
-    async removeVintageInfo(wineId: string, vintage: number): Promise<void> {
+    async removeVintageInfo(wineId: string, vintage: number): Promise<WineDto> {
         const wine: WineDto = await this.wineService.getWineById(wineId);
 
         if (!wine) {
@@ -80,6 +80,6 @@ export class VintageInfoService {
         }
 
         wine.vintageInfos.splice(index, 1);
-        await this.wineService.updateWine(wineId, <WineDto>wine);
+        return await this.wineService.updateWine(wineId, <WineDto>wine);
     }
 }
