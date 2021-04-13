@@ -3,9 +3,10 @@ stages:
 
 frontend:
   stage: build
-  image: trion/ng-cli
+  image: node:14
   before_script:
     - cd frontend
+    - npm install -g @angular/cli 
     - npm ci
   script:
     - ng build --prod
