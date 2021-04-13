@@ -56,7 +56,6 @@ jobs:
 
       - name: Push image
         run: |
-          cd frontend
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
           # Change all uppercase to lowercase
