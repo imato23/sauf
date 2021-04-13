@@ -2,4 +2,4 @@
 
 ## Introduction
 
-An application for managing private wine cellars.
+An application for private wine cellar management
