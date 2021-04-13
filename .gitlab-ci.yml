@@ -6,7 +6,8 @@ frontend:
   image: node:14
   before_script:
     - cd frontend
-    - npm install -g @angular/cli 
+    - npm install -g npm@7.9.0
+    - npm install -g @angular/cli
     - npm ci
   script:
     - ng build --prod
