@@ -21,6 +21,7 @@ backend:
   image: node:14
   before_script:
     - cd backend
+    - npm install -g npm@7.9.0
     - npm ci
   script:
     - npm run build
