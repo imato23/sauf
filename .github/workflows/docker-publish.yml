@@ -14,9 +14,9 @@ on:
   pull_request:
 
 jobs:
-  push_frontend:
+  frontend:
     env: 
-      IMAGE_NAME: sauf_frontend
+      IMAGE_NAME: frontend
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -53,9 +53,9 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
   
-  push_backend:
+  backend:
     env: 
-      IMAGE_NAME: sauf_backend
+      IMAGE_NAME: backend
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
