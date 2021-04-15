@@ -3,6 +3,7 @@ FROM node:14
 WORKDIR /app
 COPY ./package.json ./
 COPY ./package-lock.json ./
+RUN npm install npm@7
 RUN npm install
 COPY . .
 COPY environments/tripoli.crt /etc/ssl/sauf-backend.crt
