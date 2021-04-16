@@ -5,22 +5,21 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.interface';
 import * as fs from 'fs';
 
-// const httpsOptions: HttpsOptions = {
-//   key: fs.readFileSync('/etc/ssl/sauf-backend.key'),
-//   cert: fs.readFileSync('/etc/ssl/sauf-backend.crt'),
-// };
+const httpsOptions: HttpsOptions = {
+  key: fs.readFileSync('/etc/ssl/sauf-backend.key'),
+  cert: fs.readFileSync('/etc/ssl/sauf-backend.crt'),
+};
 
 async function bootstrap() {
-
-
-  const app: INestApplication = await NestFactory.create(AppModule);
+  const app: INestApplication = await NestFactory.create(AppModule, { httpsOptions });
 
   console.log(process.cwd());
 
   app.enableCors();
 
   const options = new DocumentBuilder()
-    .setTitle('rate-my-wine')
+    .setTitle('S.A.U.F.')
+    .setDescription('Private wine cellar management')
     .setVersion('1.0')
     .addTag('wines')
     .setContact('Thomas Mayer', '', 'thomas.mayer@imato.de')
