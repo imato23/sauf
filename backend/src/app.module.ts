@@ -6,7 +6,7 @@ import { WinesModule } from './wines/wines.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ envFilePath: 'environments/environment.env' }),
+    ConfigModule.forRoot({ envFilePath: '/etc/sauf/environment.env' }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
