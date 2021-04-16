@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: sauf-frontend
+    image: ghcr.io/imato23/sauf/frontend:latest
+    ports:
+      - 443:443
+    depends_on: 
+      - backend
+  backend:
+    container_name: sauf-backend
+    image: ghcr.io/imato23/sauf/backend:latest 
+    ports:
+      - 3000:3000
+    depends_on: 
+      - database
+  database:
+    container_name: sauf-mongo
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes: 
+      - volume01:/data/db
+    restart: always
+volumes: 
+  volume01:
+    name: volume01
