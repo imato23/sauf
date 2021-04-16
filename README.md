@@ -1,6 +1,6 @@
-[![Docker](https://github.com/imato23/sauf/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/imato23/sauf/actions/workflows/docker-publish.yml)
+# S.A.U.F.
 
-# sauf
+[![Docker](https://github.com/imato23/sauf/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/imato23/sauf/actions/workflows/docker-publish.yml)
 
 ## Introduction
 
