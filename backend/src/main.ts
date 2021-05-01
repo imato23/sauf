@@ -6,8 +6,8 @@ import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.i
 import * as fs from 'fs';
 
 const httpsOptions: HttpsOptions = {
-  key: fs.readFileSync('/etc/ssl/sauf-backend.key'),
-  cert: fs.readFileSync('/etc/ssl/sauf-backend.crt'),
+  key: fs.readFileSync('/etc/ssl/key.pem'),
+  cert: fs.readFileSync('/etc/ssl/cert.pem'),
 };
 
 async function bootstrap() {
