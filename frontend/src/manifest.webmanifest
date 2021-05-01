@@ -5,7 +5,7 @@
   "background_color": "#fafafa",
   "display": "browser",
   "scope": "./",
-  "start_url": "/index.html",
+  "start_url": "de/index.html",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
