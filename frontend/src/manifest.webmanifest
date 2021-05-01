@@ -1,9 +1,9 @@
 {
-  "name": "frontend",
-  "short_name": "frontend",
+  "name": "S.A.U.F.",
+  "short_name": "S.A.U.F.",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "standalone",
+  "display": "browser",
   "scope": "./",
   "start_url": "/index.html",
   "icons": [
