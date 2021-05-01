@@ -14,7 +14,15 @@ import { RemoveBottleDialogComponent } from './remove-bottle-dialog/remove-bottl
 
 
 @NgModule({
-  declarations: [WineListComponent, WineDetailsComponent, ImageCapturingComponent, VintageDetailsComponent, StoreBottlesComponent, RemoveBottleComponent, RemoveBottleDialogComponent],
+  declarations: [
+    WineListComponent,
+    WineDetailsComponent,
+    ImageCapturingComponent,
+    VintageDetailsComponent,
+    StoreBottlesComponent,
+    RemoveBottleComponent,
+    RemoveBottleDialogComponent
+  ],
   imports: [
     CommonModule,
     WinesRoutingModule,

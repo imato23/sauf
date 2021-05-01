@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 const routes: Routes = [
   { path: 'wines', loadChildren: () => import('./wines/wines.module').then(m => m.WinesModule) },
   { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
-  { path: '', redirectTo: '/wines', pathMatch: 'full' },
+  { path: '', redirectTo: '/wines/wine-list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

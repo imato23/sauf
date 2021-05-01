@@ -6,13 +6,13 @@ import { VintageDetailsComponent } from './vintage-details/vintage-details.compo
 import { RemoveBottleComponent } from './remove-bottle/remove-bottle.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'wine-list', pathMatch: 'full' },
   { path: 'wine-list', component: WineListComponent },
   { path: 'view-wine/:wineId', component: WineDetailsComponent },
   { path: 'add-wine', component: WineDetailsComponent },
   { path: 'view-vintage/:wineId/:vintage', component: VintageDetailsComponent },
   { path: 'add-vintage/:wineId', component: VintageDetailsComponent },
-  { path: 'remove-bottle/:wineId', component: RemoveBottleComponent }
+  { path: 'remove-bottle/:wineId', component: RemoveBottleComponent },
+  { path: '', redirectTo: 'wine-list', pathMatch: 'full' }
 ];
 
 @NgModule({
