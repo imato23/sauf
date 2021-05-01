@@ -12,5 +12,5 @@ FROM nginx:latest
 COPY --from=build /app/dist/frontend  /usr/share/nginx/html
 COPY nginx_conf/nginx.conf /etc/nginx/conf.d/default.conf
 COPY nginx_conf/cert.pem /etc/ssl/
-COPY nginx_conf/key.pem.key /etc/ssl/
+COPY nginx_conf/key.pem /etc/ssl/
 EXPOSE 443
