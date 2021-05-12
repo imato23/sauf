@@ -1,7 +1,8 @@
 <div fxLayout="column">
     <div *ngIf="!webcamImage" fxLayout="column">
         <div>
-            <webcam [trigger]="triggerObservable" (imageCapture)="onCaptureImage($event)"></webcam>
+            <webcam [trigger]="triggerObservable" (imageCapture)="onCaptureImage($event)" [width]="webcamWidth"
+                [height]="webcamHeight"></webcam>
         </div>
         <div fxFlexAlign="center">
             <button mat-icon-button (click)="onTriggerSnapshot()">
@@ -11,7 +12,7 @@
     </div>
     <div *ngIf="webcamImage">
         <div>
-            <img [src]="webcamImage.imageAsDataUrl" />
+            <img [src]="webcamImage?.imageAsDataUrl" class="captured-image" />
         </div>
         <div fxLayout="row" fxLayoutAlign="space-evenly">
             <button mat-icon-button (click)="onRetry()">

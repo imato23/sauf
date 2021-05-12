@@ -10,7 +10,9 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ImageCapturingComponent implements OnInit {
   public webcamImage: WebcamImage | null = null;
-  private trigger: Subject<void> = new Subject<void>();;
+  public webcamWidth = window.innerWidth - 150;
+  public webcamHeight = window.innerHeight - 150;
+  private trigger: Subject<void> = new Subject<void>();
 
   constructor(public dialogRef: MatDialogRef<ImageCapturingComponent>) { }
 
