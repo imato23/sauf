@@ -3,10 +3,11 @@ import { WineService } from './wine.service';
 import { VintageInfoDto } from './dto/vintage-info.dto';
 import { WineDto } from './dto/wine.dto';
 import { StorageLocation } from './schemas/storage-location.schema';
+import { BottleHistoryService } from './bottle-history.service';
 
 @Injectable()
 export class VintageInfoService {
-    constructor(private wineService: WineService) {
+    constructor(private wineService: WineService, private bottleHistoryService: BottleHistoryService) {
     }
 
     async getAllVintageInfos(wineId: string): Promise<VintageInfoDto[]> {
@@ -42,7 +43,14 @@ export class VintageInfoService {
             throw new NotFoundException(`The wine with id '${wineId}' does not exist.`);
         }
 
+        const addedBottlesCount = vintageInfo.storageLocations.length;
+
+        if (addedBottlesCount > 0) {
+            this.bottleHistoryService.logBottlesAdded(vintageInfo, addedBottlesCount);
+        }
+
         wine.vintageInfos.push(vintageInfo);
+
         const wineDto: WineDto = await this.wineService.updateWine(wineId, <WineDto>wine);
         return wineDto.vintageInfos.filter(x => x.vintage === vintageInfo.vintage)[0];
     }
@@ -55,6 +63,8 @@ export class VintageInfoService {
         }
 
         const vintageInfoFromDb: VintageInfoDto = wine.vintageInfos.filter(x => x.vintage == vintage)[0];
+
+        this.logBottleChanges(vintageInfoFromDb, vintageInfo);
 
         vintageInfoFromDb.price = vintageInfo.price;
         vintageInfoFromDb.tartaricAcid = vintageInfo.tartaricAcid;
@@ -81,5 +91,22 @@ export class VintageInfoService {
 
         wine.vintageInfos.splice(index, 1);
         return await this.wineService.updateWine(wineId, <WineDto>wine);
+    }
+
+    logBottleChanges(oldVintageInfo: VintageInfoDto, newVintageInfo: VintageInfoDto): void {
+        const difference: number = newVintageInfo.storageLocations.length - oldVintageInfo.bottleCount;
+
+        if (difference === 0) {
+            // Bottles have not changed
+            return;
+        }
+
+        if (difference > 0) {
+            // new bottles count > old bottles count => bottles have been added
+            this.bottleHistoryService.logBottlesAdded(oldVintageInfo, difference);
+        } else {
+            // new bottles count < old bottles count => bottles have been removed
+            this.bottleHistoryService.logBottlesRemoved(oldVintageInfo, Math.abs(difference));
+        }
     }
 }

@@ -6,6 +6,9 @@ import { VintageInfo } from './schemas/vintage-info.schema';
 import { VintageInfoDto } from './dto/vintage-info.dto';
 import { StorageLocation } from './schemas/storage-location.schema';
 import { StorageLocationDto } from './dto/storage-location.dto';
+import { BottleHistoryEntry } from './schemas/bottle-history-entry.schema';
+import { BottleHistoryEntryDto } from './dto/bottle-history-entry.dto';
+import { BottleActionDto } from './dto/bottle-action.dto';
 
 @Injectable()
 export class MapperService {
@@ -51,8 +54,27 @@ export class MapperService {
             tartaricAcid: source.tartaricAcid,
             vintage: source.vintage,
             storageLocations: this.mapToStorageLocationDtoArray(source.storageLocations),
+            history: this.mapToHistoryDtoArray(source.history),
             bottleCount: source.storageLocations ? source.storageLocations.length : 0,
         }
+
+        return target;
+    }
+
+    public mapToHistoryDtoArray(source: BottleHistoryEntry[]): BottleHistoryEntryDto[] {
+        if (!source) {
+            return [];
+        }
+
+        return source.map(x => this.mapToHistoryDto(x));
+    }
+
+    public mapToHistoryDto(source: BottleHistoryEntry): BottleHistoryEntryDto {
+        const target: BottleHistoryEntryDto = {
+            action: source.action as BottleActionDto,
+            bottleCount: source.bottleCount,
+            date: source.date
+        };
 
         return target;
     }

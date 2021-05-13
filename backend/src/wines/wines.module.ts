@@ -8,10 +8,22 @@ import { VintageInfoService } from './vintage-info.service';
 import { MapperService } from './mapper.service';
 import { StorageLocationController } from './storage-location.controller';
 import { StorageLocationService } from './storage-location.service';
+import { BottleHistoryService } from './bottle-history.service';
+import { BottleHistoryEntySchema } from './schemas/bottle-history-entry.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Wine', schema: WineSchema }])],
-  controllers: [WinesController, VintageInfosController, StorageLocationController],
-  providers: [WineService, VintageInfoService, MapperService, StorageLocationService]
+  imports: [
+    MongooseModule.forFeature([{ name: 'Wine', schema: WineSchema }]),
+    MongooseModule.forFeature([{ name: 'BottleHistoryEntry', schema: BottleHistoryEntySchema }])],
+  controllers: [
+    WinesController,
+    VintageInfosController,
+    StorageLocationController],
+  providers: [
+    WineService,
+    VintageInfoService,
+    MapperService,
+    StorageLocationService,
+    BottleHistoryService]
 })
 export class WinesModule { }
