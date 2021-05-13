@@ -24,6 +24,12 @@ export class Wine extends Document {
 
     @Prop()
     image: Buffer;
+
+    @Prop({ required: true })
+    createdOn: Date;
+
+    @Prop({ required: true })
+    updatedOn: Date;
 }
 
 export const WineSchema = SchemaFactory.createForClass(Wine);
