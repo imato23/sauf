@@ -1,3 +1,4 @@
+import { BottleHistoryEntryDto } from './bottle-history-entry.dto';
 import { StorageLocationDto } from './storage-location.dto';
 
 export class VintageInfoDto {
@@ -8,4 +9,5 @@ export class VintageInfoDto {
     residualSugar: number;
     tartaricAcid: number;
     storageLocations: StorageLocationDto[];
+    history: BottleHistoryEntryDto[];
 }
