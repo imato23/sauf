@@ -23,11 +23,13 @@ export class WineService {
 
     async addWine(wine: WineDto): Promise<WineDto> {
         const newWine: Wine = new this.wineModel(wine);
+        newWine.createdOn = newWine.updatedOn = new Date();
         return await (newWine.save() as unknown as Promise<WineDto>);
     }
 
     async updateWine(wineId: string, wine: WineDto): Promise<WineDto> {
         const wine1: Wine = wine as unknown as Wine;
+        wine1.updatedOn = new Date();
         const updatedWine = await this.wineModel.findByIdAndUpdate(wineId, wine1, { new: true });
         return updatedWine as unknown as WineDto;
     }
