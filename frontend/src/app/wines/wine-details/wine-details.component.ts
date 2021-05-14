@@ -113,7 +113,7 @@ export class WineDetailsComponent implements OnInit {
     return of({
       _id: '',
       name: '',
-      category: WineCategory.redWine,
+      category: WineCategory.RedWine,
       country: '',
       region: '',
       producer: '',
