@@ -2,3 +2,11 @@
     width: 60px !important;
     height: 60px !important;
 }
+
+.search-field{
+    width: 100%;
+}
+
+.search-field .mat-form-field-underline{
+    display: none;
+}

@@ -31,24 +31,4 @@ describe('WineListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('hould calcalute the number of wine bottles if getWines is triggered', () => {
-    const wine: Wine = {
-      _id: '', name: '', producer: '', region: '',
-      country: '', category: WineCategory.redWine, image: null,
-      vintageInfos: [{
-        vintage: 2020, numberOfBottles: 5, price: 0, alcoholicStrength: 0,
-        residualSugar: 0, tartaricAcid: 0, storageLocations: []
-      }, {
-        vintage: 2019, numberOfBottles: 3, price: 0, alcoholicStrength: 0,
-        residualSugar: 0, tartaricAcid: 0, storageLocations: []
-      }]
-    };
-
-    const expected = 8;
-    const actual: number = component.getNumberOfBottles(wine);
-
-    expect(actual).toBe(expected);
-    expect(getWinesSpy.calls.any()).toBe(true, 'getWines called');
-  });
 });
