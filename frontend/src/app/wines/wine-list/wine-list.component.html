@@ -1,13 +1,23 @@
 <mat-toolbar color="primary">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleNavbar()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <span i18n="@@WineListTitle">Wine List</span>
-    <span class="toolbar-spacer"></span>
-    <button mat-icon-button aria-label="Search">
-        <mat-icon>search</mat-icon>
-    </button>
+    <ng-container *ngIf="!isSearchActive">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="onToggleNavbar()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span i18n="@@WineListTitle">Wine List</span>
+        <span class="toolbar-spacer"></span>
+        <button mat-icon-button aria-label="Search" (click)="onActivateSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="isSearchActive">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="isSearchActive = false">
+            <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
+        </button>
+        <mat-form-field appearance="standard" class="search-field">
+            <input matInput placeholder="Search" type="search" #searchField [formControl]="searchControl">
+        </mat-form-field>
+    </ng-container>
 </mat-toolbar>
 <div>
     <mat-nav-list *ngIf=" wines$ | async; else loading">
