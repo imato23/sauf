@@ -7,10 +7,12 @@
             </button>
             <span>{{wineFormGroup.value.name}}</span>
             <span class="toolbar-spacer"></span>
-            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid" matTooltip="Änderungen speichern">
+            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid"
+                matTooltip="Änderungen speichern">
                 <mat-icon>save</mat-icon>
             </button>
-            <button mat-icon-button aria-label="RemoveBottle" routerLink="/wines/remove-bottle/{{(wine$|async)?._id}}" [disabled]="!wineFormGroup.valid"  matTooltip="Weinflasche entnehmen">
+            <button mat-icon-button aria-label="RemoveBottle" routerLink="/wines/remove-bottle/{{(wine$|async)?._id}}"
+                [disabled]="!wineFormGroup.valid" matTooltip="Weinflasche entnehmen">
                 <mat-icon>liquor</mat-icon>
             </button>
             <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
@@ -53,7 +55,7 @@
                     <mat-select formControlName="category" required>
                         <mat-option *ngFor="let category of categories$ | async" [value]="category"
                             i18n="WineCategorySelect@@WineCategorySelect1">
-                            {category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine
+                            {category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine
                             {SparklingWine}}
                         </mat-option>
                     </mat-select>
@@ -87,13 +89,15 @@
                             <h3 matLine>{{vintageInfo.vintage}}</h3>
                             <div fxLayout="row">
                                 <div fxFlex i18n="Bottles@@Bottles2">{vintageInfo.bottleCount,
-                                    plural, =1 {{{vintageInfo.bottleCount}} Bottle} other {{{vintageInfo.bottleCount}} Bottles}}</div>
+                                    plural, =1 {{{vintageInfo.bottleCount}} Bottle} other {{{vintageInfo.bottleCount}}
+                                    Bottles}}</div>
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
                     </ng-container>
                 </mat-nav-list>
-                <button mat-button color="accent" routerLink="/wines/add-vintage/{{wine._id}}" [disabled]="!wineId">Jahrgang hinzufügen</button>
+                <button mat-button color="accent" routerLink="/wines/add-vintage/{{wine._id}}"
+                    [disabled]="!wineId">Jahrgang hinzufügen</button>
             </div>
 
             <ng-template #loading i18n="@@LoadingWine">

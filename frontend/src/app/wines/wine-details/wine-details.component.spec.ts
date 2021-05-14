@@ -17,7 +17,7 @@ describe('WineDetailsComponent', () => {
   beforeEach(async () => {
     const wineServiceSpy = jasmine.createSpyObj('WineService', ['getWine', 'getWineCategories']);
     const wine: Wine = {
-      _id: '', category: WineCategory.redWine, country: '', name: '',
+      _id: '', category: WineCategory.RedWine, country: '', name: '',
       producer: '', region: '', image: '', vintageInfos: [], bottleCount: 0
     };
     wineServiceSpy.getWine.and.returnValue(of(wine));

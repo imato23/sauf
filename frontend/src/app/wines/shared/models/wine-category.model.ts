@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export enum WineCategory {
-    whiteWine = 'WhiteWine',
-    redWine = 'RedWine',
-    roseWine = 'RoseWine',
-    sparklingWine = 'SparklingWine'
+    WhiteWine = 'WhiteWine',
+    RedWine = 'RedWine',
+    RoseWine = 'RoseWine',
+    SparklingWine = 'SparklingWine'
 }

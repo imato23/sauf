@@ -326,16 +326,16 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8145791288179866246" datatype="html">
-        <source>{VAR_SELECT, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine {SparklingWine}}</source>
-        <target>{VAR_SELECT, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine {Schaumwein}}</target>
+        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</source>
+        <target>{VAR_SELECT, select, RedWine {Rotwein} WhiteWine {Weißwein} RoseWine {Roséwein} SparklingWine {Schaumwein}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
           <context context-type="linenumber">56,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="WineCategorySelect1" datatype="html">
-        <source> <x id="ICU" equiv-text="{category, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine&#xA;                            {SparklingWine}}"/> </source>
-        <target> <x id="ICU" equiv-text="{category, select, redWine {Rotwein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine&#xA;                            {Schaumwein}}"/> </target>
+        <source> <x id="ICU" equiv-text="{category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine&#xA;                            {SparklingWine}}"/> </source>
+        <target> <x id="ICU" equiv-text="{category, select, RedWine {Rotwein} WhiteWine {Weißwein} RoseWine {Roséwein} SparklingWine&#xA;                            {Schaumwein}}"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
           <context context-type="linenumber">56,58</context>
@@ -448,8 +448,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="WineCategorySelect2" datatype="html">
-        <source>{VAR_SELECT, select, redWine {RedWine} whiteWine {WhiteWine} roseWine {RoseWine} sparklingWine {SparklingWine}}</source>
-        <target>{VAR_SELECT, select, redWine {Rowein} whiteWine {Weißwein} roseWine {Roséwein} sparklingWine {Schaumwein}}</target>
+        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</source>
+        <target>{VAR_SELECT, select, RedWine {Rowein} WhiteWine {Weißwein} RoseWine {Roséwein} SparklingWine {Schaumwein}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
           <context context-type="linenumber">22,25</context>
