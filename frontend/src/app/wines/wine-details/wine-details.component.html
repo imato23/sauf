@@ -8,11 +8,11 @@
             <span>{{wineFormGroup.value.name}}</span>
             <span class="toolbar-spacer"></span>
             <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!wineFormGroup.valid"
-                matTooltip="Änderungen speichern">
+                i18n-matTooltip matTooltip="Save changes">
                 <mat-icon>save</mat-icon>
             </button>
             <button mat-icon-button aria-label="RemoveBottle" routerLink="/wines/remove-bottle/{{(wine$|async)?._id}}"
-                [disabled]="!wineFormGroup.valid" matTooltip="Weinflasche entnehmen">
+                [disabled]="!wineFormGroup.valid" i18n-matTooltip matTooltip="Remove wine bottle">
                 <mat-icon>liquor</mat-icon>
             </button>
             <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
@@ -30,7 +30,7 @@
                 <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
                 <div *ngIf="!currentImage" class="wine-image" style="width: 300px; border: 1px dashed;"
                     fxLayoutAlign="center center">
-                    <div i18n="NoImageAvailable">No image available</div>
+                    <div i18n>No image available</div>
                 </div>
                 <div class="image-floating-action-button">
                     <button mat-mini-fab color="accent" (click)=onCaptureImage()>
@@ -43,52 +43,51 @@
         <!-- form -->
         <div fxFlex>
             <div [formGroup]="wineFormGroup" *ngIf="(wine$ | async) as wine; else loading">
-                <h3 i18n="CommonData@@CommonData">Common Data</h3>
+                <h3 i18n>Common Data</h3>
                 <mat-form-field>
-                    <mat-label i18n="@@WineName">Name</mat-label>
+                    <mat-label i18n>Name</mat-label>
                     <input matInput formControlName="name" required>
-                    <mat-error *ngIf="nameField?.errors?.required" i18n="@@NameRequired">Name is required.
+                    <mat-error *ngIf="nameField?.errors?.required" i18>Name is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@WineCategory">Category</mat-label>
+                    <mat-label i18n>Category</mat-label>
                     <mat-select formControlName="category" required>
-                        <mat-option *ngFor="let category of categories$ | async" [value]="category"
-                            i18n="WineCategorySelect@@WineCategorySelect1">
-                            {category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine
-                            {SparklingWine}}
+                        <mat-option *ngFor="let category of categories$ | async" [value]="category" i18n>{category,
+                            select, RedWine {RedWine} WhiteWine
+                            {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
                         </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="categoryField?.errors?.required" i18n="@@CategoryRequired">Category is required.
+                    <mat-error *ngIf="categoryField?.errors?.required" i18n>Category is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@WineProducer">Producer</mat-label>
+                    <mat-label i18n>Producer</mat-label>
                     <input matInput formControlName="producer" required>
-                    <mat-error *ngIf="producerField?.errors?.required" i18n="@@ProducerRequired">Producer is required.
+                    <mat-error *ngIf="producerField?.errors?.required" i18n>Producer is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@Country">Country</mat-label>
+                    <mat-label i18n>Country</mat-label>
                     <input matInput formControlName="country" required>
-                    <mat-error *ngIf="countryField?.errors?.required" i18n="@@CountryRequired">Country is required.
+                    <mat-error *ngIf="countryField?.errors?.required" i18n>Country is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@Region">Region</mat-label>
+                    <mat-label i18n>Region</mat-label>
                     <input matInput formControlName="region" required>
-                    <mat-error *ngIf="regionField?.errors?.required" i18n="@@RegionRequired">Region is required.
+                    <mat-error *ngIf="regionField?.errors?.required" i18n>Region is required.
                     </mat-error>
                 </mat-form-field>
 
                 <!-- vintages -->
-                <h3 i18n="@@Vintages">Vintages</h3>
+                <h3 i18n>Vintages</h3>
                 <mat-nav-list>
                     <ng-container *ngFor="let vintageInfo of wine.vintageInfos">
                         <mat-list-item routerLink="/wines/view-vintage/{{wine._id}}/{{vintageInfo.vintage}}">
                             <h3 matLine>{{vintageInfo.vintage}}</h3>
                             <div fxLayout="row">
-                                <div fxFlex i18n="Bottles@@Bottles2">{vintageInfo.bottleCount,
+                                <div fxFlex i18n>{vintageInfo.bottleCount,
                                     plural, =1 {{{vintageInfo.bottleCount}} Bottle} other {{{vintageInfo.bottleCount}}
                                     Bottles}}</div>
                             </div>
@@ -100,7 +99,7 @@
                     [disabled]="!wineId">Jahrgang hinzufügen</button>
             </div>
 
-            <ng-template #loading i18n="@@LoadingWine">
+            <ng-template #loading i18n>
                 Loading wine...
             </ng-template>
         </div>
@@ -110,6 +109,6 @@
 <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="onDelete()" [disabled]="!wineId">
         <mat-icon>delete</mat-icon>
-        <span i18n="@@DeleteWine">Delete wine</span>
+        <span i18n>Delete wine</span>
     </button>
 </mat-menu>

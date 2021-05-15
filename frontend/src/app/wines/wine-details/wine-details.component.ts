@@ -86,21 +86,18 @@ export class WineDetailsComponent implements OnInit {
       });
     }
 
-    this.snackBar.open($localize`:@@WineHasBeenSaved: Changes have been saved.`, undefined, { duration: 2000 });
+    this.snackBar.open($localize`Changes have been saved.`, undefined, { duration: 2000 });
   }
 
   public onDelete(): void {
     this.wineService.deleteWine(this.wineId).subscribe(() => {
-      this.snackBar.open($localize`: @@WineHasBeenDeleted: Wine has been deleted.`, undefined, { duration: 2000 });
+      this.snackBar.open($localize`Wine has been deleted.`, undefined, { duration: 2000 });
       this.router.navigate(['/wines/wine-list']);
     });
   }
 
   public onCaptureImage(): void {
-    const dialogRef = this.dialog.open(ImageCapturingComponent, {
-      // height: '600px',
-      // width: '600px',
-    });
+    const dialogRef = this.dialog.open(ImageCapturingComponent);
 
     dialogRef.afterClosed().subscribe((result: WebcamImage) => {
       if (result) {

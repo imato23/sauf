@@ -22,25 +22,27 @@
                         </div>
                         <div fxLayout="column" fxFlex="100px">
                             <div fxLayout="row">
-                                <div fxFlex="50px" i18n="row">Row:</div>
+                                <div fxFlex="50px" i18n>Row:</div>
                                 <div>{{storageInfo.row}}</div>
                             </div>
                             <div fxLayout="row">
-                                <div fxFlex="50px" i18n="shelf">Shelf:</div>
+                                <div fxFlex="50px" i18n>Shelf:</div>
                                 <div>{{storageInfo.shelf}}</div>
                             </div>
                         </div>
-                        <div i18n="Bottles@@Bottles2">{storageInfo.bottleCount,
-                            plural, =1 {{{storageInfo.bottleCount}} Bottle} other {{{storageInfo.bottleCount}} Bottles}}</div>
+                        <div i18n>{storageInfo.bottleCount,
+                            plural, =1 {{{storageInfo.bottleCount}} Bottle} other {{{storageInfo.bottleCount}} Bottles}}
+                        </div>
                         <div>
-                            <button mat-flat-button color="accent" (click)="showRemoveBottleDialog(storageInfo)">Entnehmen</button>
+                            <button mat-flat-button color="accent"
+                                (click)="showRemoveBottleDialog(storageInfo)">Entnehmen</button>
                         </div>
                     </div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
             </ng-container>
         </mat-action-list>
-        <ng-template #noBottlesAvailable i18n="@@NoBottlesAvailable">
+        <ng-template #noBottlesAvailable i18n>
             There are not bottles.
         </ng-template>
     </div>

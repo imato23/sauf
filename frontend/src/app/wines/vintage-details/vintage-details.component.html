@@ -5,8 +5,8 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button routerLink="/wines/view-wine/{{wineId}}">
                 <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
             </button>
-            <span i18n="@@ViewVintage" *ngIf="vintage">Vintage {{vintage}}</span>
-            <span i18n="@@NewVintage" *ngIf="!vintage">New Vintage</span>
+            <span i18n *ngIf="vintage">Vintage {{vintage}}</span>
+            <span i18n *ngIf="!vintage">New Vintage</span>
             <span class="toolbar-spacer"></span>
             <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!vintageFormGroup.valid">
                 <mat-icon>save</mat-icon>
@@ -23,39 +23,39 @@
         <div fxFlex>
             <form [formGroup]="vintageFormGroup" autocomplete="off"
                 *ngIf="(vintageInfo$ | async) as vintageInfo; else loading">
-                <h3 i18n="CommonData@@CommonData">Common Data</h3>
+                <h3 i18n>Common Data</h3>
                 <mat-form-field *ngIf="!vintage">
-                    <mat-label i18n="@@Vintage">Vintage</mat-label>
+                    <mat-label i18n>Vintage</mat-label>
                     <input matInput type="number" formControlName="vintage" required>
-                    <mat-error *ngIf="vintageFormItem?.errors?.required" i18n="@@VintageRequired">Vintage is required.
+                    <mat-error *ngIf="vintageFormItem?.errors?.required" i18n>Vintage is required.
                     </mat-error>
-                    <mat-error *ngIf="vintageFormItem?.errors?.min" i18n="@@VintageToSmall">Vintage is to small.
+                    <mat-error *ngIf="vintageFormItem?.errors?.min" i18n>Vintage is to small.
                     </mat-error>
-                    <mat-error *ngIf="vintageFormItem?.errors?.max" i18n="@@VintageToBig">Vintage is to big.
+                    <mat-error *ngIf="vintageFormItem?.errors?.max" i18n>Vintage is to big.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@Price">Price</mat-label>
+                    <mat-label i18n>Price</mat-label>
                     <input matInput type="number" formControlName="price">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@AlcoholicStrength">Alcoholic strength</mat-label>
+                    <mat-label i18n>Alcoholic strength</mat-label>
                     <input matInput type="number" formControlName="alcoholicStrength">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@ResidualSugar">Residual sugar</mat-label>
+                    <mat-label i18n>Residual sugar</mat-label>
                     <input matInput type="number" formControlName="residualSugar">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label i18n="@@TartaricAcid">Tartaric acid</mat-label>
+                    <mat-label i18n>Tartaric acid</mat-label>
                     <input matInput type="number" formControlName="tartaricAcid">
                 </mat-form-field>
-                <h3 i18n="@@Storages">Storages</h3>
+                <h3 i18n>Storages</h3>
                 <app-store-bottles [parentForm]="vintageFormGroup" [data]="vintageInfo?.storageLocations">
                 </app-store-bottles>
             </form>
 
-            <ng-template #loading i18n="@@LoadingVintageInfo">
+            <ng-template #loading i18n>
                 Loading vintage info...
             </ng-template>
         </div>
@@ -65,6 +65,6 @@
 <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="onDelete()" [disabled]="!vintage">
         <mat-icon>delete</mat-icon>
-        <span i18n="@@DeleteVintage">Delete vintage</span>
+        <span i18n>Delete vintage</span>
     </button>
 </mat-menu>
