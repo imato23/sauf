@@ -54,7 +54,8 @@ export class RemoveBottleComponent implements OnInit {
         storageInfo.vintage as number,
         { row: storageInfo.row, shelf: storageInfo.shelf }).subscribe(() => {
           this.refreshToken$.next(undefined);
-          this.snackBar.open($localize`:@@WineBottleRemoved: The wine bottle has been removed.`, undefined, { duration: 2000 });
+          this.snackBar.open($localize`The wine bottle has been removed.`,
+            undefined, { duration: 2000 });
         });
     });
   }

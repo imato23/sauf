@@ -62,7 +62,7 @@ export class VintageDetailsComponent implements OnInit {
       });
     }
 
-    this.snackBar.open($localize`:@@VintageInfoHasBeenSaved:Changes have been saved.`, undefined, { duration: 2000 });
+    this.snackBar.open($localize`Changes have been saved.`, undefined, { duration: 2000 });
   }
 
   public onDelete(): void {
@@ -71,7 +71,7 @@ export class VintageDetailsComponent implements OnInit {
     }
 
     this.vintageInfoService.removeVintageInfo(this.wineId, this.vintage).subscribe(() => {
-      this.snackBar.open($localize`: @@VintageInfoHasBeenDeleted: Vintage info has been deleted.`, undefined, { duration: 2000 });
+      this.snackBar.open($localize`Vintage info has been deleted.`, undefined, { duration: 2000 });
       this.location.back();
     });
   }

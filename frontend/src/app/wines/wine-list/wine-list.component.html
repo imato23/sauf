@@ -4,7 +4,7 @@
             *ngIf="isHandset$ | async">
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span i18n="@@WineListTitle">Wine List</span>
+        <span i18n>Wine List</span>
         <span class="toolbar-spacer"></span>
         <button mat-icon-button aria-label="Search" (click)="onActivateSearch()">
             <mat-icon>search</mat-icon>
@@ -29,13 +29,11 @@
                     <span> {{wine.producer}} </span>
                 </p>
                 <p matLine>
-                    <span i18n="WineCategorySelect@@WineCategorySelect2">{wine.category, select, RedWine {RedWine}
-                        WhiteWine
-                        {WhiteWine} RoseWine
-                        {RoseWine} SparklingWine {SparklingWine}}</span>
+                    <span i18n>{wine.category, select, RedWine {RedWine} WhiteWine
+                        {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</span>
                 </p>
                 <div fxLayout="row">
-                    <div fxFlex i18n="Bottles@@Bottles1">{wine.bottleCount, plural, =1 {{{wine.bottleCount}}
+                    <div fxFlex i18n>{wine.bottleCount, plural, =1 {{{wine.bottleCount}}
                         Bottle} other {{{wine.bottleCount}} Bottles}}</div>
                 </div>
             </mat-list-item>
@@ -43,8 +41,8 @@
         </ng-container>
     </mat-nav-list>
 
-    <ng-template #loading i18n="@@LoadingWines">
-        <h3>Loading wines...</h3>
+    <ng-template #loading>
+        <h3 i18n>Loading wines...</h3>
     </ng-template>
 </div>
 

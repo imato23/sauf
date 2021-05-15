@@ -1,23 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar i18n="@@Menu">Menu</mat-toolbar>
+    <mat-toolbar i18n>Menu</mat-toolbar>
     <mat-nav-list>
       <mat-list-item [routerLink]="['/wines']" routerLinkActive="router-link-active">
         <mat-icon matListIcon>wine_bar</mat-icon>
-        <p matLine i18n="@@Wines">Wines</p>
+        <p matLine i18n>Wines</p>
       </mat-list-item>
       <mat-list-item [routerLink]="['/statistics']" routerLinkActive="router-link-active">
         <mat-icon matListIcon>bar_chart</mat-icon>
-        <p matLine i18n="@@Statistics">Statistics</p>
+        <p matLine i18n>Statistics</p>
       </mat-list-item>
       <mat-list-item [routerLink]="['/history']" routerLinkActive="router-link-active">
         <mat-icon matListIcon>history</mat-icon>
-        <p matLine i18n="@@History">History</p>
+        <p matLine i18n>History</p>
       </mat-list-item>
       <mat-list-item [routerLink]="['/settings']" routerLinkActive="router-link-active">
         <mat-icon matListIcon>settings</mat-icon>
-        <p matLine i18n="@@Settings">Settings</p>
+        <p matLine i18n>Settings</p>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
