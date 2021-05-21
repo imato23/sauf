@@ -12,7 +12,7 @@ import { WineCategory } from '../shared/models/wine-category.model';
   selector: 'app-wine-list',
   templateUrl: './wine-list.component.html',
   styleUrls: ['./wine-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  //encapsulation: ViewEncapsulation.None
 })
 export class WineListComponent implements OnInit {
   @ViewChild('searchField') searchField!: ElementRef;
@@ -67,7 +67,7 @@ export class WineListComponent implements OnInit {
       case WineCategory.WhiteWine:
         return 'Weißwein';
       case WineCategory.RoseWine:
-        return 'Roséwein';
+        return 'Rosewein';
       case WineCategory.SparklingWine:
         return 'Schaumwein';
       default:

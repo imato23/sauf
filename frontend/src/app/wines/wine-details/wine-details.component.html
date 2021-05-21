@@ -1,4 +1,4 @@
-<div class="container" fxLayout="column" fxLayoutGap="20px">
+<div class="page-container" fxLayout="column" fxLayoutGap="20px">
     <!-- toolbar-->
     <div>
         <mat-toolbar color="primary">
@@ -12,7 +12,7 @@
                 <mat-icon>save</mat-icon>
             </button>
             <button mat-icon-button aria-label="RemoveBottle" routerLink="/wines/remove-bottle/{{(wine$|async)?._id}}"
-                [disabled]="!wineFormGroup.valid" i18n-matTooltip matTooltip="Remove wine bottle">
+                [disabled]="!wineId" i18n-matTooltip matTooltip="Remove wine bottle">
                 <mat-icon>liquor</mat-icon>
             </button>
             <button mat-icon-button aria-label="More" [matMenuTriggerFor]="menu">
@@ -26,10 +26,10 @@
 
         <!-- image-->
         <div fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="stretch">
-            <div class="image-container">
-                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
-                <div *ngIf="!currentImage" class="wine-image" style="width: 300px; border: 1px dashed;"
-                    fxLayoutAlign="center center">
+            <div class="image-container" fxFlex="300px" style="height: 300px">
+                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" style="width: 100%; height: 100%" />
+                <div *ngIf="!currentImage" class="wine-image" class="no-image" fxLayoutAlign="center center"
+                    style="width: 100%; height: 100%;">
                     <div i18n>No image available</div>
                 </div>
                 <div class="image-floating-action-button">
