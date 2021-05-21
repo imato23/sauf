@@ -6,14 +6,6 @@
     height: 300px;
 }
 
-.container {
-    height: 100%;
-}
-
-.content-container{
-    overflow-y: auto;;
-}
-
 .image-container{
     position: relative;
 }
@@ -22,4 +14,9 @@
   position: absolute;
   top: 300px-40px-16px;
   right: 16px;
+}
+
+.no-image{
+    width: 300px; 
+    border: 1px dashed;
 }
