@@ -22,18 +22,14 @@
 
     <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap=" 20px"
         fxLayoutAlign="center start">
-
         <!-- image-->
-        <div fxFlex="40%" style="border: 5px solid red" class="image-container" fxLayout="row">
-            <div style="border: 3px solid blue">
-                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
-                <div class="image-floating-action-button">
-                    <button mat-mini-fab color="accent" (click)=onCaptureImage()>
-                        <mat-icon>photo_camera</mat-icon>
-                    </button>
-                </div>
+        <div fxFlex="40%" class="image-container" fxLayout="row">
+            <img [src]="currentImage ? currentImage : dummyImage" class="wine-image" />
+            <div class="image-floating-action-button">
+                <button mat-mini-fab color="accent" (click)=onCaptureImage()>
+                    <mat-icon>photo_camera</mat-icon>
+                </button>
             </div>
-
         </div>
 
         <!-- form -->
