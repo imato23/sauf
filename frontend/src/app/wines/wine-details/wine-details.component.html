@@ -60,19 +60,34 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Producer</mat-label>
-                    <input matInput formControlName="producer" required>
+                    <input matInput formControlName="producer" required [matAutocomplete]="producerAutocomplete">
+                    <mat-autocomplete #producerAutocomplete="matAutocomplete">
+                        <mat-option *ngFor="let producer of producers$|async" [value]="producer">
+                            {{producer}}
+                        </mat-option>
+                    </mat-autocomplete>
                     <mat-error *ngIf="producerField?.errors?.required" i18n>Producer is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Country</mat-label>
-                    <input matInput formControlName="country" required>
+                    <input matInput formControlName="country" required [matAutocomplete]="countryAutocomplete">
+                    <mat-autocomplete #countryAutocomplete="matAutocomplete">
+                        <mat-option *ngFor="let country of countries$|async" [value]="country">
+                            {{country}}
+                        </mat-option>
+                    </mat-autocomplete>
                     <mat-error *ngIf="countryField?.errors?.required" i18n>Country is required.
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Region</mat-label>
-                    <input matInput formControlName="region" required>
+                    <input matInput formControlName="region" required [matAutocomplete]="regionAutocomplete">
+                    <mat-autocomplete #regionAutocomplete="matAutocomplete">
+                        <mat-option *ngFor="let region of regions$|async" [value]="region">
+                            {{region}}
+                        </mat-option>
+                    </mat-autocomplete>
                     <mat-error *ngIf="regionField?.errors?.required" i18n>Region is required.
                     </mat-error>
                 </mat-form-field>

@@ -38,4 +38,19 @@ export class WineService {
         const deletedWine = await this.wineModel.findByIdAndRemove(wineId);
         return deletedWine as unknown as WineDto;
     }
+
+    async getAllProducers(): Promise<string[]> {
+        const wines: WineDto[] = await this.getAllWines();
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.producer)));
+    }
+
+    async getAllCountries(): Promise<string[]> {
+        const wines: WineDto[] = await this.getAllWines();
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.country)));
+    }
+
+    async getAllRegions(): Promise<string[]> {
+        const wines: WineDto[] = await this.getAllWines();
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.region)));
+    }
 }

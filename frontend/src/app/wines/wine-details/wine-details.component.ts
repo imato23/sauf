@@ -22,6 +22,9 @@ export class WineDetailsComponent implements OnInit {
   public categories$: Observable<string[]>;
   public wine$: Observable<Wine>;
   public currentImage: string | null = null;
+  public producers$: Observable<string[]>;
+  public countries$: Observable<string[]>;
+  public regions$: Observable<string[]>;
 
   get nameField(): AbstractControl | null {
     return this.wineFormGroup.get('name');
@@ -66,6 +69,10 @@ export class WineDetailsComponent implements OnInit {
       this.wine$ = this.createWine().pipe(tap((wine: Wine) =>
         this.wineFormGroup.patchValue(wine)));;
     }
+
+    this.producers$ = this.wineService.getAllProducers();
+    this.countries$ = this.wineService.getAllCountries();
+    this.regions$ = this.wineService.getAllRegions();
   }
 
   ngOnInit(): void {
