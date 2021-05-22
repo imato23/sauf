@@ -1,10 +1,11 @@
 import { Controller, Get, Post, Body, Param, Put, Delete, NotFoundException } from '@nestjs/common';
 import { WineDto } from './dto/wine.dto';
+import { StorageLocationService } from './storage-location.service';
 import { WineService } from './wine.service';
 
 @Controller('wines')
 export class WinesController {
-    constructor(private winesService: WineService) { }
+    constructor(private winesService: WineService, private storageLocationService: StorageLocationService) { }
 
     @Get()
     async findAll(): Promise<WineDto[]> {
@@ -33,6 +34,17 @@ export class WinesController {
 
         if (!wine) {
             throw new NotFoundException(`The wine with id '${id}' does not exist.`);
+        }
+
+        return wine;
+    }
+
+    @Get('storage-location/:row/:shelf')
+    async findByStorageLocation(@Param('row') row: number, @Param('shelf') shelf: number): Promise<WineDto> {
+        const wine: WineDto = await this.storageLocationService.getWineByStorageLocation(row, shelf);
+
+        if (!wine) {
+            throw new NotFoundException(`There is no wine stored at row ${row} and shelf ${shelf}.`);
         }
 
         return wine;
