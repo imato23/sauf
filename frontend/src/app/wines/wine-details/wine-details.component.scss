@@ -1,22 +1,24 @@
-.mat-form-field{
+.mat-form-field {
     width: 100%;
 }
 
-.wine-image{
-    height: 300px;
+.wine-image {
+    max-width: 100%;
+    height: auto;
 }
 
-.image-container{
+.image-container {
     position: relative;
 }
 
 .image-floating-action-button {
-  position: absolute;
-  top: 300px-40px-16px;
-  right: 16px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
 }
 
-.no-image{
-    width: 300px; 
+.no-image {
+    width: 300px;
+    height: 300px;
     border: 1px dashed;
 }

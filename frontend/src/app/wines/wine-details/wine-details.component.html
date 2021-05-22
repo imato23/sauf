@@ -24,10 +24,9 @@
 
         <!-- image-->
         <div fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="stretch">
-            <div class="image-container" fxFlex="300px" style="height: 300px">
-                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" style="width: 100%; height: 100%" />
-                <div *ngIf="!currentImage" class="wine-image" class="no-image" fxLayoutAlign="center center"
-                    style="width: 100%; height: 100%;">
+            <div class="image-container" fxFlex="300px">
+                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
+                <div *ngIf="!currentImage" class="wine-image" class="no-image" fxLayoutAlign="center center">
                     <div i18n>No image available</div>
                 </div>
                 <div class="image-floating-action-button">
