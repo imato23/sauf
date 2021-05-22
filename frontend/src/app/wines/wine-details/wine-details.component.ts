@@ -25,6 +25,7 @@ export class WineDetailsComponent implements OnInit {
   public producers$: Observable<string[]>;
   public countries$: Observable<string[]>;
   public regions$: Observable<string[]>;
+  public dummyImage = 'assets/no-wine-photo.png';
 
   get nameField(): AbstractControl | null {
     return this.wineFormGroup.get('name');
