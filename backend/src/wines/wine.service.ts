@@ -41,16 +41,16 @@ export class WineService {
 
     async getAllProducers(): Promise<string[]> {
         const wines: WineDto[] = await this.getAllWines();
-        return Array.from(new Set(wines.map((wine: WineDto) => wine.producer)));
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.producer))).sort();
     }
 
     async getAllCountries(): Promise<string[]> {
         const wines: WineDto[] = await this.getAllWines();
-        return Array.from(new Set(wines.map((wine: WineDto) => wine.country)));
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.country))).sort();
     }
 
     async getAllRegions(): Promise<string[]> {
         const wines: WineDto[] = await this.getAllWines();
-        return Array.from(new Set(wines.map((wine: WineDto) => wine.region)));
+        return Array.from(new Set(wines.map((wine: WineDto) => wine.region))).sort();
     }
 }
