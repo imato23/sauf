@@ -1,6 +1,5 @@
-<div class="container" fxLayout="column" fxLayoutGap="20px">
-    <!-- toolbar-->
-    <div>
+<div class="page-container" fxLayout="column" fxLayoutGap="20px">
+    <div class="toolbar-container">
         <mat-toolbar color="primary">
             <button type="button" aria-label="Back to wine details" mat-icon-button
                 routerLink="/wines/view-wine/{{wineId}}">
@@ -11,7 +10,6 @@
         </mat-toolbar>
     </div>
 
-    <!-- content -->
     <div class="content-container" fxFlex="auto" fxLayout="column" fxLayoutGap="20px">
         <mat-action-list *ngIf="(bottlesAvailable$ | async); else noBottlesAvailable">
             <ng-container *ngFor="let storageInfo of storageInfo$ | async">

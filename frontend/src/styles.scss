@@ -1,10 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .toolbar-spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .floating-action-button {
@@ -14,29 +20,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 mat-form-field.mat-form-field {
-  font-size: 16px;
+    font-size: 16px;
 }
 
-.content-container{
-    overflow-y: auto;;
+.mat-list-base .mat-list-item .mat-list-item-content,
+.mat-list-base .mat-list-option .mat-list-item-content {
+    padding: 0 !important;
 }
 
 .page-container {
     height: 100%;
 }
 
-.search-container {
-    mat-form-field {
-        div.mat-form-field-flex {
-            align-items: flex-end;
-        }
-
-        div.mat-form-field-prefix {
-            padding-right: 12px !important;
-        }
-
-        .mat-form-field-underline{
-          display:none
-        }  
-    }
+.content-container {
+    overflow-y: auto;
+    padding: 0 16px;
 }

@@ -1,6 +1,5 @@
 <div class="page-container" fxLayout="column" fxLayoutGap="20px">
-    <!-- toolbar-->
-    <div>
+    <div class="toolbar-container">
         <mat-toolbar color="primary">
             <button type="button" aria-label="Toggle sidenav" mat-icon-button [routerLink]="['/wines/wine-list']">
                 <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
@@ -21,7 +20,6 @@
         </mat-toolbar>
     </div>
 
-    <!-- content -->
     <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
 
         <!-- image-->
@@ -42,7 +40,7 @@
 
         <!-- form -->
         <div fxFlex>
-            <div [formGroup]="wineFormGroup" *ngIf="(wine$ | async) as wine; else loading">
+            <form [formGroup]="wineFormGroup" *ngIf="(wine$ | async) as wine; else loading">
                 <h3 i18n>Common Data</h3>
                 <mat-form-field>
                     <mat-label i18n>Name</mat-label>
@@ -97,7 +95,7 @@
                 </mat-nav-list>
                 <button mat-button color="accent" routerLink="/wines/add-vintage/{{wine._id}}"
                     [disabled]="!wineId">Jahrgang hinzufügen</button>
-            </div>
+            </form>
 
             <ng-template #loading i18n>
                 Loading wine...
