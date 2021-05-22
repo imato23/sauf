@@ -3,16 +3,8 @@
     height: 60px;
 }
 
-.mat-form-field-appearance-standard .mat-form-field-underline {
-    display:none;
-}
-
 .search-field{
     width: 100%;
-}
-
-.search-field .mat-form-field-underline{
-    display: none;
 }
 
 input {
@@ -34,3 +26,8 @@ input {
   color: #fff;
   opacity: 1; /* Firefox */
 }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
