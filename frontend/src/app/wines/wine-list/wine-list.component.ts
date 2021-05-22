@@ -12,12 +12,11 @@ import { WineCategory } from '../shared/models/wine-category.model';
   selector: 'app-wine-list',
   templateUrl: './wine-list.component.html',
   styleUrls: ['./wine-list.component.scss'],
-  //encapsulation: ViewEncapsulation.None
 })
 export class WineListComponent implements OnInit {
   @ViewChild('searchField') searchField!: ElementRef;
   public wines$: Observable<Wine[]>;
-  public dummyAvatar = 'assets/dummy-avatar.png';
+  public dummyAvatar = 'assets/no-wine-photo.png';
   public isSearchActive = false;
   public searchControl: FormControl = new FormControl('');
 
