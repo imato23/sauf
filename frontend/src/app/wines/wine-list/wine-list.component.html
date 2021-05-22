@@ -1,4 +1,4 @@
-<div class="page-container" fxLayout="column" fxLayoutGap="20px">
+<div class="page-container" fxLayout="column">
     <div class="toolbar-container">
         <mat-toolbar color="primary">
             <ng-container *ngIf="!isSearchActive">
@@ -16,7 +16,7 @@
                 <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="isSearchActive = false">
                     <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
                 </button>
-                <div class="search-container" style="width: 100%;">
+                <div class="search-container">
                     <input i18n-placeholder placeholder="Search" type="search" #searchField
                         [formControl]="searchControl" class="no-outline">
                 </div>
