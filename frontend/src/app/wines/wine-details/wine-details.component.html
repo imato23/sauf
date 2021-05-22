@@ -20,9 +20,7 @@
         </mat-toolbar>
     </div>
 
-    <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
-
-        <!-- image-->
+    <!--
         <div fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="stretch">
             <div class="image-container" fxFlex="300px">
                 <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
@@ -36,9 +34,26 @@
                 </div>
             </div>
         </div>
+-->
+
+    <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap=" 20px"
+        fxLayoutAlign="center start">
+
+        <!-- image-->
+        <div fxFlex="40%" style="border: 5px solid red" class="image-container" fxLayout="row">
+            <div style="border: 3px solid blue">
+                <img *ngIf="currentImage" [src]="currentImage" class="wine-image" />
+                <div class="image-floating-action-button">
+                    <button mat-mini-fab color="accent" (click)=onCaptureImage()>
+                        <mat-icon>photo_camera</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
 
         <!-- form -->
-        <div fxFlex>
+        <div fxFlex="60%" class="form">
             <form [formGroup]="wineFormGroup" *ngIf="(wine$ | async) as wine; else loading">
                 <h3 i18n>Common Data</h3>
                 <mat-form-field>
@@ -100,7 +115,8 @@
                             <h3 matLine>{{vintageInfo.vintage}}</h3>
                             <div fxLayout="row">
                                 <div fxFlex i18n>{vintageInfo.bottleCount,
-                                    plural, =1 {{{vintageInfo.bottleCount}} Bottle} other {{{vintageInfo.bottleCount}}
+                                    plural, =1 {{{vintageInfo.bottleCount}} Bottle} other
+                                    {{{vintageInfo.bottleCount}}
                                     Bottles}}</div>
                             </div>
                         </mat-list-item>
