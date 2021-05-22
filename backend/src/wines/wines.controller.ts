@@ -12,6 +12,21 @@ export class WinesController {
         return wines;
     }
 
+    @Get('producers')
+    async findAllProducers(): Promise<string[]> {
+        return await this.winesService.getAllProducers();
+    }
+
+    @Get('countries')
+    async findAllCountries(): Promise<string[]> {
+        return await this.winesService.getAllCountries();
+    }
+
+    @Get('regions')
+    async findAllRegions(): Promise<string[]> {
+        return await this.winesService.getAllRegions();
+    }
+
     @Get(':id')
     async findById(@Param('id') id: string): Promise<WineDto> {
         const wine: WineDto = await this.winesService.getWineById(id);

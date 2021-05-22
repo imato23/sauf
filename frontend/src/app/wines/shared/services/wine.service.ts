@@ -38,4 +38,16 @@ export class WineService {
     const enumKeys: string[] = Object.keys(WineCategory);
     return of(enumKeys);
   }
+
+  public getAllProducers(): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.winesApiUrl}/producers`);
+  }
+
+  public getAllCountries(): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.winesApiUrl}/countries`);
+  }
+
+  public getAllRegions(): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.winesApiUrl}/regions`);
+  }
 }
