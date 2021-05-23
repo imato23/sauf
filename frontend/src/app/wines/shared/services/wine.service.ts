@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Wine } from '../models/wine.model';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WineCategory } from '../models/wine-category.model';
+import { StorageLocation } from '../models/storage-location.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,14 @@ export class WineService {
   public getWine(wineId: string): Observable<Wine> {
     const url = `${this.winesApiUrl}/${wineId}`;
     return this.httpClient.get<Wine>(url);
+  }
+
+  public storageLocationsExist(
+    excludedWineId: string,
+    excludedVintage: number,
+    storageLocations: StorageLocation[]): Observable<boolean> {
+    return this.httpClient.post<boolean>(
+      `${this.winesApiUrl}/${excludedWineId}/vintage-infos/${excludedVintage}/storage-locations/exist`, storageLocations);
   }
 
   public getWines(): Observable<Wine[]> {

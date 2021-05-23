@@ -39,17 +39,6 @@ export class WinesController {
         return wine;
     }
 
-    @Get('storage-location/:row/:shelf')
-    async findByStorageLocation(@Param('row') row: number, @Param('shelf') shelf: number): Promise<WineDto> {
-        const wine: WineDto = await this.storageLocationService.getWineByStorageLocation(row, shelf);
-
-        if (!wine) {
-            throw new NotFoundException(`There is no wine stored at row ${row} and shelf ${shelf}.`);
-        }
-
-        return wine;
-    }
-
     @Post()
     async create(@Body() createWineDto: WineDto): Promise<WineDto> {
         return await this.winesService.addWine(createWineDto);
