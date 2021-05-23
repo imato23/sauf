@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, AbstractControlOptions } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { Observable, of } from 'rxjs';
 import { VintageInfoService } from '../shared/services/vintage-info.service';
 import { tap } from 'rxjs/operators';
+import { StorageLocationOccupiedValidator } from '../shared/validators/storage-location-occupied.validator';
 
 @Component({
   selector: 'app-vintage-details',
   templateUrl: './vintage-details.component.html',
   styleUrls: ['./vintage-details.component.scss']
 })
-export class VintageDetailsComponent implements OnInit {
+export class VintageDetailsComponent implements OnInit, AfterContentChecked {
   public wineId: string;
   public vintage: number;
   public vintageInfo$!: Observable<VintageInfo>;
@@ -23,12 +24,23 @@ export class VintageDetailsComponent implements OnInit {
     return this.vintageFormGroup.get('vintage');
   }
 
-  constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
-    private vintageInfoService: VintageInfoService, private snackBar: MatSnackBar, private router: Router, private location: Location) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private vintageInfoService: VintageInfoService,
+    private snackBar: MatSnackBar,
+    private location: Location,
+    private storageLocationOccupiedValidator: StorageLocationOccupiedValidator,
+    private cdref: ChangeDetectorRef) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
     this.vintage = this.activatedRoute.snapshot.params.vintage;
 
     const currentYear = new Date().getFullYear();
+
+    const controlOptions: AbstractControlOptions = {
+      asyncValidators: this.storageLocationOccupiedValidator.storageLocationOccupiedValidator(this.wineId, this.vintage),
+      updateOn: 'change'
+    };
 
     this.vintageFormGroup = this.formBuilder.group({
       vintage: ['', [Validators.required, Validators.min(currentYear - 20), Validators.max(currentYear)]],
@@ -36,7 +48,7 @@ export class VintageDetailsComponent implements OnInit {
       alcoholicStrength: [''],
       residualSugar: [''],
       tartaricAcid: [''],
-    });
+    }, controlOptions);
 
     if (this.vintage) {
       this.vintageInfo$ = vintageInfoService.getVintageInfo(this.wineId, this.vintage).pipe(tap((vintageInfo: VintageInfo) => {
@@ -49,6 +61,10 @@ export class VintageDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterContentChecked(): void {
+    this.cdref.detectChanges();
   }
 
   public onSave(): void {
