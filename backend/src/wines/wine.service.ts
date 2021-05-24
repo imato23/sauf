@@ -10,7 +10,7 @@ export class WineService {
     constructor(@InjectModel('Wine') private readonly wineModel: Model<Wine>, private mapper: MapperService) { }
 
     async getAllWines(): Promise<WineDto[]> {
-        const wines: Wine[] = (await this.wineModel.find().exec())
+        const wines: Wine[] = (await this.wineModel.find().sort({ "name": "asc" }).exec())
         return this.mapper.mapToWineDtoArray(wines);
     }
 
