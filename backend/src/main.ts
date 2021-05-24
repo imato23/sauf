@@ -4,6 +4,7 @@ import { INestApplication } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.interface';
 import * as fs from 'fs';
+import { json, urlencoded } from 'express';
 
 const httpsOptions: HttpsOptions = {
   key: fs.readFileSync('/etc/ssl/sauf.key.pem'),
@@ -16,6 +17,8 @@ async function bootstrap() {
   console.log(process.cwd());
 
   app.enableCors();
+  app.use(json({ limit: '50mb' }));
+  app.use(urlencoded({ extended: true, limit: '50mb' }));
 
   const options = new DocumentBuilder()
     .setTitle('S.A.U.F.')
