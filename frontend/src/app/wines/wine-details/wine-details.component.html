@@ -38,7 +38,7 @@
                 <h3 i18n>Common Data</h3>
                 <mat-form-field>
                     <mat-label i18n>Name</mat-label>
-                    <input matInput formControlName="name" required>
+                    <input matInput formControlName="name" trim="blur" required>
                     <mat-error *ngIf="nameField?.errors?.required" i18>Name is required.
                     </mat-error>
                 </mat-form-field>
@@ -55,7 +55,8 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Producer</mat-label>
-                    <input matInput formControlName="producer" required [matAutocomplete]="producerAutocomplete">
+                    <input matInput formControlName="producer" trim="blur" required
+                        [matAutocomplete]="producerAutocomplete">
                     <mat-autocomplete #producerAutocomplete="matAutocomplete">
                         <mat-option *ngFor="let producer of producers$|async" [value]="producer">
                             {{producer}}
@@ -66,7 +67,8 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Country</mat-label>
-                    <input matInput formControlName="country" required [matAutocomplete]="countryAutocomplete">
+                    <input matInput formControlName="country" trim="blur" required
+                        [matAutocomplete]="countryAutocomplete">
                     <mat-autocomplete #countryAutocomplete="matAutocomplete">
                         <mat-option *ngFor="let country of countries$|async" [value]="country">
                             {{country}}
@@ -77,7 +79,8 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label i18n>Region</mat-label>
-                    <input matInput formControlName="region" required [matAutocomplete]="regionAutocomplete">
+                    <input matInput formControlName="region" trim="blur" required
+                        [matAutocomplete]="regionAutocomplete">
                     <mat-autocomplete #regionAutocomplete="matAutocomplete">
                         <mat-option *ngFor="let region of regions$|async" [value]="region">
                             {{region}}

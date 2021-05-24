@@ -25,6 +25,7 @@
     "@angular/router": "~11.2.5",
     "@angular/service-worker": "~11.2.5",
     "c": "^1.1.1",
+    "ngx-trim-directive": "^1.1.0",
     "ngx-webcam": "^0.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
