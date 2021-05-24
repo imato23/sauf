@@ -26,18 +26,5 @@
         ]
       }
     }
-  ],
-  "dataGroups": [
-    {
-      "name": "api",
-      "urls": [
-        "https://tripoli.home.imato.de:3000/**"
-      ],
-      "cacheConfig": {
-        "maxSize": 0,
-        "maxAge": "1h",
-        "strategy": "freshness"
-      }
-    }
   ]
 }
