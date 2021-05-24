@@ -46,6 +46,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 
 @NgModule({
   declarations: [],
@@ -96,6 +97,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    NgxTrimDirectiveModule
   ],
   exports: [
     HttpClientModule,
@@ -144,6 +146,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    NgxTrimDirectiveModule
   ]
 })
 export class SharedModule { }
