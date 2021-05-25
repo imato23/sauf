@@ -6,7 +6,7 @@
                     *ngIf="isHandset$ | async">
                     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
                 </button>
-                <span i18n>Wine List</span>
+                <span>S.A.U.F.</span>
                 <span class="toolbar-spacer"></span>
                 <button mat-icon-button aria-label="Search" (click)="onActivateSearch()">
                     <mat-icon>search</mat-icon>
@@ -38,7 +38,8 @@
                             {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</span>
                     </p>
                     <div fxLayout="row">
-                        <div fxFlex i18n>{wine.bottleCount, plural, =1 {{{wine.bottleCount}}
+                        <div fxFlex="97px" class="bottle-count-column" i18n>{wine.bottleCount, plural, =1
+                            {{{wine.bottleCount}}
                             Bottle} other {{{wine.bottleCount}} Bottles}}</div>
                     </div>
                 </mat-list-item>
