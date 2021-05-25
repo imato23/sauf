@@ -21,7 +21,7 @@ jobs:
     env: 
       IMAGE_NAME: frontend
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    #if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
     env: 
       IMAGE_NAME: backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    #if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
