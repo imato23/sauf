@@ -1,11 +1,12 @@
 {
-  "name": "Sortiert alle unsere Flaschen",
+  "name": "Sortiere alle unsere Flaschen",
   "short_name": "S.A.U.F.",
+  "description": "Verwaltung für den privaten Weinkeller",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "/",
+  "scope": ".",
+  "start_url": "./",
   "icons": [
     {
       "src": "assets/icons/wine-icon-72x72.png",
