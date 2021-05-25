@@ -152,7 +152,7 @@
       </trans-unit>
       <trans-unit id="4099435363452133250" datatype="html">
         <source> One or more storage locations have been entered more than once. </source>
-        <target>Ein oder mehrere Lagerorte wurden mehrfach eingegeben.</target>
+        <target>Ein oder mehrere Lageorte sind doppelt vorhanden.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/store-bottles/store-bottles.component.html</context>
           <context context-type="linenumber">28,29</context>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="5381082291970004667" datatype="html">
         <source> One of the entered storage locations is already occupied. </source>
-        <target>Einer der eingegebenen Lagerorte ist bereits belegt.</target>
+        <target>Ein oder mehrere der eingegebenen Lagerorte sind bereits belegt.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/store-bottles/store-bottles.component.html</context>
           <context context-type="linenumber">31,32</context>
@@ -195,7 +195,7 @@
         <target>Allgemeine Daten</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
@@ -207,7 +207,7 @@
         <target>Jahrgang</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1421165867919527894" datatype="html">
@@ -215,7 +215,7 @@
         <target>Der Jahrgang muss eingegeben werden.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">30,31</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7390089133712514743" datatype="html">
@@ -223,7 +223,7 @@
         <target>Der Jahrgang ist zu klein</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6869132759539168906" datatype="html">
@@ -231,7 +231,7 @@
         <target>Der jahrgang ist zu groß.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">34,35</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8894377483833272091" datatype="html">
@@ -239,7 +239,7 @@
         <target>Preis</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1111424173534678290" datatype="html">
@@ -247,7 +247,7 @@
         <target>Alkohol (% vol)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3651057042727767917" datatype="html">
@@ -255,7 +255,7 @@
         <target>Restsüße (g/l)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8975516124740487860" datatype="html">
@@ -263,7 +263,7 @@
         <target>Säure (g/l)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8425178159112737562" datatype="html">
@@ -271,7 +271,7 @@
         <target>Einlagerungen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4412312126303507662" datatype="html">
@@ -279,7 +279,7 @@
         <target>Lade Jahrgang...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">59,60</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6570946099881745178" datatype="html">
@@ -287,7 +287,7 @@
         <target>Jahrgang löschen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/vintage-details/vintage-details.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3962148278417143434" datatype="html">
@@ -375,7 +375,7 @@
         <target>Der Hersteller muss eingegeben werden.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">64,65</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="516176798986294299" datatype="html">
@@ -383,7 +383,7 @@
         <target>Land</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4912877664792304237" datatype="html">
@@ -391,7 +391,7 @@
         <target>Das Land muss eingegeben werden.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">75,76</context>
+          <context context-type="linenumber">77,78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2702200797962830082" datatype="html">
@@ -399,7 +399,7 @@
         <target>Region</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1122480728750643599" datatype="html">
@@ -407,7 +407,7 @@
         <target>Die Region muss eingegeben werden.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">86,87</context>
+          <context context-type="linenumber">89,90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5768502667727169801" datatype="html">
@@ -415,7 +415,7 @@
         <target>Jahrgänge</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4196026537727232058" datatype="html">
@@ -425,7 +425,7 @@
                                     Flaschen}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">97,100</context>
+          <context context-type="linenumber">100,103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="950930723334427991" datatype="html">
@@ -433,7 +433,7 @@
         <target>Lade Wein...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">111,112</context>
+          <context context-type="linenumber">114,115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3069107851953706336" datatype="html">
@@ -441,7 +441,7 @@
         <target>Wein löschen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.html</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1840133918761890319" datatype="html">
@@ -450,14 +450,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-details/wine-details.component.ts</context>
           <context context-type="linenumber">102</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="450259486966752732" datatype="html">
-        <source>Wine List</source>
-        <target>Wein Liste</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4580988005648117665" datatype="html">
@@ -475,7 +467,7 @@
                             Flasche} other {<x id="INTERPOLATION"/> Flaschen}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">41,42</context>
+          <context context-type="linenumber">41,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3191312251786852010" datatype="html">
@@ -483,7 +475,7 @@
         <target>Lade Weine...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/wines/wine-list/wine-list.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
     </body>
