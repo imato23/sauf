@@ -1,0 +1,78 @@
+/* For use in src/lib/core/theming/_palette.scss */
+$md-saufpri: (
+    50: #ebe4e5,
+    100: #cebabf,
+    200: #ad8d95,
+    300: #8c5f6a,
+    400: #733c4a,
+    500: #5a1a2a,
+    600: #521725,
+    700: #48131f,
+    800: #3f0f19,
+    900: #2e080f,
+    A100: #ff687d,
+    A200: #ff3551,
+    A400: #ff0225,
+    A700: #e80020,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #ffffff,
+        A400: #ffffff,
+        A700: #ffffff,
+    ),
+);
+
+$md-saufalt: (
+    50: #fffefd,
+    100: #fffdf9,
+    200: #fffcf5,
+    300: #fffaf1,
+    400: #fff9ee,
+    500: #fff8eb,
+    600: #fff7e9,
+    700: #fff6e5,
+    800: #fff5e2,
+    900: #fff3dd,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #000000,
+        600: #000000,
+        700: #000000,
+        800: #000000,
+        900: #000000,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    ),
+);
+
+@import "../../node_modules/@angular/material/theming";
+
+@include mat-core();
+
+$custom-theme-primary: mat-palette($md-saufpri);
+$custom-theme-accent: mat-palette($md-saufalt);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme);
