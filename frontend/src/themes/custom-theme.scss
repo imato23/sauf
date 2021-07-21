@@ -2,14 +2,10 @@
 
 @include mat-core();
 
-$custom-theme-primary: mat-palette($mat-amber, 100);
-$custom-theme-accent: mat-palette($mat-amber, 100);
-$custom-theme-warn: mat-palette($mat-red);
+$custom-theme-primary: mat-palette($mat-red, 800, 50, 50);
+$custom-theme-accent: mat-palette($mat-yellow, 100);
+$custom-theme-warn: mat-palette($mat-orange);
 
 $custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 
 @include angular-material-theme($custom-theme);
-
-.mat-drawer-container {
-    background-color: #5e2129;
-}
