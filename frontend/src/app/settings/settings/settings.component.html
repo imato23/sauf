@@ -1,1 +1,33 @@
-<p>settings works!</p>
+<div class="page-container" fxLayout="column">
+    <div class="toolbar-container">
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="onToggleNavbar()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>Einstellungen</span>
+            <span class="toolbar-spacer"></span>
+            <button mat-icon-button aria-label="Save" (click)="onSave()" [disabled]="!settingsFormGroup.valid"
+                i18n-matTooltip matTooltip="Save changes">
+                <mat-icon>save</mat-icon>
+            </button>
+        </mat-toolbar>
+    </div>
+
+    <div class="content-container" fxFlex="auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+        <!-- form -->
+        <div fxFlex>
+            <form [formGroup]="settingsFormGroup">
+                <h3 i18n>Darstellung</h3>
+
+                <mat-form-field>
+                    <mat-label i18n>Theme</mat-label>
+                    <mat-select formControlName="theme" required>
+                        <mat-option *ngFor="let theme of availableThemes" [value]="theme">{{theme}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>
