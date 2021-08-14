@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './shared/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'S.A.U.F.';
+
+  public currentTheme = 'dark';
+
+  constructor(private themeService: ThemeService) {
+    this.themeService.onThemeChanged.subscribe((themeName: string) => {
+      this.currentTheme = themeName;
+    });
+  }
 }
