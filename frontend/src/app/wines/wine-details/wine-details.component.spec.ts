@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WineDetailsComponent } from './wine-details.component';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { of } from 'rxjs';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { WineService } from '../shared/services/wine.service';
 import { Wine } from '../shared/models/wine.model';
 import { WineCategory } from '../shared/models/wine-category.model';
@@ -32,7 +32,7 @@ describe('WineDetailsComponent', () => {
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteMock },
         { provide: WineService, useValue: wineServiceSpy },
-        FormBuilder],
+        UntypedFormBuilder],
     }).compileComponents();
   });
 

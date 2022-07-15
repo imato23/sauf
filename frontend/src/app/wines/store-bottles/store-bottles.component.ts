@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray, ValidationErrors, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray, ValidationErrors, FormControl } from '@angular/forms';
 import { StorageLocation } from '../shared/models/storage-location.model';
 import { duplicateStorageLocationsValidator } from '../shared/validators/duplicate-storage-locations.validator';
 
@@ -9,12 +9,12 @@ import { duplicateStorageLocationsValidator } from '../shared/validators/duplica
   styleUrls: ['./store-bottles.component.scss']
 })
 export class StoreBottlesComponent implements OnInit {
-  public vintageDetailsFormGroup!: FormGroup;
-  public storageLocationsFormArray: FormArray = new FormArray([]);
+  public vintageDetailsFormGroup!: UntypedFormGroup;
+  public storageLocationsFormArray: UntypedFormArray = new UntypedFormArray([]);
   public storageLocations: StorageLocation[] = [];
 
   @Input()
-  public set parentForm(parent: FormGroup) {
+  public set parentForm(parent: UntypedFormGroup) {
     this.vintageDetailsFormGroup = parent;
     this.vintageDetailsFormGroup.addControl('storageLocations', this.storageLocationsFormArray);
   }
@@ -31,7 +31,7 @@ export class StoreBottlesComponent implements OnInit {
     }
   }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {
@@ -48,12 +48,12 @@ export class StoreBottlesComponent implements OnInit {
   }
 
   public getStorageLocationErrors(index: number): ValidationErrors | null {
-    const storageLocationFormGroup: FormGroup = this.storageLocationsFormArray.controls[index] as FormGroup;
+    const storageLocationFormGroup: UntypedFormGroup = this.storageLocationsFormArray.controls[index] as UntypedFormGroup;
     return storageLocationFormGroup.errors;
   }
 
-  private buildStorageLocationFormGroup(storageLocation: StorageLocation): FormGroup {
-    const formGroup: FormGroup = this.formBuilder.group({
+  private buildStorageLocationFormGroup(storageLocation: StorageLocation): UntypedFormGroup {
+    const formGroup: UntypedFormGroup = this.formBuilder.group({
       row: [storageLocation.row, [Validators.required, Validators.min(1)]],
       shelf: [storageLocation.shelf, [Validators.required, Validators.min(1)]],
     });
