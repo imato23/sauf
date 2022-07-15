@@ -1,4 +1,5 @@
 /* For use in src/lib/core/theming/_palette.scss */
+@use '~@angular/material' as mat;
 $md-saufpri: (
     50: #ebe4e5,
     100: #cebabf,
@@ -67,12 +68,12 @@ $md-saufalt: (
 
 @import "../../node_modules/@angular/material/theming";
 
-@include mat-core();
+@include mat.core();
 
-$custom-theme-primary: mat-palette($md-saufpri);
-$custom-theme-accent: mat-palette($md-saufalt);
-$custom-theme-warn: mat-palette($mat-red);
+$custom-theme-primary: mat.define-palette($md-saufpri);
+$custom-theme-accent: mat.define-palette($md-saufalt);
+$custom-theme-warn: mat.define-palette(mat.$red-palette);
 
-$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+$custom-theme: mat.define-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 
-@include angular-material-theme($custom-theme);
+@include mat.all-component-themes($custom-theme);
