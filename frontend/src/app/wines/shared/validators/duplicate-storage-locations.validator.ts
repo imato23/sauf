@@ -1,4 +1,4 @@
-import { ValidatorFn, AbstractControl, ValidationErrors, FormArray, FormGroup } from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors, UntypedFormArray, FormGroup } from '@angular/forms';
 import { StorageLocation } from '../models/storage-location.model';
 /**
  * Checks that no storage location is duplicated in the passed StorageLocation form array.
@@ -7,7 +7,7 @@ import { StorageLocation } from '../models/storage-location.model';
  * @returns The object {duplicateStorageLocations :true} or null.
  */
 export const duplicateStorageLocationsValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const storageLocationsFormArray: FormArray = control as FormArray;
+  const storageLocationsFormArray: UntypedFormArray = control as UntypedFormArray;
 
   const storageLocations: StorageLocation[] = storageLocationsFormArray.controls
     .map((formGroup: AbstractControl) => ({ row: formGroup.get('row')?.value, shelf: formGroup.get('shelf')?.value }));

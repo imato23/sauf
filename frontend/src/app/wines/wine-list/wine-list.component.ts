@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { distinctUntilChanged, map, shareReplay, startWith, switchMap } from 'rxjs/operators';
 import { NavbarService } from 'src/app/core/shared/navbar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { WineCategory } from '../shared/models/wine-category.model';
 import { MatMenuItem } from '@angular/material/menu';
 import { FilterItem } from '../shared/models/filter-item.model';
@@ -20,7 +20,7 @@ export class WineListComponent implements OnInit {
   public wines$: Observable<Wine[]>;
   public dummyAvatar = 'assets/no-wine-photo.png';
   public isSearchActive = false;
-  public searchControl: FormControl = new FormControl('');
+  public searchControl: UntypedFormControl = new UntypedFormControl('');
   public filterItems: FilterItem[] = [
     { displayName: 'Alle', searchPattern: '', selected: true },
     { displayName: this.translateWineCategory(WineCategory.RedWine), searchPattern: 'rotwein', selected: false },

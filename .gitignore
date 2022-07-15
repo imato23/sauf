@@ -1,3 +1,4 @@
 dist/
 node_modules/
 frontend/src/locale/messages.xlf
+/frontend/.angular/cache/

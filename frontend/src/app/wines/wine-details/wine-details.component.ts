@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, AbstractControl } from '@angular/forms';
 import { WineService } from '../shared/services/wine.service';
 import { Observable, of } from 'rxjs';
 import { Wine } from '../shared/models/wine.model';
@@ -18,7 +18,7 @@ import { ImageCapturingComponent } from '../image-capturing/image-capturing.comp
 })
 export class WineDetailsComponent implements OnInit {
   public wineId: string;
-  public wineFormGroup: FormGroup;
+  public wineFormGroup: UntypedFormGroup;
   public categories$: Observable<string[]>;
   public wine$: Observable<Wine>;
   public currentImage: string | null = null;
@@ -47,7 +47,7 @@ export class WineDetailsComponent implements OnInit {
     return this.wineFormGroup.get('category');
   }
 
-  constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,
+  constructor(private activatedRoute: ActivatedRoute, private formBuilder: UntypedFormBuilder,
     private wineService: WineService, private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router) {
     this.wineId = this.activatedRoute.snapshot.params.wineId;
     this.categories$ = this.wineService.getWineCategories();
