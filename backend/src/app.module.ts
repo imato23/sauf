@@ -10,7 +10,7 @@ import { WinesModule } from './wines/wines.module';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('mongodb.uri'),
+        uri: configService.get<string>('MONGODB.URI'),
         useNewUrlParser: true,
         useUnifiedTopology: true
       }),

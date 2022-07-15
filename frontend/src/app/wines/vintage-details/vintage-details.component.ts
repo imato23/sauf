@@ -1,7 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, AbstractControl, AbstractControlOptions } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, AbstractControl, AbstractControlOptions } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { Observable, of } from 'rxjs';
@@ -18,7 +18,7 @@ export class VintageDetailsComponent implements OnInit, AfterContentChecked {
   public wineId: string;
   public vintage: number;
   public vintageInfo$!: Observable<VintageInfo>;
-  public vintageFormGroup: FormGroup;
+  public vintageFormGroup: UntypedFormGroup;
 
   get vintageFormItem(): AbstractControl | null {
     return this.vintageFormGroup.get('vintage');
@@ -26,7 +26,7 @@ export class VintageDetailsComponent implements OnInit, AfterContentChecked {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private vintageInfoService: VintageInfoService,
     private snackBar: MatSnackBar,
     private location: Location,
