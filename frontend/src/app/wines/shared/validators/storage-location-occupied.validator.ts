@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, ValidationErrors, AsyncValidatorFn, FormArray, FormGroup } from '@angular/forms';
+import { AbstractControl, ValidationErrors, AsyncValidatorFn, UntypedFormArray, UntypedFormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { StorageLocation } from '../models/storage-location.model';
@@ -13,8 +13,8 @@ export class StorageLocationOccupiedValidator {
 
     public storageLocationOccupiedValidator(excludedWineId: string, excludedVintage: number): AsyncValidatorFn {
         return (control: AbstractControl): Observable<ValidationErrors | null> => {
-            const vintageFormGroup = control as FormGroup;
-            const storageLocationsFormArray: FormArray = vintageFormGroup.get('storageLocations') as FormArray;
+            const vintageFormGroup = control as UntypedFormGroup;
+            const storageLocationsFormArray: UntypedFormArray = vintageFormGroup.get('storageLocations') as UntypedFormArray;
 
             if (!storageLocationsFormArray) {
                 return of(null);
