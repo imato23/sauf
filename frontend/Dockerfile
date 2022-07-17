@@ -1,8 +1,8 @@
 # Stage 0: compile angular frontend
-FROM node:14 as build
+FROM node:16 as build
 WORKDIR /app
 COPY . .
-RUN npm install npm@7
+RUN npm install npm@8
 RUN npm install -g @angular/cli
 RUN npm install
 RUN ng build --prod --localize
