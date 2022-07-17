@@ -5,7 +5,7 @@ COPY . .
 RUN npm install npm@8
 RUN npm install -g @angular/cli
 RUN npm install
-RUN ng build --localize
+RUN ng build --localize --configuration production
 
 # Stage 1: serve app with nginx server
 FROM nginx:latest
