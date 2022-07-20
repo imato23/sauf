@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
 
-  private themeChangedSubject: Subject<string> = new Subject<string>();
-  private currentTheme = 'dark';
+  private themeChangedSubject: BehaviorSubject<string> = new BehaviorSubject<string>('dark');
 
-  constructor() { }
+  constructor() {
+  }
 
   public get onThemeChanged(): Observable<string> {
     return this.themeChangedSubject.asObservable();
@@ -20,11 +20,10 @@ export class ThemeService {
   }
 
   public getCurrentTheme(): string {
-    return this.currentTheme;
+    return this.themeChangedSubject.value;
   }
 
   public changeTheme(themeName: string): void {
-    this.currentTheme = themeName;
     this.themeChangedSubject.next(themeName);
   }
 }
