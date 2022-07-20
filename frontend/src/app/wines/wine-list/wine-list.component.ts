@@ -39,7 +39,7 @@ export class WineListComponent implements OnInit {
 
   constructor(private wineService: WineService, private navbarService: NavbarService, private breakpointObserver: BreakpointObserver) {
     this.wines$ = this.processSearchPattern(this.searchControl.valueChanges);
-    this.isFilterActive$.subscribe(x => console.log('Filter active: ' + x));
+    this.isFilterActive$.subscribe((x: boolean) => console.log('Filter active: ' + x));
   }
 
   ngOnInit(): void {
