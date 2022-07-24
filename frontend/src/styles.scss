@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-//@import "./themes/dark-theme.scss";
-//@import "./themes/wine-theme.scss";
-@import "./themes/custom-theme.scss";
+@use "@angular/material" as mat;
+
+@use "src/themes/light";
+
+@include mat.core();
+
+@include mat.core-theme(light.$my-app-light-theme);
+@include mat.button-theme(light.$my-app-light-theme);
+@include mat.select-theme(light.$my-app-light-theme);
 
 html,
 body {
