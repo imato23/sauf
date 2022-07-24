@@ -16,7 +16,7 @@ export class ThemeService {
   }
 
   public getAvailableThemes(): string[] {
-    return ['dark', 'wine'];
+    return ['dark', 'wine', 'custom'];
   }
 
   public getCurrentTheme(): string {
