@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StyleManagerService} from './shared/style-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'S.A.U.F.';
+  public title = 'S.A.U.F.';
+  public isDark = this.styleManager.isDark;
+
+  constructor(private styleManager: StyleManagerService) {}
+
+  toggleDarkTheme(): void{
+    this.styleManager.toggleDarkTheme();
+    this.isDark = !this.isDark;
+  }
 }
