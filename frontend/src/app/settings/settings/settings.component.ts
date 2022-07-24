@@ -1,10 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { NavbarService } from 'src/app/core/shared/navbar.service';
 import { ThemeService } from 'src/app/shared/theme.service';
+import {StyleManagerService} from '../../shared/style-manager.service';
 
 @Component({
   selector: 'app-settings',
@@ -25,6 +26,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
+    private styleManager: StyleManagerService,
     private formBuilder: FormBuilder,
     private navbarService: NavbarService,
     private breakpointObserver: BreakpointObserver) {
@@ -32,7 +34,7 @@ export class SettingsComponent implements OnInit {
       theme: ['', Validators.required],
     });
 
-    this.availableThemes = themeService.getAvailableThemes();
+    this.availableThemes = ['Light', 'Dark'];
     this.settingsFormGroup.setValue({ theme: themeService.getCurrentTheme() });
   }
 
@@ -48,7 +50,6 @@ export class SettingsComponent implements OnInit {
   }
 
   public onSave(): void {
-    const selectedTheme: string = this.themeFormItem?.value;
-    this.themeService.changeTheme(selectedTheme);
+    this.styleManager.toggleDarkTheme();
   }
 }

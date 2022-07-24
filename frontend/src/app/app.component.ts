@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from './shared/theme.service';
-import {Observable, of} from "rxjs";
+import {StyleManagerService} from './shared/style-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,13 @@ import {Observable, of} from "rxjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'S.A.U.F.';
+  public title = 'S.A.U.F.';
+  public isDark = this.styleManager.isDark;
 
-  public currentTheme!: string;
+  constructor(private styleManager: StyleManagerService) {}
 
-  constructor(private themeService: ThemeService) {
-    this.themeService.onThemeChanged.subscribe((theme: string) => {
-      this.currentTheme = theme;
-    });
-
-    // this.themeService.onThemeChanged.subscribe((themeName: string) => {
-    //   this.currentTheme = themeName;
-    // });
+  toggleDarkTheme(): void{
+    this.styleManager.toggleDarkTheme();
+    this.isDark = !this.isDark;
   }
 }

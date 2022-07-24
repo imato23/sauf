@@ -9,8 +9,4 @@ $custom-theme-warn: mat.define-palette(mat.$orange-palette);
 
 $custom-theme: mat.define-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 
-//@include mat.all-component-themes($custom-theme);
-
-.custom {
-  @include angular-material-theme($custom-theme);
-}
+@include mat.all-component-themes($custom-theme);
