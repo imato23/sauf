@@ -7,8 +7,8 @@ import * as fs from 'fs';
 import { json, urlencoded } from 'express';
 
 const httpsOptions: HttpsOptions = {
-  key: fs.readFileSync('/etc/ssl/sauf.key.pem'),
-  cert: fs.readFileSync('/etc/ssl/sauf.cert.pem'),
+  key: fs.readFileSync('/etc/ssl/sauf.home.imato.de/key.pem'),
+  cert: fs.readFileSync('/etc/ssl/sauf.home.imato.de/cert.pem'),
 };
 
 async function bootstrap() {
