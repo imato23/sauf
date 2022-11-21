@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://tripoli.home.imato.de:3000'
+  apiUrl: 'https://sauf.home.imato.de:3000'
 };
