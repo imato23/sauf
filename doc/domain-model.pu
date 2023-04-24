@@ -1,0 +1,62 @@
+@startuml sauf-domain-model
+class Wine
+{
+    name: string;
+    category: string
+    country: string
+    region: string
+    producer: string
+    vintageInfos: VintageInfo[]
+    image: Buffer
+    createdOn: Date
+    updatedOn: Date
+}
+
+class VintageInfo {
+    vintage: number
+    price: number
+    alcoholicStrength: number
+    residualSugar: number
+    tartaricAcid: number
+    storageLocations: StorageLocation[]
+    history: BottleHistoryEntry[]
+}
+
+class OrderedStorageLocation {
+    row: number
+    shelf: number
+}
+
+class ChaoticStorageLocation {
+    quantity: number
+}
+
+
+class BottleHistoryEntry {
+    date: Date
+    action: string
+    bottleCount: number
+}
+
+class StorageLocation{
+}
+
+class OrderedStorageLocationDefinition{
+    rowCount: number
+    shelfCount: number
+}
+
+class ChaoticStorageLocationDefinition{
+    quantity: number
+}
+
+OrderedStorageLocation --|> StorageLocation
+ChaoticStorageLocation --|> StorageLocation
+
+Wine *-- VintageInfo
+VintageInfo *-- StorageLocation
+VintageInfo o-- BottleHistoryEntry
+
+hide empty members
+
+@enduml
