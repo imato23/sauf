@@ -1,5 +1,4 @@
 /* For use in src/lib/core/theming/_palette.scss */
-@use '@angular/material' as mat;
 $md-saufpri: (
     50: #ebe4e5,
     100: #cebabf,
@@ -68,12 +67,43 @@ $md-saufalt: (
 
 @import "../../node_modules/@angular/material/theming";
 
-@include mat.core();
+@include mat-core();
 
-$custom-theme-primary: mat.define-palette($md-saufpri);
-$custom-theme-accent: mat.define-palette($md-saufalt);
-$custom-theme-warn: mat.define-palette(mat.$red-palette);
+$wine-primary: mat-palette($md-saufpri);
+$wine-accent: mat-palette($md-saufalt);
+$wine-warn: mat-palette($mat-red);
 
-$custom-theme: mat.define-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+// $mat-light-theme-background: map-merge(
+//     $mat-light-theme-background,
+//     (
+//         app-bar: map-get($mat-yellow, A100),
+//         // Change color to whatever you want.
+//         background: map-get($mat-yellow, A100) // Change color to whatever you want. ,,,,,,
+//     )
+// );
 
-@include mat.all-component-themes($custom-theme);
+$wine-theme: mat-light-theme($wine-primary, $wine-accent, $wine-warn);
+
+// Set custom background color
+$custom-background-color: map_get($mat-blue-grey, 50);
+
+// -or- Can set colour by hex value too
+$custom-background-color: #628cc9;
+
+$background: map-get($wine-theme, background);
+$background: map_merge(
+    $background,
+    (
+        background: $custom-background-color,
+    )
+);
+$wine-theme: map_merge(
+    $wine-theme,
+    (
+        background: $background,
+    )
+);
+
+.wine {
+    @include angular-material-theme($wine-theme);
+}
