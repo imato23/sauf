@@ -27,12 +27,12 @@ export class StorageLocationService {
         return await this.vintageInfoService.updateVintageInfo(wineId, vintage, vintageInfo);
     }
 
-    async storageLocationsExist(excludedWineId: string, exlucedVintage: number, storageLocations: StorageLocationDto[]): Promise<boolean> {
+    async storageLocationsExist(excludedWineId: string, excludedVintage: number, storageLocations: StorageLocationDto[]): Promise<boolean> {
         const wines: WineDto[] = await this.wineService.getAllWines();
 
         for (const wine of wines) {
             for (const vintageInfo of wine.vintageInfos) {
-                if (wine._id.toString() === excludedWineId && vintageInfo.vintage === +exlucedVintage) {
+                if (wine._id.toString() === excludedWineId && vintageInfo.vintage === +excludedVintage) {
                     // Ignore the currently opened wine and vintage
                     continue;
                 }
@@ -44,8 +44,8 @@ export class StorageLocationService {
                     }
                 }
             }
-
-            return false;
         }
+
+        return false;
     }
 }
