@@ -39,19 +39,14 @@ export class StoreBottlesComponent implements OnInit {
   }
 
   public onAddStorageLocation(): void {
-    const storageLocation: StorageLocation = {row: undefined, shelf: undefined};
-    this.storageLocations.push(storageLocation);
-    this.storageLocationsFormArray.push(this.buildStorageLocationFormGroup(storageLocation));
-  }
-
-  onAddStorageLocation1() {
-    this.vintageInfoService.getNextAvailableStorageLocation().subscribe((storageLocation: StorageLocation) => {
+    this.vintageInfoService.getNextAvailableStorageLocation(this.storageLocations).subscribe((storageLocation: StorageLocation) => {
       this.storageLocations.push(storageLocation);
       this.storageLocationsFormArray.push(this.buildStorageLocationFormGroup(storageLocation));
     });
   }
 
   public onRemoveStorageLocation(index: number): void {
+    this.storageLocations.splice(index, 1);
     this.storageLocationsFormArray.removeAt(index);
   }
 
