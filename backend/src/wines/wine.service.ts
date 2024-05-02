@@ -35,7 +35,7 @@ export class WineService {
     }
 
     async deleteWine(wineId: string): Promise<WineDto> {
-        const deletedWine = await this.wineModel.findByIdAndRemove(wineId);
+        const deletedWine = await this.wineModel.findByIdAndDelete(wineId);
         return deletedWine as unknown as WineDto;
     }
 
