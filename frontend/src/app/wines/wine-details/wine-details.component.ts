@@ -5,10 +5,10 @@ import { WineService } from '../shared/services/wine.service';
 import { Observable, of } from 'rxjs';
 import { Wine } from '../shared/models/wine.model';
 import { tap } from 'rxjs/operators';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar as MatSnackBar } from '@angular/material/snack-bar';
 import { WineCategory } from '../shared/models/wine-category.model';
 import { WebcamImage } from 'ngx-webcam';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog as MatDialog } from '@angular/material/dialog';
 import { ImageCapturingComponent } from '../image-capturing/image-capturing.component';
 
 @Component({

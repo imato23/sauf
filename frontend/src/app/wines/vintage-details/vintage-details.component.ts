@@ -2,7 +2,7 @@ import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angu
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, AbstractControl, AbstractControlOptions } from '@angular/forms';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar as MatSnackBar } from '@angular/material/snack-bar';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { Observable, of } from 'rxjs';
 import { VintageInfoService } from '../shared/services/vintage-info.service';
