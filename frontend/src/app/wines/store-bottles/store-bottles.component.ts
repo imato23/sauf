@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray, ValidationErrors, FormControl } from '@angular/forms';
-import { StorageLocation } from '../shared/models/storage-location.model';
-import { duplicateStorageLocationsValidator } from '../shared/validators/duplicate-storage-locations.validator';
+import {Component, Input, OnInit} from '@angular/core';
+import {UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {StorageLocation} from '../shared/models/storage-location.model';
+import {duplicateStorageLocationsValidator} from '../shared/validators/duplicate-storage-locations.validator';
+import {VintageInfoService} from '../shared/services/vintage-info.service';
 
 @Component({
   selector: 'app-store-bottles',
@@ -12,6 +13,9 @@ export class StoreBottlesComponent implements OnInit {
   public vintageDetailsFormGroup!: UntypedFormGroup;
   public storageLocationsFormArray: UntypedFormArray = new UntypedFormArray([]);
   public storageLocations: StorageLocation[] = [];
+
+  constructor(private formBuilder: UntypedFormBuilder, private vintageInfoService: VintageInfoService) {
+  }
 
   @Input()
   public set parentForm(parent: UntypedFormGroup) {
@@ -31,19 +35,18 @@ export class StoreBottlesComponent implements OnInit {
     }
   }
 
-  constructor(private formBuilder: UntypedFormBuilder) {
-  }
-
   ngOnInit(): void {
   }
 
   public onAddStorageLocation(): void {
-    const storageLocation: StorageLocation = { row: undefined, shelf: undefined };
-    this.storageLocations.push(storageLocation);
-    this.storageLocationsFormArray.push(this.buildStorageLocationFormGroup(storageLocation));
+    this.vintageInfoService.getNextAvailableStorageLocation(this.storageLocations).subscribe((storageLocation: StorageLocation) => {
+      this.storageLocations.push(storageLocation);
+      this.storageLocationsFormArray.push(this.buildStorageLocationFormGroup(storageLocation));
+    });
   }
 
   public onRemoveStorageLocation(index: number): void {
+    this.storageLocations.splice(index, 1);
     this.storageLocationsFormArray.removeAt(index);
   }
 
