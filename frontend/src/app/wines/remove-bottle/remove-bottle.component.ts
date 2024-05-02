@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, switchMap, filter } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { StorageInfo } from '../shared/models/storage-info.model';
 import { VintageInfo } from '../shared/models/vintage-info.model';
 import { VintageInfoService } from '../shared/services/vintage-info.service';
 import { RemoveBottleDialogComponent } from '../remove-bottle-dialog/remove-bottle-dialog.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { WineService } from '../shared/services/wine.service';
 import { Wine } from '../shared/models/wine.model';
 

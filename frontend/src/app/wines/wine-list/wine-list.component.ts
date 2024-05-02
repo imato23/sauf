@@ -7,7 +7,7 @@ import { NavbarService } from 'src/app/core/shared/navbar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { UntypedFormControl } from '@angular/forms';
 import { WineCategory } from '../shared/models/wine-category.model';
-import { MatMenuItem } from '@angular/material/menu';
+import { MatLegacyMenuItem as MatMenuItem } from '@angular/material/legacy-menu';
 import { FilterItem } from '../shared/models/filter-item.model';
 
 @Component({
