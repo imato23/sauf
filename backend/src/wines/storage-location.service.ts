@@ -54,9 +54,11 @@ export class StorageLocationService {
         const maxRows = 19;
         const shelvesPerRow = 6;
 
+        const result: StorageLocationDto[] = [];
+
         const occupiedStorageLocations: StorageLocationDto[] = await this.getOccupiedStorageLocations();
 
-        for (let row = 1; row < maxRows; row++) {
+        for (let row = 1; row <= maxRows; row++) {
             const occupiedStorageLocationsInRow: StorageLocationDto[] =
                 occupiedStorageLocations.filter((storageLocation: StorageLocationDto) => storageLocation.row === row);
 
@@ -65,7 +67,7 @@ export class StorageLocationService {
                 continue;
             }
 
-            for (let shelf = 1; shelf < shelvesPerRow; shelf++) {
+            for (let shelf = 1; shelf <= shelvesPerRow; shelf++) {
                 if (occupiedStorageLocationsInRow.some((storageLocation: StorageLocationDto) => storageLocation.shelf === shelf)) {
                     continue;
                 }
@@ -84,10 +86,26 @@ export class StorageLocationService {
     private async getOccupiedStorageLocations(): Promise<StorageLocationDto[]> {
         const wines: WineDto[] = await this.wineService.getAllWines()
 
-        return wines.flatMap((wine: WineDto) =>
+        const storageLocations: StorageLocationDto[] = wines.flatMap((wine: WineDto) =>
             wine.vintageInfos.flatMap(
-                (vintageInfo: VintageInfoDto) => vintageInfo.storageLocations,
-            ),
-        );
+                (vintageInfo: VintageInfoDto) => vintageInfo.storageLocations));
+
+        const storageLocationsSorted: StorageLocationDto[] =
+            storageLocations.sort((a: StorageLocationDto, b: StorageLocationDto) =>
+                this.sortStorageLocations(a, b));
+
+        return storageLocationsSorted;
+    }
+
+    private sortStorageLocations(a: StorageLocationDto, b: StorageLocationDto): number {
+        if (a.row < b.row) {
+            return -1;
+        }
+
+        if (a.row > b.row) {
+            return 1;
+        }
+
+        return (a.shelf < b.shelf) ? -1 : 1;
     }
 }
