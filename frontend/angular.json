@@ -87,8 +87,8 @@
           "options": {
             "browserTarget": "frontend:build",
             "ssl": true,
-            "sslCert": "certs/sauf.home.imato.de/cert.pem",
-            "sslKey": "certs/sauf.home.imato.de/key.pem"
+            "sslCert": "certs/sauf.home.imato.de_cert.pem",
+            "sslKey": "certs/sauf.home.imato.de_key.pem"
           },
           "configurations": {
             "production": {

@@ -1,22 +1,22 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from 'mongoose';
-import { VintageInfo } from "./vintage-info.schema";
+import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose";
+import {Document} from 'mongoose';
+import {VintageInfo} from "./vintage-info.schema";
 
 @Schema()
-export class Wine extends Document {
-    @Prop({ required: true })
+export class Wine extends Document<string> {
+    @Prop({required: true})
     name: string;
 
-    @Prop({ required: true, enum: ['WhiteWine', 'RedWine', 'RoseWine', 'SparklingWine'] })
+    @Prop({required: true, enum: ['WhiteWine', 'RedWine', 'RoseWine', 'SparklingWine']})
     category: string;
 
-    @Prop({ required: true })
+    @Prop({required: true})
     country: string;
 
-    @Prop({ required: true })
+    @Prop({required: true})
     region: string;
 
-    @Prop({ required: true })
+    @Prop({required: true})
     producer: string;
 
     @Prop()
@@ -25,10 +25,10 @@ export class Wine extends Document {
     @Prop()
     image: Buffer;
 
-    @Prop({ required: true })
+    @Prop({required: true})
     createdOn: Date;
 
-    @Prop({ required: true })
+    @Prop({required: true})
     updatedOn: Date;
 }
 
