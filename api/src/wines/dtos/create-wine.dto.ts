@@ -1,4 +1,5 @@
 import { WineCategoryDto } from './wine-category.dto';
+import { VintageInfoDto } from './vintage-Info.dto';
 
 export class CreateWineDto {
   readonly name: string;
@@ -6,7 +7,7 @@ export class CreateWineDto {
   readonly country: string;
   readonly region: string;
   readonly producer: string;
-  //readonly vintageInfos: VintageInfoDto[];
+  readonly vintageInfos: VintageInfoDto[];
 
   //@ApiProperty({ type: () => Buffer })
   readonly image: Buffer;
