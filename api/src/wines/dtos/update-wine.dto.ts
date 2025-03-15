@@ -11,5 +11,4 @@ export class UpdateWineDto {
 
   //@ApiProperty({ type: () => Buffer })
   readonly image: Buffer;
-  readonly bottleCount: number;
 }

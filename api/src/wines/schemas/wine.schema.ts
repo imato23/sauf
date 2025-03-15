@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import { VintageInfo } from './vintage-info.schema';
+import { WineCategoryDto } from '../dtos/wine-category.dto';
 
 export type WineDocument = HydratedDocument<Wine>;
 

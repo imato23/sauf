@@ -18,27 +18,27 @@ export class WinesController {
   constructor(private readonly winesService: WinesService) {}
 
   @Get()
-  async findAll(): Promise<Wine[]> {
+  async getAllWines(): Promise<Wine[]> {
     return await this.winesService.getAllWines();
   }
 
   @Get('producers')
-  async findAllProducers(): Promise<string[]> {
+  async getAllProducers(): Promise<string[]> {
     return await this.winesService.getAllProducers();
   }
 
   @Get('countries')
-  async findAllCountries(): Promise<string[]> {
+  async getAllCountries(): Promise<string[]> {
     return await this.winesService.getAllCountries();
   }
 
   @Get('regions')
-  async findAllRegions(): Promise<string[]> {
+  async getAllRegions(): Promise<string[]> {
     return await this.winesService.getAllRegions();
   }
 
   @Get(':id')
-  async findById(@Param('id') id: string): Promise<Wine> {
+  async getWineById(@Param('id') id: string): Promise<Wine> {
     const wine: Wine = await this.winesService.getWineById(id);
 
     if (!wine) {
@@ -49,12 +49,12 @@ export class WinesController {
   }
 
   @Post()
-  async create(@Body() createWineDto: CreateWineDto): Promise<Wine> {
+  async addWine(@Body() createWineDto: CreateWineDto): Promise<Wine> {
     return await this.winesService.addWine(createWineDto);
   }
 
   @Put(':id')
-  async update(
+  async updateWine(
     @Param('id') id: string,
     @Body() updateWineDto: UpdateWineDto,
   ): Promise<Wine> {
@@ -62,7 +62,7 @@ export class WinesController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<Wine> {
+  async deleteWine(@Param('id') id: string): Promise<Wine> {
     return await this.winesService.deleteWine(id);
   }
 }
