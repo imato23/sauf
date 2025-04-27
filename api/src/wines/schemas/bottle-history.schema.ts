@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
@@ -6,6 +7,7 @@ export type BottleHistoryEntryDocument = HydratedDocument<BottleHistoryEntry>;
 @Schema()
 export class BottleHistoryEntry {
   @Prop({ required: true, type: Date })
+  @AutoMap()
   date: Date;
 
   @Prop({
@@ -13,9 +15,11 @@ export class BottleHistoryEntry {
     enum: ['bottlesRemoved', 'bottlesAdded'],
     type: String,
   })
+  @AutoMap()
   action: string;
 
   @Prop({ required: true, type: Number })
+  @AutoMap()
   bottleCount: number;
 }
 

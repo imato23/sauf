@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { WinesModule } from './wines/wines.module';
+import { AutomapperModule } from '@automapper/nestjs';
+import { classes } from '@automapper/classes';
 
 @Module({
   imports: [
@@ -14,6 +16,9 @@ import { WinesModule } from './wines/wines.module';
         uri: configService.get<string>('MONGODB.URI'),
       }),
       inject: [ConfigService],
+    }),
+    AutomapperModule.forRoot({
+      strategyInitializer: classes(),
     }),
     WinesModule,
   ],

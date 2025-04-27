@@ -20,6 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@automapper/classes": "^8.8.1",
+    "@automapper/core": "^8.8.1",
+    "@automapper/nestjs": "^8.8.1",
     "@nestjs/common": "^11.0.5",
     "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.5",
@@ -52,6 +55,15 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "@automapper/classes": {
+      "reflect-metadata": "^0.2.2"
+    },
+    "@automapper/nestjs": {
+      "@nestjs/common": "^11.0.0",
+      "@nestjs/core": "^11.0.0"
+    }
   },
   "jest": {
     "moduleFileExtensions": [

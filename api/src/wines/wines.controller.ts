@@ -12,13 +12,14 @@ import { CreateWineDto } from './dtos/create-wine.dto';
 import { UpdateWineDto } from './dtos/update-wine.dto';
 import { Wine } from './schemas/wine.schema';
 import { WinesService } from './wines.service';
+import { WineDto } from './dtos/wine.dto';
 
 @Controller('wines')
 export class WinesController {
   constructor(private readonly winesService: WinesService) {}
 
   @Get()
-  async getAllWines(): Promise<Wine[]> {
+  async getAllWines(): Promise<WineDto[]> {
     return await this.winesService.getAllWines();
   }
 
@@ -38,18 +39,18 @@ export class WinesController {
   }
 
   @Get(':id')
-  async getWineById(@Param('id') id: string): Promise<Wine> {
-    const wine: Wine = await this.winesService.getWineById(id);
+  async getWineById(@Param('id') id: string): Promise<WineDto> {
+    const wineDto: WineDto = await this.winesService.getWineById(id);
 
-    if (!wine) {
+    if (!wineDto) {
       throw new NotFoundException(`The wine with id '${id}' does not exist.`);
     }
 
-    return wine;
+    return wineDto;
   }
 
   @Post()
-  async addWine(@Body() createWineDto: CreateWineDto): Promise<Wine> {
+  async addWine(@Body() createWineDto: CreateWineDto): Promise<WineDto> {
     return await this.winesService.addWine(createWineDto);
   }
 
@@ -62,7 +63,7 @@ export class WinesController {
   }
 
   @Delete(':id')
-  async deleteWine(@Param('id') id: string): Promise<Wine> {
+  async deleteWine(@Param('id') id: string): Promise<WineDto> {
     return await this.winesService.deleteWine(id);
   }
 }
