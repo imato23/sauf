@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebcamImage, WebcamModule } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
@@ -13,17 +13,21 @@ import { NgIf } from '@angular/common';
     MatIcon,
     MatIconButton,
     NgIf,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogTitle,
   ],
   templateUrl: './image-capturing.component.html',
   styleUrl: './image-capturing.component.scss',
 })
 export class ImageCapturingComponent implements OnInit {
   public webcamImage: WebcamImage | null = null;
-  public webcamWidth = window.innerWidth - 150;
-  public webcamHeight = window.innerHeight - 150;
+  public webcamWidth = window.innerWidth - 300;
+  public webcamHeight = window.innerHeight - 300;
   private trigger: Subject<void> = new Subject<void>();
 
   constructor(public dialogRef: MatDialogRef<ImageCapturingComponent>) {
+    console.log(`Webcam Width: ${this.webcamWidth}, Height: ${this.webcamHeight}`);
   }
 
   public get triggerObservable(): Observable<void> {

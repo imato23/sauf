@@ -1,20 +1,22 @@
-<div class="column-container">
-  <div *ngIf="!webcamImage" class="column-container">
-    <div>
-      <webcam (imageCapture)="onCaptureImage($event)" [height]="webcamHeight" [trigger]="triggerObservable"
-              [width]="webcamWidth"></webcam>
-    </div>
-    <div class="center-align">
+<div>
+  <h2 i18n mat-dialog-title>Capture Image</h2>
+  <mat-dialog-content>
+    <ng-container *ngIf="!webcamImage" class="column-container">
+      <webcam (imageCapture)="onCaptureImage($event)" [height]="webcamHeight"
+              [trigger]="triggerObservable" [width]="webcamWidth"></webcam>
+    </ng-container>
+    <ng-container *ngIf="webcamImage">
+      <img [src]="webcamImage.imageAsDataUrl" alt="Webcam Image" class="captured-image" />
+    </ng-container>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <ng-container *ngIf="!webcamImage">
       <button (click)="onTriggerSnapshot()" mat-icon-button>
         <mat-icon>camera</mat-icon>
       </button>
-    </div>
-  </div>
-  <div *ngIf="webcamImage">
-    <div>
-      <img [src]="webcamImage.imageAsDataUrl" alt="Webcam Image" class="captured-image" />
-    </div>
-    <div class="row-container space-evenly">
+    </ng-container>
+    <ng-container *ngIf="webcamImage">
       <button (click)="onRetry()" mat-icon-button>
         <mat-icon>refresh</mat-icon>
       </button>
@@ -24,6 +26,6 @@
       <button (click)="onCancel()" mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
-    </div>
-  </div>
+    </ng-container>
+  </mat-dialog-actions>
 </div>

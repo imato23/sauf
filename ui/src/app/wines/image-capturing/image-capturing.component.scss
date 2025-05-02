@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 .column-container {
   display: flex;
   flex-direction: column;
@@ -15,4 +17,19 @@
 
 .space-evenly {
   justify-content: space-evenly;
+}
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+.webcam-image {
+  @include mat.dialog-overrides((
+    container-color: orange,
+    subhead-color: red,
+    container-max-width: 2000px
+  ));
+
+  .captured-image {
+    max-width: 70vw;
+    max-height: 65vh;
+    object-fit: contain;
+  }
 }
