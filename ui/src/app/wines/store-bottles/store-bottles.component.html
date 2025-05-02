@@ -1,0 +1,52 @@
+<div [formGroup]="vintageDetailsFormGroup">
+  <div formArrayName="storageLocations">
+    <!-- Liste der Lagerplätze -->
+    <div *ngFor="let storageLocationFormGroup of storageLocationsFormArray.controls; index as storageLocationIndex">
+      <div [formGroupName]="storageLocationIndex">
+        <div class="storage">
+          <div class="storage-field">
+            <mat-form-field>
+              <mat-label i18n>Row</mat-label>
+              <input formControlName="row" matInput min="1" required type="number">
+            </mat-form-field>
+          </div>
+          <div class="storage-field">
+            <mat-form-field>
+              <mat-label i18n>Shelf</mat-label>
+              <input formControlName="shelf" matInput min="1" required type="number">
+            </mat-form-field>
+          </div>
+          <div>
+            <button (click)="onRemoveStorageLocation(storageLocationIndex)"
+                    color="accent"
+                    mat-icon-button
+                    type="button">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fehlermeldungen -->
+    <mat-error *ngIf="storageLocationsFormArray.errors?.['duplicateStorageLocations']"
+               class="custom-error"
+               i18n>
+      One or more storage locations have been entered more than once.
+    </mat-error>
+    <mat-error *ngIf="vintageDetailsFormGroup.errors?.['storageLocationOccupied']"
+               class="custom-error"
+               i18n>
+      One of the entered storage locations is already occupied.
+    </mat-error>
+
+    <!-- Button zum Hinzufügen -->
+    <button (click)="onAddStorageLocation()"
+            color="accent"
+            i18n
+            mat-button
+            type="button">
+      Add bottle
+    </button>
+  </div>
+</div>

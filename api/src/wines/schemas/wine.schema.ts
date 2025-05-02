@@ -1,12 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 import { VintageInfo } from './vintage-info.schema';
 import { AutoMap } from '@automapper/classes';
 
 export type WineDocument = HydratedDocument<Wine>;
 
 @Schema()
-export class Wine {
+export class Wine extends Document<string> {
   @Prop({ required: true, type: String })
   @AutoMap()
   name: string;

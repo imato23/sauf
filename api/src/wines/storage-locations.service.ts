@@ -3,10 +3,9 @@ import { VintageInfosService } from './vintage-infos.service';
 import { BottleHistoryService } from './bottle-history.service';
 import { WinesService } from './wines.service';
 import { StorageLocationDto } from './dtos/storage-location.dto';
-import { Wine, WineDocument } from './schemas/wine.schema';
-import { VintageInfo } from './schemas/vintage-info.schema';
-import { Model } from 'mongoose';
 import { StorageLocation } from './schemas/storage-location.schema';
+import { WineDto } from './dtos/wine.dto';
+import { VintageInfoDto } from './dtos/vintage-Info.dto';
 
 @Injectable()
 export class StorageLocationsService {
@@ -20,21 +19,22 @@ export class StorageLocationsService {
     wineId: string,
     vintage: number,
     storageLocationDto: StorageLocationDto,
-  ): Promise<Wine> {
-    const vintageInfo: VintageInfo =
+  ): Promise<WineDto> {
+    const vintageInfo: VintageInfoDto =
       await this.vintageInfosService.getVintageInfoByVintage(wineId, vintage);
 
-    const index: number = vintageInfo.storageLocations.findIndex(
-      (storageLocation: StorageLocation) =>
-        storageLocation.row === storageLocationDto.row &&
-        storageLocation.shelf === storageLocationDto.shelf,
-    );
+    const storageLocationIndexToRemove: number =
+      vintageInfo.storageLocations.findIndex(
+        (storageLocation: StorageLocation) =>
+          storageLocation.row === storageLocationDto.row &&
+          storageLocation.shelf === storageLocationDto.shelf,
+      );
 
-    if (index === -1) {
+    if (storageLocationIndexToRemove === -1) {
       return;
     }
 
-    vintageInfo.storageLocations.splice(index, 1);
+    vintageInfo.storageLocations.splice(storageLocationIndexToRemove, 1);
 
     //this.bottleHistoryService.logBottlesRemoved(vintageInfo, 1);
 
@@ -50,14 +50,12 @@ export class StorageLocationsService {
     excludedVintage: number,
     storageLocationDtos: StorageLocationDto[],
   ): Promise<boolean> {
-    const wines: Wine[] = await this.winesService.getAllWines();
+    const wines: WineDto[] = await this.winesService.getAllWines();
 
     for (const wine of wines) {
       for (const vintageInfo of wine.vintageInfos) {
-        const wineModel: WineDocument = new Model<Wine>(wine);
-
         if (
-          wineModel.id === excludedWineId &&
+          wine.id === excludedWineId &&
           vintageInfo.vintage === +excludedVintage
         ) {
           // Ignore the excluded wine and vintage
@@ -127,13 +125,14 @@ export class StorageLocationsService {
     return null;
   }
 
-  private async getOccupiedStorageLocations(): Promise<StorageLocation[]> {
-    const wines: Wine[] = await this.winesService.getAllWines();
+  private async getOccupiedStorageLocations(): Promise<StorageLocationDto[]> {
+    const wines: WineDto[] = await this.winesService.getAllWines();
 
-    const storageLocations: StorageLocation[] = wines.flatMap((wine: Wine) =>
-      wine.vintageInfos.flatMap(
-        (vintageInfo: VintageInfo) => vintageInfo.storageLocations,
-      ),
+    const storageLocations: StorageLocationDto[] = wines.flatMap(
+      (wine: WineDto) =>
+        wine.vintageInfos.flatMap(
+          (vintageInfo: VintageInfoDto) => vintageInfo.storageLocations,
+        ),
     );
 
     return storageLocations.sort(

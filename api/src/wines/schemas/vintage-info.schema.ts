@@ -1,4 +1,4 @@
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { StorageLocation } from './storage-location.schema';
 import { BottleHistoryEntry } from './bottle-history.schema';
@@ -7,7 +7,7 @@ import { AutoMap } from '@automapper/classes';
 export type VintageInfoDocument = HydratedDocument<VintageInfo>;
 
 @Schema()
-export class VintageInfo {
+export class VintageInfo extends Document {
   @Prop({ required: true, type: Number })
   @AutoMap()
   vintage: number;

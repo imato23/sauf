@@ -6,7 +6,6 @@ export class VintageInfoDto {
   @AutoMap()
   readonly vintage: number;
 
-  @AutoMap()
   readonly bottleCount: number;
 
   @AutoMap()

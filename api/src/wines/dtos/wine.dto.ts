@@ -3,6 +3,9 @@ import { AutoMap } from '@automapper/classes';
 
 export class WineDto {
   @AutoMap()
+  readonly id: string;
+
+  @AutoMap()
   readonly name: string;
 
   @AutoMap()

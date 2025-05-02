@@ -1,12 +1,12 @@
 {
-  "name": "ui",
+  "name": "sauf-ui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "i18n": "ng extract-i18n --output-path src/locale/"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^19.2.2",
     "@angular/platform-browser-dynamic": "^19.2.2",
     "@angular/router": "^19.2.2",
+    "ngx-trim-directive": "^3.0.1",
+    "ngx-webcam": "^0.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -28,6 +30,7 @@
     "@angular-devkit/build-angular": "^19.2.3",
     "@angular/cli": "^19.2.3",
     "@angular/compiler-cli": "^19.2.2",
+    "@angular/localize": "^19.2.2",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
@@ -35,6 +38,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-extract-i18n-merge": "^2.14.3",
     "typescript": "~5.5.2"
   }
 }

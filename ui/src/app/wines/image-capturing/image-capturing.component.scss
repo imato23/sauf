@@ -1,0 +1,18 @@
+.column-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.center-align {
+  align-self: center;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}

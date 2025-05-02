@@ -1,0 +1,29 @@
+<div class="column-container">
+  <div *ngIf="!webcamImage" class="column-container">
+    <div>
+      <webcam (imageCapture)="onCaptureImage($event)" [height]="webcamHeight" [trigger]="triggerObservable"
+              [width]="webcamWidth"></webcam>
+    </div>
+    <div class="center-align">
+      <button (click)="onTriggerSnapshot()" mat-icon-button>
+        <mat-icon>camera</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="webcamImage">
+    <div>
+      <img [src]="webcamImage.imageAsDataUrl" alt="Webcam Image" class="captured-image" />
+    </div>
+    <div class="row-container space-evenly">
+      <button (click)="onRetry()" mat-icon-button>
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button (click)="onApply()" mat-icon-button>
+        <mat-icon>done</mat-icon>
+      </button>
+      <button (click)="onCancel()" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

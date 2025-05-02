@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use './themes/custom-theme.scss';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  width: 100%;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+

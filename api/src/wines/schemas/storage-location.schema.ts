@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 import { AutoMap } from '@automapper/classes';
 
 export type StorageLocationDocument = HydratedDocument<StorageLocation>;
 
 @Schema()
-export class StorageLocation {
+export class StorageLocation extends Document {
   @Prop({ required: true, type: Number })
   @AutoMap()
   row: number;

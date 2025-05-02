@@ -1,0 +1,47 @@
+<div class="page-container">
+  <div class="toolbar-container">
+  </div>
+
+  <div class="content-container">
+    <mat-list>
+      <ng-container *ngFor="let wine of wines$ | async; let last = last">
+        <div class="list-item" routerLink="/wines/view-wine/{{wine.id}}">
+          <div class="wine-image">
+            <img [src]="wine.image ? wine.image : dummyAvatar" alt="{{ wine.name }}">
+
+            <div class="details">
+              <div><strong>{{ wine.name }}</strong></div>
+              <div>
+                {{ wine.producer }}
+              </div>
+              <div i18n>
+                {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+              </div>
+            </div>
+            <div class="bottle-count" i18n>
+              {wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}
+            </div>
+          </div>
+        </div>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </ng-container>
+    </mat-list>
+
+    <ng-template #loading>
+      <h3 i18n>Loading wines...</h3>
+    </ng-template>
+  </div>
+
+  <div class="floating-action-button">
+    <button color="primary" mat-fab routerLink="/wines/add-wine">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button (click)="onfilterItemSelected(item)" *ngFor="let item of filterItems" mat-menu-item>
+    <mat-icon>{{ item.selected ? 'check' : '' }}</mat-icon>
+    <span> {{ item.displayName }}</span>
+  </button>
+</mat-menu>

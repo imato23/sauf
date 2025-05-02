@@ -1,0 +1,40 @@
+.toolbar-container {
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 20px;
+  padding: 20px;
+  height: 100%;
+
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-container {
+  position: relative;
+
+  .wine-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .image-floating-action-button {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+.form {
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}

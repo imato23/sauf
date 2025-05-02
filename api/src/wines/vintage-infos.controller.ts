@@ -8,27 +8,26 @@ import {
   Put,
 } from '@nestjs/common';
 import { VintageInfosService } from './vintage-infos.service';
-import { VintageInfo } from './schemas/vintage-info.schema';
-import { Wine } from './schemas/wine.schema';
 import { CreateVintageInfoDto } from './dtos/create-vintage-info.dto';
-import { UpdateVintageInfoDto } from './dtos/update-vintage-info.dto';
+import { VintageInfoDto } from './dtos/vintage-Info.dto';
+import { WineDto } from './dtos/wine.dto';
 
-@Controller('vintage-infos')
+@Controller('wines/:wineId/vintage-infos')
 export class VintageInfosController {
   constructor(private readonly vintageInfosService: VintageInfosService) {}
 
   @Get()
   async getAllVintageInfos(
     @Param('wineId') wineId: string,
-  ): Promise<VintageInfo[]> {
+  ): Promise<VintageInfoDto[]> {
     return await this.vintageInfosService.getAllVintageInfos(wineId);
   }
 
-  @Get(':wineId/:vintage')
+  @Get(':vintage')
   async getVintageInfoByVintage(
     @Param('wineId') wineId: string,
     @Param('vintage') vintage: number,
-  ): Promise<VintageInfo> {
+  ): Promise<VintageInfoDto> {
     return await this.vintageInfosService.getVintageInfoByVintage(
       wineId,
       vintage,
@@ -39,7 +38,7 @@ export class VintageInfosController {
   async addVintageInfo(
     @Param('wineId') wineId: string,
     @Body() createVintageInfoDto: CreateVintageInfoDto,
-  ): Promise<VintageInfo> {
+  ): Promise<VintageInfoDto> {
     return await this.vintageInfosService.addVintageInfo(
       wineId,
       createVintageInfoDto,
@@ -50,12 +49,12 @@ export class VintageInfosController {
   async updateVintageInfo(
     @Param('wineId') wineId: string,
     @Param('vintage') vintage: number,
-    @Body() updateVintageInfoDto: UpdateVintageInfoDto,
-  ): Promise<Wine> {
+    @Body() vintageInfo: VintageInfoDto,
+  ): Promise<WineDto> {
     return await this.vintageInfosService.updateVintageInfo(
       wineId,
       vintage,
-      updateVintageInfoDto,
+      vintageInfo,
     );
   }
 
@@ -63,7 +62,7 @@ export class VintageInfosController {
   async removeVintageInfo(
     @Param('wineId') wineId: string,
     @Param('vintage') vintage: number,
-  ): Promise<Wine> {
+  ): Promise<WineDto> {
     return await this.vintageInfosService.removeVintageInfo(wineId, vintage);
   }
 }

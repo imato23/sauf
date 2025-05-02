@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7907909138905798429" datatype="html">
+        <source>AppTitle</source>
+      </trans-unit>
+      <trans-unit id="5948330998501126851" datatype="html">
+        <source>Wines</source>
+      </trans-unit>
+      <trans-unit id="1069523139277190436" datatype="html">
+        <source>Statistics</source>
+      </trans-unit>
+      <trans-unit id="186236568870281953" datatype="html">
+        <source>History</source>
+      </trans-unit>
+      <trans-unit id="4930506384627295710" datatype="html">
+        <source>Settings</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

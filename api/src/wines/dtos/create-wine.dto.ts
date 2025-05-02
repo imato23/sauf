@@ -7,9 +7,7 @@ export class CreateWineDto {
   readonly country: string;
   readonly region: string;
   readonly producer: string;
-  readonly vintageInfos: VintageInfoDto[];
-
-  //@ApiProperty({ type: () => Buffer })
+  //readonly vintageInfos: VintageInfoDto[];
   readonly image: Buffer;
   readonly bottleCount: number;
 }

@@ -10,10 +10,11 @@ import {
   Query,
 } from '@nestjs/common';
 import { StorageLocationsService } from './storage-locations.service';
-import { Wine } from './schemas/wine.schema';
 import { StorageLocation } from './schemas/storage-location.schema';
+import { StorageLocationDto } from './dtos/storage-location.dto';
+import { WineDto } from './dtos/wine.dto';
 
-@Controller('storage-locations')
+@Controller()
 export class StorageLocationsController {
   constructor(private storageLocationsService: StorageLocationsService) {}
 
@@ -23,7 +24,7 @@ export class StorageLocationsController {
     @Param('vintage') vintage: number,
     @Param('row') row: number,
     @Param('shelf') shelf: number,
-  ): Promise<Wine> {
+  ): Promise<WineDto> {
     return await this.storageLocationsService.removeStorageLocation(
       wineId,
       vintage,
@@ -55,8 +56,8 @@ export class StorageLocationsController {
   @Get('wines/storage-locations/next-available')
   async getNextAvailableStorageLocation(
     @Query('excludedStorages') excludedStorages: string[] = [],
-  ): Promise<StorageLocation> {
-    let excludedStorageLocations: StorageLocation[];
+  ): Promise<StorageLocationDto> {
+    let excludedStorageLocations: StorageLocationDto[];
 
     try {
       excludedStorageLocations =
@@ -83,8 +84,8 @@ export class StorageLocationsController {
     return storageLocation;
   }
 
-  private convertToStorageLocations(storages: string[]): StorageLocation[] {
-    const storageLocations: StorageLocation[] = [];
+  private convertToStorageLocations(storages: string[]): StorageLocationDto[] {
+    const storageLocations: StorageLocationDto[] = [];
 
     for (let i = 0; i < storages.length; i++) {
       const storage: string = storages[i];

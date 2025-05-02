@@ -8,7 +8,5 @@ export class UpdateWineDto {
   readonly region: string;
   readonly producer: string;
   readonly vintageInfos: VintageInfoDto[];
-
-  //@ApiProperty({ type: () => Buffer })
   readonly image: Buffer;
 }

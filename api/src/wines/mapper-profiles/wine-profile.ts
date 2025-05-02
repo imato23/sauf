@@ -9,6 +9,7 @@ import { StorageLocation } from '../schemas/storage-location.schema';
 import { StorageLocationDto } from '../dtos/storage-location.dto';
 import { BottleHistoryEntry } from '../schemas/bottle-history.schema';
 import { BottleHistoryEntryDto } from '../dtos/bottle-history-entry.dto';
+import { UpdateVintageInfoDto } from '../dtos/update-vintage-info.dto';
 
 @Injectable()
 export class WineProfile extends AutomapperProfile {
@@ -26,8 +27,22 @@ export class WineProfile extends AutomapperProfile {
           (dst) => dst.bottleCount,
           mapFrom((src) => this.getBottleCount(src.vintageInfos)),
         ),
+        forMember(
+          (dst) => dst.id,
+          mapFrom((src) => src._id),
+        ),
       );
-      createMap(mapper, VintageInfo, VintageInfoDto);
+      createMap(
+        mapper,
+        VintageInfo,
+        VintageInfoDto,
+        forMember(
+          (dst) => dst.bottleCount,
+          mapFrom((src) => src.storageLocations.length),
+        ),
+      );
+
+      createMap(mapper, UpdateVintageInfoDto, VintageInfoDto);
       createMap(mapper, StorageLocation, StorageLocationDto);
       createMap(mapper, BottleHistoryEntry, BottleHistoryEntryDto);
     };

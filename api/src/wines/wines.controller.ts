@@ -10,7 +10,6 @@ import {
 } from '@nestjs/common';
 import { CreateWineDto } from './dtos/create-wine.dto';
 import { UpdateWineDto } from './dtos/update-wine.dto';
-import { Wine } from './schemas/wine.schema';
 import { WinesService } from './wines.service';
 import { WineDto } from './dtos/wine.dto';
 
@@ -20,6 +19,7 @@ export class WinesController {
 
   @Get()
   async getAllWines(): Promise<WineDto[]> {
+    // hello
     return await this.winesService.getAllWines();
   }
 
@@ -58,7 +58,7 @@ export class WinesController {
   async updateWine(
     @Param('id') id: string,
     @Body() updateWineDto: UpdateWineDto,
-  ): Promise<Wine> {
+  ): Promise<WineDto> {
     return await this.winesService.updateWine(id, updateWineDto);
   }
 

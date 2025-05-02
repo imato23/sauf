@@ -1,11 +1,11 @@
 import { AutoMap } from '@automapper/classes';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 
 export type BottleHistoryEntryDocument = HydratedDocument<BottleHistoryEntry>;
 
 @Schema()
-export class BottleHistoryEntry {
+export class BottleHistoryEntry extends Document {
   @Prop({ required: true, type: Date })
   @AutoMap()
   date: Date;

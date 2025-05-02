@@ -1,0 +1,49 @@
+<div class="page-container">
+  <div class="toolbar-container">
+    <mat-toolbar color="primary">
+      <button aria-label="Back to wine details" mat-icon-button routerLink="/wines/view-wine/{{wineId}}"
+              type="button">
+        <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
+      </button>
+      <span>{{ (wine$|async)?.name }}</span>
+      <span class="toolbar-spacer"></span>
+    </mat-toolbar>
+  </div>
+
+  <div class="content-container">
+    <mat-action-list *ngIf="(bottlesAvailable$ | async); else noBottlesAvailable">
+      <ng-container *ngFor="let storageInfo of storageInfo$ | async">
+        <mat-list-item>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; width: 100%;">
+            <div>
+              {{ storageInfo.vintage }}
+            </div>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; flex-direction: row">
+                <div i18n>Row:</div>
+                <div>{{ storageInfo.row }}</div>
+              </div>
+              <div style="display: flex; flex-direction: row">
+                <div i18n>Shelf:</div>
+                <div>{{ storageInfo.shelf }}</div>
+              </div>
+            </div>
+            <div i18n>{storageInfo.bottleCount,
+              plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}
+            </div>
+            <div>
+              <button (click)="showRemoveBottleDialog(storageInfo)"
+                      mat-flat-button>Entnehmen
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-action-list>
+    <ng-template #noBottlesAvailable i18n>
+      There are not bottles.
+    </ng-template>
+  </div>
+</div>

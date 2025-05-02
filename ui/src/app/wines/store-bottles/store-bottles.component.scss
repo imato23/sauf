@@ -1,0 +1,14 @@
+.storage {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.storage-field {
+  flex-grow: 1;
+}
+
+.custom-error {
+  margin-bottom: 1rem;
+}
