@@ -43,6 +43,7 @@ export class WineProfile extends AutomapperProfile {
       );
 
       createMap(mapper, UpdateVintageInfoDto, VintageInfoDto);
+      createMap(mapper, VintageInfoDto, VintageInfoDto);
       createMap(mapper, StorageLocation, StorageLocationDto);
       createMap(mapper, BottleHistoryEntry, BottleHistoryEntryDto);
     };

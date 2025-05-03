@@ -8,7 +8,6 @@ import {
   Put,
 } from '@nestjs/common';
 import { VintageInfosService } from './vintage-infos.service';
-import { CreateVintageInfoDto } from './dtos/create-vintage-info.dto';
 import { VintageInfoDto } from './dtos/vintage-Info.dto';
 import { WineDto } from './dtos/wine.dto';
 
@@ -37,15 +36,12 @@ export class VintageInfosController {
   @Post()
   async addVintageInfo(
     @Param('wineId') wineId: string,
-    @Body() createVintageInfoDto: CreateVintageInfoDto,
+    @Body() vintageInfo: VintageInfoDto,
   ): Promise<VintageInfoDto> {
-    return await this.vintageInfosService.addVintageInfo(
-      wineId,
-      createVintageInfoDto,
-    );
+    return await this.vintageInfosService.addVintageInfo(wineId, vintageInfo);
   }
 
-  @Put(':wineId/:vintage')
+  @Put(':vintage')
   async updateVintageInfo(
     @Param('wineId') wineId: string,
     @Param('vintage') vintage: number,
@@ -58,7 +54,7 @@ export class VintageInfosController {
     );
   }
 
-  @Delete(':wineId/:vintage')
+  @Delete(':vintage')
   async removeVintageInfo(
     @Param('wineId') wineId: string,
     @Param('vintage') vintage: number,

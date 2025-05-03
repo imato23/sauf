@@ -24,5 +24,5 @@ export class VintageInfoDto {
   readonly storageLocations: StorageLocationDto[];
 
   @AutoMap(() => BottleHistoryEntryDto)
-  readonly history: BottleHistoryEntryDto[];
+  history: BottleHistoryEntryDto[];
 }

@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { WinesService } from './wines.service';
 import { BottleHistoryService } from './bottle-history.service';
 import { UpdateWineDto } from './dtos/update-wine.dto';
-import { CreateVintageInfoDto } from './dtos/create-vintage-info.dto';
 import { WineDto } from './dtos/wine.dto';
 import { VintageInfoDto } from './dtos/vintage-Info.dto';
 import { InjectMapper } from '@automapper/nestjs';
@@ -55,7 +54,7 @@ export class VintageInfosService {
 
   async addVintageInfo(
     wineId: string,
-    createVintageInfoDto: CreateVintageInfoDto,
+    vintageInfo: VintageInfoDto,
   ): Promise<VintageInfoDto> {
     let wine: WineDto = await this.wineService.getWineById(wineId);
 
@@ -65,17 +64,13 @@ export class VintageInfosService {
       );
     }
 
-    // const addedBottlesCount: number =
-    //   createVintageInfoDto.storageLocations.length;
-    //
-    // if (addedBottlesCount > 0) {
-    //   this.bottleHistoryService.logBottlesAdded(
-    //     createVintageInfoDto,
-    //     addedBottlesCount,
-    //   );
-    // }
+    const addedBottlesCount: number = vintageInfo.storageLocations.length;
 
-    wine.vintageInfos.push(<VintageInfoDto>(<unknown>createVintageInfoDto));
+    if (addedBottlesCount > 0) {
+      this.bottleHistoryService.logBottlesAdded(vintageInfo, addedBottlesCount);
+    }
+
+    wine.vintageInfos.push(<VintageInfoDto>(<unknown>vintageInfo));
 
     wine = await this.wineService.updateWine(
       wineId,
@@ -83,7 +78,7 @@ export class VintageInfosService {
     );
     return wine.vintageInfos.filter(
       (vintageInfo: VintageInfoDto) =>
-        vintageInfo.vintage === createVintageInfoDto.vintage,
+        vintageInfo.vintage === vintageInfo.vintage,
     )[0];
   }
 
@@ -101,7 +96,7 @@ export class VintageInfosService {
     }
 
     const vintageInfoFromDb: VintageInfoDto = wine.vintageInfos.filter(
-      (vintageInfo: VintageInfoDto) => vintageInfo.vintage == vintage,
+      (vintageInfo: VintageInfoDto) => vintageInfo.vintage === +vintage,
     )[0];
 
     if (!vintageInfoFromDb) {
@@ -110,7 +105,7 @@ export class VintageInfosService {
       );
     }
 
-    //this.logBottleChanges(vintageInfoFromDb, updateVintageInfoDto);
+    this.logBottleChanges(vintageInfoFromDb, vintageInfo);
 
     this.mapper.mutate(
       vintageInfo,
@@ -145,7 +140,7 @@ export class VintageInfosService {
     }
 
     const index: number = wine.vintageInfos.findIndex(
-      (x) => x.vintage == vintage,
+      (x) => x.vintage === vintage,
     );
 
     if (index === -1) {
@@ -160,28 +155,28 @@ export class VintageInfosService {
     );
   }
 
-  // logBottleChanges(
-  //   oldVintageInfo: VintageInfo,
-  //   newVintageInfo: VintageInfo,
-  // ): void {
-  //   const difference: number =
-  //     newVintageInfo.storageLocations.length -
-  //     oldVintageInfo.storageLocations.length;
-  //
-  //   if (difference === 0) {
-  //     // Bottles have not changed
-  //     return;
-  //   }
-  //
-  //   if (difference > 0) {
-  //     // new bottles count > old bottles count => bottles have been added
-  //     this.bottleHistoryService.logBottlesAdded(oldVintageInfo, difference);
-  //   } else {
-  //     // new bottles count < old bottles count => bottles have been removed
-  //     this.bottleHistoryService.logBottlesRemoved(
-  //       oldVintageInfo,
-  //       Math.abs(difference),
-  //     );
-  //   }
-  // }
+  logBottleChanges(
+    oldVintageInfo: VintageInfoDto,
+    newVintageInfo: VintageInfoDto,
+  ): void {
+    const difference: number =
+      newVintageInfo.storageLocations.length -
+      oldVintageInfo.storageLocations.length;
+
+    if (difference === 0) {
+      // Bottles have not changed
+      return;
+    }
+
+    if (difference > 0) {
+      // new bottles count > old bottles count => bottles have been added
+      this.bottleHistoryService.logBottlesAdded(oldVintageInfo, difference);
+    } else {
+      // new bottles count < old bottles count => bottles have been removed
+      this.bottleHistoryService.logBottlesRemoved(
+        oldVintageInfo,
+        Math.abs(difference),
+      );
+    }
+  }
 }

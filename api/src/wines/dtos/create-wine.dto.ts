@@ -1,5 +1,4 @@
 import { WineCategoryDto } from './wine-category.dto';
-import { VintageInfoDto } from './vintage-Info.dto';
 
 export class CreateWineDto {
   readonly name: string;
