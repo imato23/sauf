@@ -10,6 +10,4 @@ RUN ng build --localize --configuration production
 FROM nginx:latest
 COPY --from=build /app/dist/ui/browser  /usr/share/nginx/html
 COPY nginx_conf/nginx.conf /etc/nginx/conf.d/default.conf
-#COPY certs/sauf.home.imato.de_cert.pem /etc/ssl/
-#COPY certs/sauf.home.imato.de_key.pem /etc/ssl/
 EXPOSE 443
