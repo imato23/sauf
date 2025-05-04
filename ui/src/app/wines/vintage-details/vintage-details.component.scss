@@ -5,13 +5,10 @@
 }
 
 .content-container {
-  border: 1px solid green;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .form-container {
