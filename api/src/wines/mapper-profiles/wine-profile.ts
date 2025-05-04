@@ -29,7 +29,7 @@ export class WineProfile extends AutomapperProfile {
         ),
         forMember(
           (dst) => dst.id,
-          mapFrom((src) => src._id),
+          mapFrom((src) => src._id.toString()),
         ),
       );
       createMap(

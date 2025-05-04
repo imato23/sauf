@@ -46,7 +46,7 @@ export class VintageInfoService {
     let url = `${this.vintageInfoApiUrl}/storage-locations/next-available`;
 
     if (excludedStorageLocations.length > 0) {
-      url = this.urlHelperService.appendParamsArrayToUrl(url, 'excludedStorages[]', excludedStorages);
+      url = this.urlHelperService.appendParamsArrayToUrl(url, 'excludedStorages', excludedStorages);
     }
 
     return this.httpClient.get<StorageLocation>(url);

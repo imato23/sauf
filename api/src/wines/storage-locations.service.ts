@@ -26,8 +26,8 @@ export class StorageLocationsService {
     const storageLocationIndexToRemove: number =
       vintageInfo.storageLocations.findIndex(
         (storageLocation: StorageLocation) =>
-          storageLocation.row === storageLocationDto.row &&
-          storageLocation.shelf === storageLocationDto.shelf,
+          storageLocation.row === +storageLocationDto.row &&
+          storageLocation.shelf === +storageLocationDto.shelf,
       );
 
     if (storageLocationIndexToRemove === -1) {
@@ -36,7 +36,7 @@ export class StorageLocationsService {
 
     vintageInfo.storageLocations.splice(storageLocationIndexToRemove, 1);
 
-    //this.bottleHistoryService.logBottlesRemoved(vintageInfo, 1);
+    this.bottleHistoryService.logBottlesRemoved(vintageInfo, 1);
 
     return await this.vintageInfosService.updateVintageInfo(
       wineId,

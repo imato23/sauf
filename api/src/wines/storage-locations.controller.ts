@@ -55,13 +55,17 @@ export class StorageLocationsController {
 
   @Get('wines/storage-locations/next-available')
   async getNextAvailableStorageLocation(
-    @Query('excludedStorages') excludedStorages: string[] = [],
+    @Query('excludedStorages') excludedStorages: string | string[] = [],
   ): Promise<StorageLocationDto> {
     let excludedStorageLocations: StorageLocationDto[];
 
+    const excludedStoragesArray: string[] =
+      this.convertToArray(excludedStorages);
+
     try {
-      excludedStorageLocations =
-        this.convertToStorageLocations(excludedStorages);
+      excludedStorageLocations = this.convertToStorageLocations(
+        excludedStoragesArray,
+      );
     } catch {
       throw new BadRequestException(
         'Query params parsing failed',
@@ -82,6 +86,14 @@ export class StorageLocationsController {
     }
 
     return storageLocation;
+  }
+
+  private convertToArray(excludedStorages: string | string[]) {
+    return Array.isArray(excludedStorages)
+      ? excludedStorages
+      : excludedStorages
+        ? [excludedStorages]
+        : [];
   }
 
   private convertToStorageLocations(storages: string[]): StorageLocationDto[] {
