@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'https://sauf.home.imato.de:3000'
+  apiUrl: 'https://sauf-api:3000'
 };
