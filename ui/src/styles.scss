@@ -24,3 +24,8 @@ body {
   flex-direction: column;
 }
 
+.floating-action-button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
