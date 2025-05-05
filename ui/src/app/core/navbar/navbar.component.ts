@@ -1,15 +1,10 @@
-import {Component, ViewChild, OnDestroy, inject, signal} from '@angular/core';
-import { Subscription, Observable } from 'rxjs';
-import { NavbarService } from '../shared/navbar.service';
+import {Component, inject, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
 import {MatDrawer, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material/sidenav';
-import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
-import { map, shareReplay } from 'rxjs/operators';
+import {MediaMatcher} from '@angular/cdk/layout';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
-import {AsyncPipe} from "@angular/common";
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
-import {MatLine} from "@angular/material/core";
 import {MatIconButton} from "@angular/material/button";
 
 @Component({
@@ -31,26 +26,24 @@ import {MatIconButton} from "@angular/material/button";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnDestroy {
-  @ViewChild('drawer', { static: true })
+  @ViewChild('drawer', {static: true})
   drawer!: MatDrawer;
 
-  protected readonly isMobile = signal(true);
+  protected readonly isMobile: WritableSignal<boolean> = signal(true);
 
-  private readonly _mobileQuery: MediaQueryList;
-  private readonly _mobileQueryListener: () => void;
+  private readonly mobileQuery: MediaQueryList;
+  private readonly mobileQueryListener: () => void;
 
   constructor() {
-    const media = inject(MediaMatcher);
+    const media: MediaMatcher = inject(MediaMatcher);
 
-    this._mobileQuery = media.matchMedia('(max-width: 600px)');
-    this.isMobile.set(this._mobileQuery.matches);
-    this._mobileQueryListener = () => this.isMobile.set(this._mobileQuery.matches);
-    this._mobileQuery.addEventListener('change', this._mobileQueryListener);
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.isMobile.set(this.mobileQuery.matches);
+    this.mobileQueryListener = () => this.isMobile.set(this.mobileQuery.matches);
+    this.mobileQuery.addEventListener('change', this.mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this._mobileQuery.removeEventListener('change', this._mobileQueryListener);
+    this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
   }
-
-  protected readonly Date = Date;
 }
