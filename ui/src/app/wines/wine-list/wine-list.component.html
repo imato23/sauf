@@ -3,14 +3,17 @@
   </div>
 
   <div class="content-container">
-    <mat-list>
+    <mat-list *ngIf=" wines$ | async; else loading">
       <ng-container *ngFor="let wine of wines$ | async; let last = last">
         <div class="list-item" routerLink="/wines/view-wine/{{wine.id}}">
           <div class="wine-image">
+            <!--suppress AngularNgOptimizedImage -->
             <img [src]="wine.image ? wine.image : dummyAvatar" alt="{{ wine.name }}">
 
             <div class="details">
-              <div><strong>{{ wine.name }}</strong></div>
+              <div>
+                <strong>{{ wine.name }}</strong>
+              </div>
               <div>
                 {{ wine.producer }}
               </div>
