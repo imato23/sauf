@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectResources">
+    <resource url="urn:oasis:names:tc:xliff:document:1.2" location="$PROJECT_DIR$/src/locale/xliff-core-1.2-strict.xsd" />
+  </component>
+</project>

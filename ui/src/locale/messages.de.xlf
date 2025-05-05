@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       version="1.2"
+       xmlns="urn:oasis:names:tc:xliff:document:1.2"
+       xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd">
   <file source-language="en-US" target-language="de" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="7907909138905798429" datatype="html">
@@ -101,7 +104,7 @@
       </trans-unit>
       <trans-unit id="4099435363452133250" datatype="html">
         <source>One or more storage locations have been entered more than once.</source>
-        <target>Ein oder mehrere Lageorte sind doppelt vorhanden.</target>
+        <target>Ein oder mehrere Lagerorte sind doppelt vorhanden.</target>
       </trans-unit>
       <trans-unit id="5381082291970004667" datatype="html">
         <source>One of the entered storage locations is already occupied.</source>

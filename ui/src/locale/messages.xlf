@@ -21,10 +21,10 @@
         <source>Alcoholic strength</source>
       </trans-unit>
       <trans-unit id="1122480728750643599" datatype="html">
-        <source>Region is required. </source>
+        <source>Region is required.</source>
       </trans-unit>
       <trans-unit id="1421165867919527894" datatype="html">
-        <source>Vintage is required. </source>
+        <source>Vintage is required.</source>
       </trans-unit>
       <trans-unit id="1806667489382256324" datatype="html">
         <source>Category</source>
@@ -37,7 +37,9 @@
       </trans-unit>
       <trans-unit id="1884615848108898039" datatype="html">
         <source>
-          <x id="ICU" equiv-text="{storageInfo.bottleCount, plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}" xid="636629447992003260"/>
+          <x id="ICU"
+             equiv-text="{storageInfo.bottleCount, plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}"
+             xid="636629447992003260"/>
         </source>
       </trans-unit>
       <trans-unit id="2099926152201934495" datatype="html">
@@ -50,7 +52,7 @@
         <source>Region</source>
       </trans-unit>
       <trans-unit id="2843161445503786232" datatype="html">
-        <source> Add bottle </source>
+        <source>Add bottle</source>
       </trans-unit>
       <trans-unit id="3069107851953706336" datatype="html">
         <source>Delete wine</source>
@@ -59,7 +61,12 @@
         <source>Loading wines...</source>
       </trans-unit>
       <trans-unit id="3293279246847337643" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <source>{VAR_PLURAL, plural, =1 {
+          <x id="INTERPOLATION"/>
+          Bottle} other {
+          <x id="INTERPOLATION"/>
+          Bottles}}
+        </source>
       </trans-unit>
       <trans-unit id="3651057042727767917" datatype="html">
         <source>Residual sugar</source>
@@ -68,28 +75,34 @@
         <source>Approve</source>
       </trans-unit>
       <trans-unit id="3930712149057607360" datatype="html">
-        <source>Row: <x id="INTERPOLATION" equiv-text="{{ data.row }}"/></source>
+        <source>Row:
+          <x id="INTERPOLATION" equiv-text="{{ data.row }}"/>
+        </source>
       </trans-unit>
       <trans-unit id="3962148278417143434" datatype="html">
         <source>Changes have been saved.</source>
       </trans-unit>
       <trans-unit id="4099435363452133250" datatype="html">
-        <source> One or more storage locations have been entered more than once. </source>
+        <source>One or more storage locations have been entered more than once.</source>
       </trans-unit>
       <trans-unit id="4102111542402750688" datatype="html">
-        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</source>
+        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine
+          {SparklingWine}}
+        </source>
       </trans-unit>
       <trans-unit id="4125373622202098949" datatype="html">
-        <source>Shelf: <x id="INTERPOLATION" equiv-text="{{ data.shelf }}"/></source>
+        <source>Shelf:
+          <x id="INTERPOLATION" equiv-text="{{ data.shelf }}"/>
+        </source>
       </trans-unit>
       <trans-unit id="422107326661915292" datatype="html">
         <source>Shelf</source>
       </trans-unit>
       <trans-unit id="4412312126303507662" datatype="html">
-        <source> Loading vintage info... </source>
+        <source>Loading vintage info...</source>
       </trans-unit>
       <trans-unit id="4839518956105289794" datatype="html">
-        <source>Category is required. </source>
+        <source>Category is required.</source>
       </trans-unit>
       <trans-unit id="4881188062897358818" datatype="html">
         <source>Vintage</source>
@@ -98,13 +111,13 @@
         <source>New Vintage</source>
       </trans-unit>
       <trans-unit id="4912877664792304237" datatype="html">
-        <source>Country is required. </source>
+        <source>Country is required.</source>
       </trans-unit>
       <trans-unit id="516176798986294299" datatype="html">
         <source>Country</source>
       </trans-unit>
       <trans-unit id="5381082291970004667" datatype="html">
-        <source> One of the entered storage locations is already occupied. </source>
+        <source>One of the entered storage locations is already occupied.</source>
       </trans-unit>
       <trans-unit id="5550256069181140601" datatype="html">
         <source>The wine bottle has been removed.</source>
@@ -128,16 +141,16 @@
         <source>Vintage info has been deleted.</source>
       </trans-unit>
       <trans-unit id="6869132759539168906" datatype="html">
-        <source>Vintage is to big. </source>
+        <source>Vintage is to big.</source>
       </trans-unit>
       <trans-unit id="7000649363168371045" datatype="html">
         <source>Save changes</source>
       </trans-unit>
       <trans-unit id="738015952975035099" datatype="html">
-        <source>Producer is required. </source>
+        <source>Producer is required.</source>
       </trans-unit>
       <trans-unit id="7390089133712514743" datatype="html">
-        <source>Vintage is to small. </source>
+        <source>Vintage is to small.</source>
       </trans-unit>
       <trans-unit id="7580760277293545627" datatype="html">
         <source>Row:</source>
@@ -152,11 +165,18 @@
         <source>Capture Image</source>
       </trans-unit>
       <trans-unit id="8767082525605541546" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <source>{VAR_PLURAL, plural, =1 {
+          <x id="INTERPOLATION"/>
+          Bottle} other {
+          <x id="INTERPOLATION"/>
+          Bottles}}
+        </source>
       </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
         <source>
-          <x id="ICU" equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/>
+          <x id="ICU"
+             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
+             xid="4102111542402750688"/>
         </source>
       </trans-unit>
       <trans-unit id="8894377483833272091" datatype="html">
@@ -169,13 +189,15 @@
         <source>Tartaric acid</source>
       </trans-unit>
       <trans-unit id="9105440141588395297" datatype="html">
-        <source>Vintage <x id="INTERPOLATION" equiv-text="{{ vintage }}"/></source>
+        <source>Vintage
+          <x id="INTERPOLATION" equiv-text="{{ vintage }}"/>
+        </source>
       </trans-unit>
       <trans-unit id="950930723334427991" datatype="html">
-        <source> Loading wine... </source>
+        <source>Loading wine...</source>
       </trans-unit>
       <trans-unit id="988836184229160109" datatype="html">
-        <source> There are not bottles. </source>
+        <source>There are not bottles.</source>
       </trans-unit>
       <trans-unit id="2275328567992347600" datatype="html">
         <source>Page not found</source>
