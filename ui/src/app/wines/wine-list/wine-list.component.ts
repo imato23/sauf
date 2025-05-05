@@ -35,7 +35,7 @@ import { MatFabButton } from '@angular/material/button';
 export class WineListComponent {
   @ViewChild('searchField') searchField!: ElementRef;
   public wines$: Observable<Wine[]> = of([]);
-  public dummyAvatar: string = 'assets/no-wine-photo.png';
+  public dummyAvatar: string = 'assets/no-wine-photo-avatar.png';
   public isSearchActive: boolean = false;
   public searchControl: UntypedFormControl = new UntypedFormControl('');
   public filterItems: FilterItem[] = [
