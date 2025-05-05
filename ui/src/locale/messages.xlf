@@ -177,6 +177,12 @@
       <trans-unit id="988836184229160109" datatype="html">
         <source> There are not bottles. </source>
       </trans-unit>
+      <trans-unit id="2275328567992347600" datatype="html">
+        <source>Page not found</source>
+      </trans-unit>
+      <trans-unit id="6171914091025220327" datatype="html">
+        <source>The page does not seem to exist yet</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
