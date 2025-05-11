@@ -1,24 +1,22 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
-import { MatMenu, MatMenuItem } from '@angular/material/menu';
-import { MatDivider } from '@angular/material/divider';
-import { BehaviorSubject, distinctUntilChanged, map, Observable, of, startWith, Subject, switchMap } from 'rxjs';
-import { Wine } from '../shared/models/wine.model';
-import { FilterItem } from '../shared/models/filter-item.model';
-import { WineCategory } from '../shared/models/wine-category.model';
-import { WineService } from '../shared/services/wine.service';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { MatList } from '@angular/material/list';
-import { MatFabButton } from '@angular/material/button';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {MatIcon} from '@angular/material/icon';
+import {ReactiveFormsModule, UntypedFormControl} from '@angular/forms';
+import {MatMenu, MatMenuItem} from '@angular/material/menu';
+import {BehaviorSubject, distinctUntilChanged, map, Observable, of, startWith, Subject, switchMap} from 'rxjs';
+import {Wine} from '../shared/models/wine.model';
+import {FilterItem} from '../shared/models/filter-item.model';
+import {WineCategory} from '../shared/models/wine-category.model';
+import {WineService} from '../shared/services/wine.service';
+import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {RouterLink} from '@angular/router';
+import {MatListItem, MatListItemAvatar, MatListItemLine, MatListItemTitle, MatNavList} from '@angular/material/list';
+import {MatFabButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-wine-list',
   imports: [
     MatIcon,
     ReactiveFormsModule,
-    MatDivider,
     MatMenu,
     AsyncPipe,
     RouterLink,
@@ -26,8 +24,11 @@ import { MatFabButton } from '@angular/material/button';
     NgForOf,
     MatFabButton,
     MatMenuItem,
-    MatList,
-
+    MatListItem,
+    MatListItemLine,
+    MatListItemTitle,
+    MatListItemAvatar,
+    MatNavList
   ],
   templateUrl: './wine-list.component.html',
   styleUrl: './wine-list.component.scss',
@@ -39,14 +40,12 @@ export class WineListComponent {
   public isSearchActive: boolean = false;
   public searchControl: UntypedFormControl = new UntypedFormControl('');
   public filterItems: FilterItem[] = [
-    { displayName: 'Alle', searchPattern: '', selected: true },
-    { displayName: this.translateWineCategory(WineCategory.RedWine), searchPattern: 'rotwein', selected: false },
-    { displayName: this.translateWineCategory(WineCategory.RoseWine), searchPattern: 'rosewein', selected: false },
-    { displayName: this.translateWineCategory(WineCategory.WhiteWine), searchPattern: 'weißwein', selected: false },
+    {displayName: 'Alle', searchPattern: '', selected: true},
+    {displayName: this.translateWineCategory(WineCategory.RedWine), searchPattern: 'rotwein', selected: false},
+    {displayName: this.translateWineCategory(WineCategory.RoseWine), searchPattern: 'rosewein', selected: false},
+    {displayName: this.translateWineCategory(WineCategory.WhiteWine), searchPattern: 'weißwein', selected: false},
     {
-      displayName: this.translateWineCategory(WineCategory.SparklingWine),
-      searchPattern: 'schaumwein',
-      selected: false,
+      displayName: this.translateWineCategory(WineCategory.SparklingWine), searchPattern: 'schaumwein', selected: false,
     },
   ];
 

@@ -3,32 +3,22 @@
   </div>
 
   <div class="content-container">
-    <mat-list *ngIf=" wines$ | async; else loading">
-      <ng-container *ngFor="let wine of wines$ | async; let last = last">
-        <div class="list-item" routerLink="/wines/view-wine/{{wine.id}}">
-          <div class="wine-image">
-            <!--suppress AngularNgOptimizedImage -->
-            <img [src]="wine.image ? wine.image : dummyAvatar" alt="{{ wine.name }}">
-
-            <div class="details">
-              <div>
-                <strong>{{ wine.name }}</strong>
-              </div>
-              <div>
-                {{ wine.producer }}
-              </div>
-              <div i18n>
-                {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
-              </div>
-            </div>
-            <div class="bottle-count" i18n>
+    <ng-container *ngIf=" wines$ | async; else loading">
+      <mat-nav-list *ngFor="let wine of wines$ | async">
+        <mat-list-item [routerLink]="['/wines/view-wine/', wine.id]">
+          <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
+               matListItemAvatar/>
+          <h2 matListItemTitle> {{ wine.name }}</h2>
+          <span i18n matListItemLine>
+              {{ wine.producer }}
+            - {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+            </span>
+          <span class="bottle-count" i18n matListItemLine>
               {wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}
-            </div>
-          </div>
-        </div>
-        <mat-divider *ngIf="!last"></mat-divider>
-      </ng-container>
-    </mat-list>
+            </span>
+        </mat-list-item>
+      </mat-nav-list>
+    </ng-container>
 
     <ng-template #loading>
       <h3 i18n>Loading wines...</h3>
@@ -36,7 +26,7 @@
   </div>
 
   <div class="floating-action-button">
-    <button color="primary" mat-fab routerLink="/wines/add-wine">
+    <button mat-fab routerLink="/wines/add-wine">
       <mat-icon>add</mat-icon>
     </button>
   </div>
