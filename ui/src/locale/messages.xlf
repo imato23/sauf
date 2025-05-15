@@ -186,6 +186,9 @@
       <trans-unit id="4225039304180409267" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ wine.producer }}"/> - <x id="ICU" equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/> </source>
       </trans-unit>
+      <trans-unit id="4289468935095905318" datatype="html">
+        <source>Name is required. </source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
