@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       version="1.2"
-       xmlns="urn:oasis:names:tc:xliff:document:1.2"
-       xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" target-language="de" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="7907909138905798429" datatype="html">
         <source>AppTitle</source>
-        <target>S.A.U.F</target>
+        <target>S.A.U.F.</target>
       </trans-unit>
       <trans-unit id="5948330998501126851" datatype="html">
         <source>Wines</source>
@@ -30,20 +27,12 @@
         <target>Flasche entnehmen</target>
       </trans-unit>
       <trans-unit id="3930712149057607360" datatype="html">
-        <source>Row:
-          <x id="INTERPOLATION" equiv-text="{{ data.row }}"/>
-        </source>
-        <target>Reihe:
-          <x id="INTERPOLATION" equiv-text="{{data.row}}"/>
-        </target>
+        <source>Row: <x id="INTERPOLATION" equiv-text="{{ data.row }}"/></source>
+        <target>Reihe: <x id="INTERPOLATION" equiv-text="{{data.row}}"/></target>
       </trans-unit>
       <trans-unit id="4125373622202098949" datatype="html">
-        <source>Shelf:
-          <x id="INTERPOLATION" equiv-text="{{ data.shelf }}"/>
-        </source>
-        <target>Fach:
-          <x id="INTERPOLATION" equiv-text="{{data.shelf}}"/>
-        </target>
+        <source>Shelf: <x id="INTERPOLATION" equiv-text="{{ data.shelf }}"/></source>
+        <target>Fach: <x id="INTERPOLATION" equiv-text="{{data.shelf}}"/></target>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
         <source>Cancel</source>
@@ -63,32 +52,19 @@
       </trans-unit>
       <trans-unit id="1884615848108898039" datatype="html">
         <source>
-          <x id="ICU"
-             equiv-text="{storageInfo.bottleCount, plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}"
-             xid="636629447992003260"/>
+          <x id="ICU" equiv-text="{storageInfo.bottleCount, plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}" xid="636629447992003260"/>
         </source>
         <target>
-          <x id="ICU"
-             equiv-text="{storageInfo.bottleCount, plural, =1 {{{storageInfo.bottleCount}} Flasche} other {{{storageInfo.bottleCount}} Flaschen}}"/>
+          <x id="ICU" equiv-text="{storageInfo.bottleCount, plural, =1 {{{storageInfo.bottleCount}} Flasche} other {{{storageInfo.bottleCount}} Flaschen}}"/>
         </target>
       </trans-unit>
       <trans-unit id="3293279246847337643" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {
-          <x id="INTERPOLATION"/>
-          Bottle} other {
-          <x id="INTERPOLATION"/>
-          Bottles}}
-        </source>
-        <target state="new">{VAR_PLURAL, plural, =1 {
-          <x id="INTERPOLATION"/>
-          Flasche} other {
-          <x id="INTERPOLATION"/>
-          Flaschen}}
-        </target>
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <target state="new">{VAR_PLURAL, plural, =1 { <x id="INTERPOLATION"/> Flasche} other { <x id="INTERPOLATION"/> Flaschen}} </target>
       </trans-unit>
       <trans-unit id="988836184229160109" datatype="html">
-        <source>There are not bottles.</source>
-        <target>Es sind keine Flaschen vorhanden.</target>
+        <source> There are not bottles. </source>
+        <target> Es sind keine Flaschen vorhanden. </target>
       </trans-unit>
       <trans-unit id="5550256069181140601" datatype="html">
         <source>The wine bottle has been removed.</source>
@@ -103,24 +79,20 @@
         <target>Fach</target>
       </trans-unit>
       <trans-unit id="4099435363452133250" datatype="html">
-        <source>One or more storage locations have been entered more than once.</source>
-        <target>Ein oder mehrere Lagerorte sind doppelt vorhanden.</target>
+        <source> One or more storage locations have been entered more than once. </source>
+        <target> Ein oder mehrere Lagerorte sind doppelt vorhanden. </target>
       </trans-unit>
       <trans-unit id="5381082291970004667" datatype="html">
-        <source>One of the entered storage locations is already occupied.</source>
-        <target>Ein oder mehrere der eingegebenen Lagerorte sind bereits belegt.</target>
+        <source> One of the entered storage locations is already occupied. </source>
+        <target> Ein oder mehrere der eingegebenen Lagerorte sind bereits belegt. </target>
       </trans-unit>
       <trans-unit id="2843161445503786232" datatype="html">
-        <source>Add bottle</source>
-        <target>Flasche hinzufügen</target>
+        <source> Add bottle </source>
+        <target> Flasche hinzufügen </target>
       </trans-unit>
       <trans-unit id="9105440141588395297" datatype="html">
-        <source>Vintage
-          <x id="INTERPOLATION" equiv-text="{{ vintage }}"/>
-        </source>
-        <target>Jahrgang
-          <x id="INTERPOLATION" equiv-text="{{vintage}}"/>
-        </target>
+        <source>Vintage <x id="INTERPOLATION" equiv-text="{{ vintage }}"/></source>
+        <target>Jahrgang <x id="INTERPOLATION" equiv-text="{{vintage}}"/></target>
       </trans-unit>
       <trans-unit id="4906961321021003483" datatype="html">
         <source>New Vintage</source>
@@ -135,16 +107,16 @@
         <target>Jahrgang</target>
       </trans-unit>
       <trans-unit id="1421165867919527894" datatype="html">
-        <source>Vintage is required.</source>
-        <target>Der Jahrgang muss eingegeben werden.</target>
+        <source>Vintage is required. </source>
+        <target>Der Jahrgang muss eingegeben werden. </target>
       </trans-unit>
       <trans-unit id="7390089133712514743" datatype="html">
-        <source>Vintage is to small.</source>
-        <target>Der Jahrgang ist zu klein</target>
+        <source>Vintage is to small. </source>
+        <target>Der Jahrgang ist zu klein </target>
       </trans-unit>
       <trans-unit id="6869132759539168906" datatype="html">
-        <source>Vintage is to big.</source>
-        <target>Der jahrgang ist zu groß.</target>
+        <source>Vintage is to big. </source>
+        <target>Der jahrgang ist zu groß. </target>
       </trans-unit>
       <trans-unit id="8894377483833272091" datatype="html">
         <source>Price</source>
@@ -167,8 +139,8 @@
         <target>Einlagerungen</target>
       </trans-unit>
       <trans-unit id="4412312126303507662" datatype="html">
-        <source>Loading vintage info...</source>
-        <target>Lade Jahrgang...</target>
+        <source> Loading vintage info... </source>
+        <target> Lade Jahrgang... </target>
       </trans-unit>
       <trans-unit id="6570946099881745178" datatype="html">
         <source>Delete vintage</source>
@@ -199,62 +171,48 @@
         <target>Kategorie</target>
       </trans-unit>
       <trans-unit id="4102111542402750688" datatype="html">
-        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine
-          {SparklingWine}}
-        </source>
-        <target>{VAR_SELECT, select, RedWine {Rotwein} WhiteWine {Weißwein} RoseWine {Roséwein} SparklingWine
-          {Schaumwein}}
-        </target>
+        <source>{VAR_SELECT, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}</source>
+        <target>{VAR_SELECT, select, RedWine {Rotwein} WhiteWine {Weißwein} RoseWine {Roséwein} SparklingWine {Schaumwein}}</target>
       </trans-unit>
       <trans-unit id="4839518956105289794" datatype="html">
-        <source>Category is required.</source>
-        <target>Die Kategorie muss eingegeben werden.</target>
+        <source>Category is required. </source>
+        <target>Die Kategorie muss eingegeben werden. </target>
       </trans-unit>
       <trans-unit id="5831066467798384321" datatype="html">
         <source>Producer</source>
         <target>Hersteller</target>
       </trans-unit>
       <trans-unit id="738015952975035099" datatype="html">
-        <source>Producer is required.</source>
-        <target>Der Hersteller muss eingegeben werden.</target>
+        <source>Producer is required. </source>
+        <target>Der Hersteller muss eingegeben werden. </target>
       </trans-unit>
       <trans-unit id="516176798986294299" datatype="html">
         <source>Country</source>
         <target>Land</target>
       </trans-unit>
       <trans-unit id="4912877664792304237" datatype="html">
-        <source>Country is required.</source>
-        <target>Das Land muss eingegeben werden.</target>
+        <source>Country is required. </source>
+        <target>Das Land muss eingegeben werden. </target>
       </trans-unit>
       <trans-unit id="2702200797962830082" datatype="html">
         <source>Region</source>
         <target>Region</target>
       </trans-unit>
       <trans-unit id="1122480728750643599" datatype="html">
-        <source>Region is required.</source>
-        <target>Die Region muss eingegeben werden.</target>
+        <source>Region is required. </source>
+        <target>Die Region muss eingegeben werden. </target>
       </trans-unit>
       <trans-unit id="5768502667727169801" datatype="html">
         <source>Vintages</source>
         <target>Jahrgänge</target>
       </trans-unit>
       <trans-unit id="8767082525605541546" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {
-          <x id="INTERPOLATION"/>
-          Bottle} other {
-          <x id="INTERPOLATION"/>
-          Bottles}}
-        </source>
-        <target state="new">{VAR_PLURAL, plural, =1 {
-          <x id="INTERPOLATION"/>
-          Flasche} other {
-          <x id="INTERPOLATION"/>
-          Flaschen}}
-        </target>
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
+        <target state="new">{VAR_PLURAL, plural, =1 { <x id="INTERPOLATION"/> Flasche} other { <x id="INTERPOLATION"/> Flaschen}} </target>
       </trans-unit>
       <trans-unit id="950930723334427991" datatype="html">
-        <source>Loading wine...</source>
-        <target>Lade Wein...</target>
+        <source> Loading wine... </source>
+        <target> Lade Wein... </target>
       </trans-unit>
       <trans-unit id="3069107851953706336" datatype="html">
         <source>Delete wine</source>
@@ -274,14 +232,10 @@
       </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
         <source>
-          <x id="ICU"
-             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
-             xid="4102111542402750688"/>
+          <x id="ICU" equiv-text="{wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}" xid="636629447992003260"/>
         </source>
-        <target>
-          <x id="ICU"
-             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
-             xid="4102111542402750688"/>
+        <target state="new">
+          <x id="ICU" equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/>
         </target>
       </trans-unit>
       <trans-unit id="2275328567992347600" datatype="html">
@@ -291,6 +245,10 @@
       <trans-unit id="6171914091025220327" datatype="html">
         <source>The page does not seem to exist yet</source>
         <target state="new">Die Seite scheint noch nicht zu existieren</target>
+      </trans-unit>
+      <trans-unit id="4225039304180409267" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ wine.producer }}"/> - <x id="ICU" equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/> </source>
+        <target state="new"> <x id="INTERPOLATION" equiv-text="{{ wine.producer }}"/> - <x id="ICU" equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/> </target>
       </trans-unit>
     </body>
   </file>
