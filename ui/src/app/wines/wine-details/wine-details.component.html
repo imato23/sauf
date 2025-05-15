@@ -1,6 +1,6 @@
 <div class="page-container">
   <div class="toolbar-container">
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button [routerLink]="['/wines/wine-list']" aria-label="Toggle sidenav" mat-icon-button type="button">
         <mat-icon aria-label="Side nav toggle icon">arrow_back</mat-icon>
       </button>
@@ -23,7 +23,7 @@
   <div class="content-container">
     <!-- image-->
     <div class="image-container">
-      <img [src]="currentImage ? currentImage : dummyImage" alt="Wine Image" class="wine-image" />
+      <img [src]="currentImage ? currentImage : dummyImage" alt="Wine Image" class="wine-image"/>
       <div class="image-floating-action-button">
         <button (click)=onCaptureImage() color="accent" mat-mini-fab>
           <mat-icon>photo_camera</mat-icon>

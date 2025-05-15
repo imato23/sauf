@@ -1,16 +1,9 @@
-.toolbar-container {
-  .toolbar-spacer {
-    flex: 1 1 auto;
-  }
-}
 
 .content-container {
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 20px;
-  padding: 20px;
-  height: 100%;
-
+  
   @media (max-width: 599px) {
     grid-template-columns: 1fr;
   }
