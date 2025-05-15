@@ -123,7 +123,7 @@ export class WineDetailsComponent implements OnInit {
     wine.image = this.currentImage;
 
     if (this.wineId) {
-      this.wineService.updateWine(this.wineId, wine).subscribe((updatedWine: Wine) =>
+      this.wineService.updateWine(this.wineId, wine).subscribe(() =>
         console.log(`Wine with id '${this.wineId}' has been updated.`));
     } else {
       this.wineService.addWine(wine).subscribe((createdWine: Wine) => {
