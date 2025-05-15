@@ -5,7 +5,7 @@
   <div class="content-container">
     <ng-container *ngIf=" wines$ | async; else loading">
       <mat-nav-list *ngFor="let wine of wines$ | async">
-        <mat-list-item [routerLink]="['/wines/view-wine/', wine.id]">
+        <mat-list-item [routerLink]="['/wines', 'view-wine', wine.id]">
           <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
                matListItemAvatar/>
           <h2 matListItemTitle> {{ wine.name }}</h2>

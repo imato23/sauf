@@ -91,19 +91,14 @@
 
         <!-- vintages -->
         <h3 i18n>Vintages</h3>
-        <mat-nav-list>
-          <ng-container *ngFor="let vintageInfo of wine.vintageInfos">
-            <mat-list-item routerLink="/wines/view-vintage/{{wine.id}}/{{vintageInfo.vintage}}">
-              <h3 matLine>{{ vintageInfo.vintage }}</h3>
-              <div>
-                <div i18n>{vintageInfo.bottleCount,
-                  plural, =1 {{{ vintageInfo.bottleCount }} Bottle} other
-                  {{{ vintageInfo.bottleCount }}
-                  Bottles}}</div>
-              </div>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-          </ng-container>
+        <mat-nav-list *ngFor="let vintageInfo of wine.vintageInfos">
+          <mat-list-item [routerLink]="['/wines', 'view-vintage', wine.id, vintageInfo.vintage]">
+            <h3 matListItemTitle>{{ vintageInfo.vintage }}</h3>
+            <div i18n matListItemLine>{vintageInfo.bottleCount,
+              plural, =1 {{{ vintageInfo.bottleCount }} Bottle} other
+              {{{ vintageInfo.bottleCount }}
+              Bottles}}</div>
+          </mat-list-item>
         </mat-nav-list>
         <button [disabled]="!wineId" mat-button
                 routerLink="/wines/add-vintage/{{wineId}}">Jahrgang hinzufügen

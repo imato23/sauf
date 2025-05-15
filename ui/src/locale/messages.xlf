@@ -151,7 +151,7 @@
       <trans-unit id="8489656809304962643" datatype="html">
         <source>Capture Image</source>
       </trans-unit>
-      <trans-unit id="8767082525605541546" datatype="html">
+      <trans-unit id="2489162646332311200" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
       </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
