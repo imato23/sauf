@@ -11,6 +11,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+  //margin: 0;
+}
+
 .page-container {
   width: 100%;
   display: flex;
@@ -26,6 +31,6 @@ body {
 
 .floating-action-button {
   position: fixed;
-  right: 16px;
+  right: 24px;
   bottom: 16px;
 }
