@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 20px;
-  
+
   @media (max-width: 599px) {
     grid-template-columns: 1fr;
   }
@@ -30,4 +30,12 @@
     width: 100%;
     margin-bottom: 16px;
   }
+}
+
+.vintage-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
 }

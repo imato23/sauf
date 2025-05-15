@@ -16,7 +16,7 @@ import {MatTooltip} from '@angular/material/tooltip';
 import {MatButton, MatIconButton, MatMiniFabButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
-import {MatListItem, MatListItemLine, MatListItemTitle, MatNavList} from '@angular/material/list';
+import {MatListItem, MatNavList} from '@angular/material/list';
 import {NgxTrimDirectiveModule} from 'ngx-trim-directive';
 import {MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {ImageCapturingComponent} from '../image-capturing/image-capturing.component';
@@ -48,9 +48,7 @@ import {WebcamImage} from 'ngx-webcam';
     MatAutocomplete,
     MatAutocompleteTrigger,
     MatError,
-    MatLabel,
-    MatListItemTitle,
-    MatListItemLine,
+    MatLabel
   ],
   selector: 'app-wine-details',
   styleUrl: './wine-details.component.scss',
