@@ -90,21 +90,7 @@
         </mat-form-field>
 
         <!-- vintages -->
-        <h3 i18n>Vintages</h3>
-        <mat-nav-list *ngFor="let vintageInfo of wine.vintageInfos">
-          <mat-list-item [routerLink]="['/wines', 'view-vintage', wine.id, vintageInfo.vintage]">
-            <div class="vintage-list">
-              <h3>{{ vintageInfo.vintage }}</h3>
-              <div i18n>{vintageInfo.bottleCount,
-                plural, =1 {{{ vintageInfo.bottleCount }} Bottle} other
-                {{{ vintageInfo.bottleCount }}
-                Bottles}}</div>
-            </div>
-          </mat-list-item>
-        </mat-nav-list>
-        <button [disabled]="!wineId" i18n
-                mat-button routerLink="/wines/add-vintage/{{wineId}}">Add vintage
-        </button>
+        <app-vintage-list [wine]="wine"></app-vintage-list>
       </form>
 
       <ng-template #loading i18n>

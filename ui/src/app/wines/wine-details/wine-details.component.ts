@@ -13,14 +13,14 @@ import {WineService} from '../shared/services/wine.service';
 import {WineCategory} from '../shared/models/wine-category.model';
 import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {MatTooltip} from '@angular/material/tooltip';
-import {MatButton, MatIconButton, MatMiniFabButton} from '@angular/material/button';
+import {MatIconButton, MatMiniFabButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
-import {MatListItem, MatNavList} from '@angular/material/list';
 import {NgxTrimDirectiveModule} from 'ngx-trim-directive';
 import {MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {ImageCapturingComponent} from '../image-capturing/image-capturing.component';
 import {WebcamImage} from 'ngx-webcam';
+import {VintageListComponent} from "../vintage-list/vintage-list.component";
 
 @Component({
   imports: [
@@ -37,18 +37,16 @@ import {WebcamImage} from 'ngx-webcam';
     MatMiniFabButton,
     MatMenuTrigger,
     NgIf,
-    MatListItem,
     MatMenuItem,
     NgxTrimDirectiveModule,
     MatOption,
     MatMenu,
-    MatButton,
     NgForOf,
-    MatNavList,
     MatAutocomplete,
     MatAutocompleteTrigger,
     MatError,
-    MatLabel
+    MatLabel,
+    VintageListComponent
   ],
   selector: 'app-wine-details',
   styleUrl: './wine-details.component.scss',
