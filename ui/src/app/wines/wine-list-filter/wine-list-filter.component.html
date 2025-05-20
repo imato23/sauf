@@ -1,0 +1,28 @@
+<form [formGroup]="wineListFilterFormGroup">
+  <mat-form-field style="flex: 1 1 auto; max-width: 300px">
+    <mat-label i18n>Name</mat-label>
+    <input formControlName="wineName" matInput trim="blur" type="search">
+  </mat-form-field>
+
+  <mat-form-field style="flex: 0 1 auto">
+    <mat-label i18n>Producer</mat-label>
+    <mat-select formControlName="producer">
+      <mat-option i18n value="all">All</mat-option>
+      <mat-option *ngFor="let producer of allProducers$ | async" [value]="producer">
+        {{ producer }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field style="flex: 0 1 auto">
+    <mat-label i18n>Category</mat-label>
+    <mat-select formControlName="category">
+      <mat-option i18n value="all">All</mat-option>
+      <mat-option *ngFor="let category of allWineCategories$ |async" [value]="category" i18n>
+        {category,
+          select, RedWine {RedWine} WhiteWine
+          {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

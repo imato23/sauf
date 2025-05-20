@@ -1,3 +1,13 @@
+mat-toolbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .wine-image {
   height: 56px;
   width: 56px
@@ -6,3 +16,39 @@
 .bottle-count {
   font-weight: bold;
 }
+
+//.search-container {
+//  //width: 100px;
+//}
+//
+//.search-field {
+//  //width: 100%;
+//}
+
+//input {
+//  border-top-style: hidden;
+//  border-right-style: hidden;
+//  border-left-style: hidden;
+//  border-bottom-style: groove;
+//  background-color: transparent;
+//  border-color: transparent;
+//  color: #fff;
+//  font-size: inherit;
+//}
+
+//.no-outline:focus {
+//  outline: none;
+//}
+
+//::placeholder {
+//  /* Chrome, Firefox, Opera, Safari 10.1+ */
+//  color: #fff;
+//  opacity: 1; /* Firefox */
+//}
+
+//input[type="search"]::-webkit-search-decoration,
+//input[type="search"]::-webkit-search-cancel-button,
+//input[type="search"]::-webkit-search-results-button,
+//input[type="search"]::-webkit-search-results-decoration {
+//  display: none;
+//}

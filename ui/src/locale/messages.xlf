@@ -156,7 +156,7 @@
       </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
         <source>
-          <x id="ICU" equiv-text="{wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}" xid="636629447992003260"/>
+          <x id="ICU" equiv-text="{category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}" xid="4102111542402750688"/>
         </source>
       </trans-unit>
       <trans-unit id="8894377483833272091" datatype="html">
@@ -191,6 +191,15 @@
       </trans-unit>
       <trans-unit id="8416250466550663074" datatype="html">
         <source>Add vintage </source>
+      </trans-unit>
+      <trans-unit id="450259486966752732" datatype="html">
+        <source>Wine List</source>
+      </trans-unit>
+      <trans-unit id="1616102757855967475" datatype="html">
+        <source>All</source>
+      </trans-unit>
+      <trans-unit id="4556951001148618889" datatype="html">
+        <source>There are no matching data records available</source>
       </trans-unit>
     </body>
   </file>
