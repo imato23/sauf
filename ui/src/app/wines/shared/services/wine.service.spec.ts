@@ -23,7 +23,11 @@ describe('WineService', () => {
   });
 
   it('should call rest api if getWines is triggered', () => {
-    service.getWines();
+    service.getWines({
+      wineName: null,
+      category: null,
+      producer: null
+    });
     expect(httpClientSpy.get).toHaveBeenCalledOnceWith(`${environment.apiUrl}/wines`);
   });
 
