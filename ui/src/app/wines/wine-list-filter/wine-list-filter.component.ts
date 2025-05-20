@@ -8,6 +8,7 @@ import {debounceTime, Observable} from "rxjs";
 import {NgxTrimDirectiveModule} from "ngx-trim-directive";
 import {WineListFilter} from "../shared/models/wine-list.filter.model";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+import {MatSlideToggle} from "@angular/material/slide-toggle";
 
 @Component({
   imports: [
@@ -20,7 +21,9 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
     MatOption,
     AsyncPipe,
     ReactiveFormsModule,
-    NgxTrimDirectiveModule
+    NgxTrimDirectiveModule,
+    MatSlideToggle,
+    MatFormField,
   ],
   selector: 'app-wine-list-filter',
   styleUrl: './wine-list-filter.component.scss',
@@ -41,11 +44,13 @@ export class WineListFilterComponent implements OnInit {
       wineName: [null],
       producer: ['all'],
       category: ['all'],
+      onlyAvailableWines: [true]
     });
 
     this.wineListFilterFormGroup.valueChanges
       .pipe(debounceTime(500), takeUntilDestroyed())
       .subscribe((filter: WineListFilter) => {
+        console.info(filter);
         this.emitFilter(filter);
       })
   }

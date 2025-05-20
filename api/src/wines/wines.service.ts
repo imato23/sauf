@@ -32,6 +32,10 @@ export class WinesService {
       query = query.where('category').equals(filter.category);
     }
 
+    if (filter && filter.onlyAvailableWines) {
+      query = query.where('vintageInfos.storageLocations.0').exists(true);
+    }
+
     const wines = await query.sort({ name: 'asc' }).exec();
     return this.mapper.mapArray(wines, Wine, WineDto);
   }

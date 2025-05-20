@@ -1,12 +1,8 @@
 <div class="page-container">
   <div class="toolbar-container">
     <mat-toolbar>
-      <mat-toolbar-row>
-        <div i18n style="flex: 0 0 auto">Wine List</div>
-        <div style="flex: 1 0 auto;">
-          <app-wine-list-filter (filterChanged)="onFilterChanged($event)"></app-wine-list-filter>
-        </div>
-      </mat-toolbar-row>
+      <app-wine-list-filter (filterChanged)="onFilterChanged($event)"
+                            style="display: flex; flex-direction: row"></app-wine-list-filter>
     </mat-toolbar>
   </div>
 

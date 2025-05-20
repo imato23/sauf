@@ -201,6 +201,9 @@
       <trans-unit id="4556951001148618889" datatype="html">
         <source>There are no matching data records available</source>
       </trans-unit>
+      <trans-unit id="5295445871352955399" datatype="html">
+        <source>Only available wines</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

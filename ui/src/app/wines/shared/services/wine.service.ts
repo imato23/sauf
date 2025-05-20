@@ -48,6 +48,8 @@ export class WineService {
       params = params.append('producer', filter.producer);
     }
 
+    params = params.append('onlyAvailableWines', filter.onlyAvailableWines);
+
     return this.httpClient.get<Wine[]>(this.winesApiUrl, {'params': params});
   }
 

@@ -1,18 +1,3 @@
-//@use '@angular/material' as mat;
-//
-//mat-form-field {
-//  @include mat.form-field-overrides((
-//    filled-caret-color: --mat-sys-on-surface,
-//  ));
-//}
-//
-//// Customize the entire app. Change :root to your selector if you want to scope the styles.
-//mat-select {
-//  @include mat.select-overrides((
-//    filled-container-color: --mat-sys-on-surface,
-//    panel-background-color: --mat-sys-on-surface));
-//}
-
 form {
   display: flex;
   flex-direction: row;
@@ -20,4 +5,11 @@ form {
   justify-content: flex-end;
   gap: 10px;
   width: 100%;
+}
+
+mat-form-field {
+  --mat-form-field-container-height: 16px;
+  //--mat-form-field-container-text-size: 16px;
+  //--mat-form-field-container-text-line-height: 16px;
+  --mat-form-field-container-vertical-padding: 6px;
 }

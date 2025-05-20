@@ -1,10 +1,11 @@
-<form [formGroup]="wineListFilterFormGroup">
-  <mat-form-field style="flex: 1 1 auto; max-width: 300px">
+<form [formGroup]="wineListFilterFormGroup" style="display: flex; align-items: center; font-size: 12px;">
+  <mat-form-field appearance="outline" floatLabel="always" style="flex: 1 1 auto; max-width: 300px;"
+                  subscriptSizing="dynamic">
     <mat-label i18n>Name</mat-label>
     <input formControlName="wineName" matInput trim="blur" type="search">
   </mat-form-field>
 
-  <mat-form-field style="flex: 0 1 auto">
+  <mat-form-field appearance="outline" style="flex: 0 1 auto" subscriptSizing="dynamic">
     <mat-label i18n>Producer</mat-label>
     <mat-select formControlName="producer">
       <mat-option i18n value="all">All</mat-option>
@@ -14,7 +15,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field style="flex: 0 1 auto">
+  <mat-form-field appearance="outline" style="flex: 0 1 auto" subscriptSizing="dynamic">
     <mat-label i18n>Category</mat-label>
     <mat-select formControlName="category">
       <mat-option i18n value="all">All</mat-option>
@@ -25,4 +26,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <div>
+    <mat-slide-toggle formControlName="onlyAvailableWines" i18n>Only available wines</mat-slide-toggle>
+  </div>
 </form>

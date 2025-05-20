@@ -24,11 +24,13 @@ export class WinesController {
     @Query('wineName') wineName: string,
     @Query('producer') producer: string,
     @Query('category') category: string,
+    @Query('onlyAvailableWines') onlyAvailableWines: string,
   ): Promise<WineDto[]> {
     const filter: WineListFilterDto = {
       wineName: wineName,
       producer: producer,
       category: category,
+      onlyAvailableWines: onlyAvailableWines === 'true',
     };
 
     return await this.winesService.getAllWines(filter);
