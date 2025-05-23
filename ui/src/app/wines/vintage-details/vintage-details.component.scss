@@ -9,26 +9,22 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 20px;
 }
 
 .form-container {
   width: 100%;
+  margin-right: 20px;
 }
 
 .form {
   mat-form-field {
     width: 100%;
     margin-bottom: 16px;
+
   }
 }
 
 .toolbar-spacer {
   flex: 1 1 auto;
 }
-
-/* Für mobile Geräte (xs) */
-//@media screen and (max-width: 599px) {
-//  .content-container {
-//    flex-direction: column;
-//  }
-//}

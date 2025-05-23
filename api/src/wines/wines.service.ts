@@ -8,6 +8,7 @@ import { WineDto } from './dtos/wine.dto';
 import { Mapper } from '@automapper/core';
 import { InjectMapper } from '@automapper/nestjs';
 import { VintageInfo } from './schemas/vintage-info.schema';
+import { WineListFilterDto } from './dtos/wine-list-filter.dto';
 
 @Injectable()
 export class WinesService {
@@ -16,12 +17,26 @@ export class WinesService {
     @InjectMapper() private readonly mapper: Mapper,
   ) {}
 
-  async getAllWines(): Promise<WineDto[]> {
-    const wines: Wine[] = await this.wineModel
-      .find()
-      .sort({ name: 'asc' })
-      .exec();
+  async getAllWines(filter: WineListFilterDto = null): Promise<WineDto[]> {
+    let query = this.wineModel.find();
 
+    if (filter && filter.wineName) {
+      query = query.where('name').regex(new RegExp(filter.wineName, 'i'));
+    }
+
+    if (filter && filter.producer) {
+      query = query.where('producer').equals(filter.producer);
+    }
+
+    if (filter && filter.category) {
+      query = query.where('category').equals(filter.category);
+    }
+
+    if (filter && filter.onlyAvailableWines) {
+      query = query.where('vintageInfos.storageLocations.0').exists(true);
+    }
+
+    const wines = await query.sort({ name: 'asc' }).exec();
     return this.mapper.mapArray(wines, Wine, WineDto);
   }
 

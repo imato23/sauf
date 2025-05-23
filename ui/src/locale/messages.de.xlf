@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="7907909138905798429" datatype="html">
         <source>AppTitle</source>
-        <target>S.A.U.F</target>
+        <target>S.A.U.F.</target>
       </trans-unit>
       <trans-unit id="5948330998501126851" datatype="html">
         <source>Wines</source>
@@ -76,7 +76,7 @@
           <x id="INTERPOLATION"/>
           Bottles}}
         </source>
-        <target>{VAR_PLURAL, plural, =1 {
+        <target state="new">{VAR_PLURAL, plural, =1 {
           <x id="INTERPOLATION"/>
           Flasche} other {
           <x id="INTERPOLATION"/>
@@ -101,7 +101,7 @@
       </trans-unit>
       <trans-unit id="4099435363452133250" datatype="html">
         <source>One or more storage locations have been entered more than once.</source>
-        <target>Ein oder mehrere Lageorte sind doppelt vorhanden.</target>
+        <target>Ein oder mehrere Lagerorte sind doppelt vorhanden.</target>
       </trans-unit>
       <trans-unit id="5381082291970004667" datatype="html">
         <source>One of the entered storage locations is already occupied.</source>
@@ -235,14 +235,14 @@
         <source>Vintages</source>
         <target>Jahrgänge</target>
       </trans-unit>
-      <trans-unit id="8767082525605541546" datatype="html">
+      <trans-unit id="2448292389386167912" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {
           <x id="INTERPOLATION"/>
           Bottle} other {
           <x id="INTERPOLATION"/>
           Bottles}}
         </source>
-        <target>{VAR_PLURAL, plural, =1 {
+        <target state="new">{VAR_PLURAL, plural, =1 {
           <x id="INTERPOLATION"/>
           Flasche} other {
           <x id="INTERPOLATION"/>
@@ -272,14 +272,70 @@
       <trans-unit id="8856905278208146821" datatype="html">
         <source>
           <x id="ICU"
-             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
+             equiv-text="{category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
              xid="4102111542402750688"/>
         </source>
-        <target>
+        <target state="new">
           <x id="ICU"
              equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
              xid="4102111542402750688"/>
         </target>
+      </trans-unit>
+      <trans-unit id="2275328567992347600" datatype="html">
+        <source>Page not found</source>
+        <target>Seite nicht gefunden</target>
+      </trans-unit>
+      <trans-unit id="6171914091025220327" datatype="html">
+        <source>The page does not seem to exist yet</source>
+        <target>Die Seite scheint noch nicht zu existieren</target>
+      </trans-unit>
+      <trans-unit id="4225039304180409267" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="{{ wine.producer }}"/>
+          -
+          <x id="ICU"
+             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
+             xid="4102111542402750688"/>
+        </source>
+        <target>
+          <x id="INTERPOLATION" equiv-text="{{ wine.producer }}"/>
+          -
+          <x id="ICU"
+             equiv-text="{wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}"
+             xid="4102111542402750688"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="4289468935095905318" datatype="html">
+        <source>Name is required.</source>
+        <target>Der Name muss eingegeben werden.</target>
+      </trans-unit>
+      <trans-unit id="8416250466550663074" datatype="html">
+        <source>Add vintage</source>
+        <target>Jahrgang hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="1616102757855967475" datatype="html">
+        <source>All</source>
+        <target state="new">Alle</target>
+      </trans-unit>
+      <trans-unit id="4556951001148618889" datatype="html">
+        <source>There are no matching data records available</source>
+        <target>Es sind keine passenden Datensätze vorhanden</target>
+      </trans-unit>
+      <trans-unit id="6435371090943151532" datatype="html">
+        <source>Only available wines</source>
+        <target state="new">Nur verfügbare Weine</target>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <target>Suche</target>
+      </trans-unit>
+      <trans-unit id="5295445871352955399" datatype="html">
+        <source>Only available wines</source>
+        <target state="new">Nur verfügbare Weine</target>
+      </trans-unit>
+      <trans-unit id="5355602255553685976" datatype="html">
+        <source>AppSubTitle</source>
+        <target state="new">Sortiert alle unsere Flaschen</target>
       </trans-unit>
     </body>
   </file>

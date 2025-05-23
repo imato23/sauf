@@ -7,20 +7,33 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { CreateWineDto } from './dtos/create-wine.dto';
 import { UpdateWineDto } from './dtos/update-wine.dto';
 import { WinesService } from './wines.service';
 import { WineDto } from './dtos/wine.dto';
+import { WineListFilterDto } from './dtos/wine-list-filter.dto';
 
 @Controller('wines')
 export class WinesController {
   constructor(private readonly winesService: WinesService) {}
 
   @Get()
-  async getAllWines(): Promise<WineDto[]> {
-    // hello
-    return await this.winesService.getAllWines();
+  async getAllWines(
+    @Query('wineName') wineName: string,
+    @Query('producer') producer: string,
+    @Query('category') category: string,
+    @Query('onlyAvailableWines') onlyAvailableWines: string,
+  ): Promise<WineDto[]> {
+    const filter: WineListFilterDto = {
+      wineName: wineName,
+      producer: producer,
+      category: category,
+      onlyAvailableWines: onlyAvailableWines === 'true',
+    };
+
+    return await this.winesService.getAllWines(filter);
   }
 
   @Get('producers')

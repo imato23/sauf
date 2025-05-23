@@ -1,15 +1,8 @@
-.toolbar-container {
-  .toolbar-spacer {
-    flex: 1 1 auto;
-  }
-}
 
-.content-container {
+.mygrid {
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 20px;
-  padding: 20px;
-  height: 100%;
 
   @media (max-width: 599px) {
     grid-template-columns: 1fr;
@@ -28,13 +21,14 @@
   .image-floating-action-button {
     position: absolute;
     right: 16px;
-    bottom: 16px;
+    top: 16px;
   }
 }
 
 .form {
   mat-form-field {
     width: 100%;
+    padding-right: 20px;
     margin-bottom: 16px;
   }
 }

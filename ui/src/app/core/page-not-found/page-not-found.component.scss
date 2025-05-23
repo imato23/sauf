@@ -1,0 +1,11 @@
+.page-not-found-card {
+  margin: 16px;
+
+  mat-card-header {
+    margin-bottom: 16px;
+
+    [mat-card-avatar] {
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { WineService } from './wine.service';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import {WineService} from './wine.service';
+import {HttpClient} from '@angular/common/http';
+import {environment} from "../../../../environments/environment";
 
 describe('WineService', () => {
   let service: WineService;
@@ -12,7 +12,7 @@ describe('WineService', () => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
 
     TestBed.configureTestingModule({
-      providers: [{ provide: HttpClient, useValue: httpClientSpy }],
+      providers: [{provide: HttpClient, useValue: httpClientSpy}],
     });
 
     service = TestBed.inject(WineService);
@@ -23,7 +23,11 @@ describe('WineService', () => {
   });
 
   it('should call rest api if getWines is triggered', () => {
-    service.getWines();
+    service.getWines({
+      wineName: null,
+      category: null,
+      producer: null
+    });
     expect(httpClientSpy.get).toHaveBeenCalledOnceWith(`${environment.apiUrl}/wines`);
   });
 

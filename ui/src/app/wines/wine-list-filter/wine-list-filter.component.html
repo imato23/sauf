@@ -1,0 +1,38 @@
+<form [formGroup]="wineListFilterFormGroup">
+  <mat-form-field appearance="outline" floatLabel="always" i18n-matTooltip matTooltip="Name"
+                  style="flex: 1 0 auto;" subscriptSizing="dynamic">
+    <mat-label i18n>Name</mat-label>
+    <input formControlName="wineName" i18n-placeholder matInput placeholder="Search" trim="blur" type="search">
+  </mat-form-field>
+
+  <mat-form-field [matBadgeHidden]="!isProducerFilterSet" appearance="outline" class="producer-filter" i18n-matTooltip
+                  matBadge="&#10003;" matTooltip="Producer" subscriptSizing="dynamic">
+    <mat-label class="filter-label" i18n>Producer</mat-label>
+    <mat-select formControlName="producer" panelWidth="">
+      <mat-option i18n value="all">All</mat-option>
+      <mat-option *ngFor="let producer of allProducers$ | async" [value]="producer">
+        {{ producer }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field [matBadgeHidden]="!isCategoryFilterSet" appearance="outline" class="category-filter" i18n-matTooltip
+                  matBadge="&#10003;"
+                  matTooltip="Category" subscriptSizing="dynamic">
+    <mat-label class="filter-label" i18n>Category</mat-label>
+    <mat-select formControlName="category" panelWidth="">
+      <mat-option i18n value="all">All</mat-option>
+      <mat-option *ngFor="let category of allWineCategories$ |async" [value]="category" i18n>
+        {category,
+          select, RedWine {RedWine} WhiteWine
+          {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <mat-slide-toggle class="hide-label-on-small" formControlName="onlyAvailableWines" i18n
+                      i18n-matTooltip matTooltip="Only available wines">Only available wines
+    </mat-slide-toggle>
+  </div>
+</form>

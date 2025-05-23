@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { MatToolbar } from '@angular/material/toolbar';
-import { MatIcon } from '@angular/material/icon';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatOption, MatSelect } from '@angular/material/select';
-import { Observable, of, tap } from 'rxjs';
-import { AbstractControl, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Wine } from '../shared/models/wine.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
-import { WineService } from '../shared/services/wine.service';
-import { WineCategory } from '../shared/models/wine-category.model';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { MatTooltip } from '@angular/material/tooltip';
-import { MatButton, MatIconButton, MatMiniFabButton } from '@angular/material/button';
-import { MatInput } from '@angular/material/input';
-import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { MatListItem, MatNavList } from '@angular/material/list';
-import { MatLine } from '@angular/material/core';
-import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
-import { MatDivider } from '@angular/material/divider';
-import { MatAutocomplete, MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { ImageCapturingComponent } from '../image-capturing/image-capturing.component';
-import { WebcamImage } from 'ngx-webcam';
+import {Component, OnInit} from '@angular/core';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatIcon} from '@angular/material/icon';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatOption, MatSelect} from '@angular/material/select';
+import {Observable, of, tap} from 'rxjs';
+import {AbstractControl, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
+import {Wine} from '../shared/models/wine.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
+import {WineService} from '../shared/services/wine.service';
+import {WineCategory} from '../shared/models/wine-category.model';
+import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {MatTooltip} from '@angular/material/tooltip';
+import {MatIconButton, MatMiniFabButton} from '@angular/material/button';
+import {MatInput} from '@angular/material/input';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
+import {NgxTrimDirectiveModule} from 'ngx-trim-directive';
+import {MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import {ImageCapturingComponent} from '../image-capturing/image-capturing.component';
+import {WebcamImage} from 'ngx-webcam';
+import {VintageListComponent} from "../vintage-list/vintage-list.component";
 
 @Component({
   imports: [
@@ -39,20 +37,16 @@ import { WebcamImage } from 'ngx-webcam';
     MatMiniFabButton,
     MatMenuTrigger,
     NgIf,
-    MatListItem,
-    MatLine,
     MatMenuItem,
     NgxTrimDirectiveModule,
     MatOption,
     MatMenu,
-    MatDivider,
-    MatButton,
     NgForOf,
-    MatNavList,
     MatAutocomplete,
     MatAutocompleteTrigger,
     MatError,
     MatLabel,
+    VintageListComponent
   ],
   selector: 'app-wine-details',
   styleUrl: './wine-details.component.scss',
@@ -127,7 +121,7 @@ export class WineDetailsComponent implements OnInit {
     wine.image = this.currentImage;
 
     if (this.wineId) {
-      this.wineService.updateWine(this.wineId, wine).subscribe((updatedWine: Wine) =>
+      this.wineService.updateWine(this.wineId, wine).subscribe(() =>
         console.log(`Wine with id '${this.wineId}' has been updated.`));
     } else {
       this.wineService.addWine(wine).subscribe((createdWine: Wine) => {
@@ -137,12 +131,12 @@ export class WineDetailsComponent implements OnInit {
       });
     }
 
-    this.snackBar.open($localize`Changes have been saved.`, undefined, { duration: 2000 });
+    this.snackBar.open($localize`Changes have been saved.`, undefined, {duration: 2000});
   }
 
   public onDelete(): void {
     this.wineService.deleteWine(this.wineId).subscribe(() => {
-      this.snackBar.open($localize`Wine has been deleted.`, undefined, { duration: 2000 });
+      this.snackBar.open($localize`Wine has been deleted.`, undefined, {duration: 2000});
       this.router.navigate(['/wines/wine-list']);
     });
   }

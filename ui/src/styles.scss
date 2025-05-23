@@ -11,16 +11,37 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+  //margin: 0;
+}
+
 .page-container {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.toolbar-container {
+  //z-index: 100;
+  flex: 0 0 auto;
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
 }
 
 .content-container {
-  width: 100%;
-  flex: auto;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 20px;
+  height: 100%;
+
 }
 
+.floating-action-button {
+  position: fixed;
+  right: 24px;
+  bottom: 16px;
+}

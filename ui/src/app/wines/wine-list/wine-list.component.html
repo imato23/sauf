@@ -1,47 +1,43 @@
 <div class="page-container">
   <div class="toolbar-container">
+    <mat-toolbar>
+      <app-wine-list-filter (filterChanged)="onFilterChanged($event)"
+                            style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%"></app-wine-list-filter>
+    </mat-toolbar>
   </div>
 
   <div class="content-container">
-    <mat-list>
-      <ng-container *ngFor="let wine of wines$ | async; let last = last">
-        <div class="list-item" routerLink="/wines/view-wine/{{wine.id}}">
-          <div class="wine-image">
-            <img [src]="wine.image ? wine.image : dummyAvatar" alt="{{ wine.name }}">
-
-            <div class="details">
-              <div><strong>{{ wine.name }}</strong></div>
-              <div>
-                {{ wine.producer }}
-              </div>
-              <div i18n>
-                {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
-              </div>
-            </div>
-            <div class="bottle-count" i18n>
+    <ng-container *ngIf=" wines$ | async as wines; else loading">
+      <ng-container *ngIf="wines.length > 0; else noData">
+        <mat-nav-list *ngFor="let wine of wines$ | async">
+          <mat-list-item [routerLink]="['/wines', 'view-wine', wine.id]">
+            <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
+                 matListItemAvatar/>
+            <h2 matListItemTitle> {{ wine.name }}</h2>
+            <span i18n matListItemLine>
+              {{ wine.producer }}
+              - {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+            </span>
+            <span class="bottle-count" i18n matListItemLine>
               {wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}
-            </div>
-          </div>
-        </div>
-        <mat-divider *ngIf="!last"></mat-divider>
+            </span>
+          </mat-list-item>
+        </mat-nav-list>
       </ng-container>
-    </mat-list>
+    </ng-container>
 
     <ng-template #loading>
       <h3 i18n>Loading wines...</h3>
     </ng-template>
+
+    <ng-template #noData>
+      <h3 i18n>There are no matching data records available</h3>
+    </ng-template>
   </div>
 
   <div class="floating-action-button">
-    <button color="primary" mat-fab routerLink="/wines/add-wine">
+    <button mat-fab routerLink="/wines/add-wine">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 </div>
-
-<mat-menu #menu="matMenu">
-  <button (click)="onfilterItemSelected(item)" *ngFor="let item of filterItems" mat-menu-item>
-    <mat-icon>{{ item.selected ? 'check' : '' }}</mat-icon>
-    <span> {{ item.displayName }}</span>
-  </button>
-</mat-menu>
