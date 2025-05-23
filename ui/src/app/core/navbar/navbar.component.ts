@@ -6,6 +6,7 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
+import {VersionComponent} from "../version/version.component";
 
 /**
  * NavbarComponent is responsible for rendering a navigation bar with responsive behavior
@@ -42,7 +43,8 @@ import {MatIconButton} from "@angular/material/button";
     MatIcon,
     RouterLink,
     MatSidenav,
-    MatIconButton
+    MatIconButton,
+    VersionComponent
   ],
   styleUrls: ['./navbar.component.scss']
 })

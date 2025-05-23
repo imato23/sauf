@@ -39,3 +39,4 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/public/assets/version.json

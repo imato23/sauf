@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install npm@10 && npm install -g @angular/cli && npm install
-RUN ng build --localize --configuration production
+RUN npm run build --localize --configuration=production
 
 # Stage 1: serve app with nginx server
 FROM nginx:latest
