@@ -192,17 +192,23 @@
       <trans-unit id="8416250466550663074" datatype="html">
         <source>Add vintage </source>
       </trans-unit>
-      <trans-unit id="450259486966752732" datatype="html">
-        <source>Wine List</source>
-      </trans-unit>
       <trans-unit id="1616102757855967475" datatype="html">
         <source>All</source>
       </trans-unit>
       <trans-unit id="4556951001148618889" datatype="html">
         <source>There are no matching data records available</source>
       </trans-unit>
+      <trans-unit id="6435371090943151532" datatype="html">
+        <source>Only available wines </source>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+      </trans-unit>
       <trans-unit id="5295445871352955399" datatype="html">
         <source>Only available wines</source>
+      </trans-unit>
+      <trans-unit id="5355602255553685976" datatype="html">
+        <source>AppSubTitle</source>
       </trans-unit>
     </body>
   </file>

@@ -313,10 +313,6 @@
         <source>Add vintage</source>
         <target>Jahrgang hinzufügen</target>
       </trans-unit>
-      <trans-unit id="450259486966752732" datatype="html">
-        <source>Wine List</source>
-        <target>Wein Liste</target>
-      </trans-unit>
       <trans-unit id="1616102757855967475" datatype="html">
         <source>All</source>
         <target state="new">Alle</target>
@@ -325,9 +321,21 @@
         <source>There are no matching data records available</source>
         <target>Es sind keine passenden Datensätze vorhanden</target>
       </trans-unit>
+      <trans-unit id="6435371090943151532" datatype="html">
+        <source>Only available wines</source>
+        <target state="new">Nur verfügbare Weine</target>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <target>Suche</target>
+      </trans-unit>
       <trans-unit id="5295445871352955399" datatype="html">
         <source>Only available wines</source>
         <target state="new">Nur verfügbare Weine</target>
+      </trans-unit>
+      <trans-unit id="5355602255553685976" datatype="html">
+        <source>AppSubTitle</source>
+        <target state="new">Sortiert alle unsere Flaschen</target>
       </trans-unit>
     </body>
   </file>

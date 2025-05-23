@@ -55,4 +55,32 @@ mat-sidenav {
   }
 }
 
+.main-toolbar-child {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.logo {
+  height: 36px;
+  object-fit: contain;
+}
+
+.title {
+  flex: 0 0 auto;
+}
+
+.sub-title {
+  font-size: medium;
+  margin-left: 10px;
+  flex: 1;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+.drawer-button {
+  flex: 0 0 auto;
+}

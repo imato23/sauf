@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
@@ -9,6 +9,8 @@ import {NgxTrimDirectiveModule} from "ngx-trim-directive";
 import {WineListFilter} from "../shared/models/wine-list.filter.model";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatTooltip} from "@angular/material/tooltip";
+import {MatBadge} from "@angular/material/badge";
 
 @Component({
   imports: [
@@ -24,10 +26,13 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
     NgxTrimDirectiveModule,
     MatSlideToggle,
     MatFormField,
+    MatTooltip,
+    MatBadge,
   ],
   selector: 'app-wine-list-filter',
   styleUrl: './wine-list-filter.component.scss',
-  templateUrl: './wine-list-filter.component.html'
+  templateUrl: './wine-list-filter.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class WineListFilterComponent implements OnInit {
   @Output() filterChanged: EventEmitter<WineListFilter> = new EventEmitter<WineListFilter>();
@@ -53,6 +58,14 @@ export class WineListFilterComponent implements OnInit {
         console.info(filter);
         this.emitFilter(filter);
       })
+  }
+
+  public get isProducerFilterSet(): boolean {
+    return this.wineListFilterFormGroup.get('producer')!.value !== 'all';
+  }
+
+  public get isCategoryFilterSet(): boolean {
+    return this.wineListFilterFormGroup.get('category')!.value !== 'all';
   }
 
   ngOnInit(): void {

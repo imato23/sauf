@@ -9,7 +9,44 @@ form {
 
 mat-form-field {
   --mat-form-field-container-height: 16px;
-  //--mat-form-field-container-text-size: 16px;
-  //--mat-form-field-container-text-line-height: 16px;
   --mat-form-field-container-vertical-padding: 6px;
+}
+
+@media (max-width: 600px) {
+  #mat-mdc-slide-toggle-0-label {
+    display: none;
+  }
+
+  .filter-label {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 600px) {
+  .producer-filter .mat-badge-content {
+    display: none;
+  }
+  .category-filter .mat-badge-content {
+    display: none;
+  }
+
+
+}
+
+
+form {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.producer-filter {
+  flex: 0 1 auto;
+}
+
+.category-filter {
+  flex: 0 1 auto;
 }

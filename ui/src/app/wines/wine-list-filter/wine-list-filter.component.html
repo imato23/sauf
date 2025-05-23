@@ -1,13 +1,14 @@
-<form [formGroup]="wineListFilterFormGroup" style="display: flex; align-items: center; font-size: 12px;">
-  <mat-form-field appearance="outline" floatLabel="always" style="flex: 1 1 auto; max-width: 300px;"
-                  subscriptSizing="dynamic">
+<form [formGroup]="wineListFilterFormGroup">
+  <mat-form-field appearance="outline" floatLabel="always" i18n-matTooltip matTooltip="Name"
+                  style="flex: 1 0 auto;" subscriptSizing="dynamic">
     <mat-label i18n>Name</mat-label>
-    <input formControlName="wineName" matInput trim="blur" type="search">
+    <input formControlName="wineName" i18n-placeholder matInput placeholder="Search" trim="blur" type="search">
   </mat-form-field>
 
-  <mat-form-field appearance="outline" style="flex: 0 1 auto" subscriptSizing="dynamic">
-    <mat-label i18n>Producer</mat-label>
-    <mat-select formControlName="producer">
+  <mat-form-field [matBadgeHidden]="!isProducerFilterSet" appearance="outline" class="producer-filter" i18n-matTooltip
+                  matBadge="&#10003;" matTooltip="Producer" subscriptSizing="dynamic">
+    <mat-label class="filter-label" i18n>Producer</mat-label>
+    <mat-select formControlName="producer" panelWidth="">
       <mat-option i18n value="all">All</mat-option>
       <mat-option *ngFor="let producer of allProducers$ | async" [value]="producer">
         {{ producer }}
@@ -15,9 +16,11 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline" style="flex: 0 1 auto" subscriptSizing="dynamic">
-    <mat-label i18n>Category</mat-label>
-    <mat-select formControlName="category">
+  <mat-form-field [matBadgeHidden]="!isCategoryFilterSet" appearance="outline" class="category-filter" i18n-matTooltip
+                  matBadge="&#10003;"
+                  matTooltip="Category" subscriptSizing="dynamic">
+    <mat-label class="filter-label" i18n>Category</mat-label>
+    <mat-select formControlName="category" panelWidth="">
       <mat-option i18n value="all">All</mat-option>
       <mat-option *ngFor="let category of allWineCategories$ |async" [value]="category" i18n>
         {category,
@@ -28,6 +31,8 @@
   </mat-form-field>
 
   <div>
-    <mat-slide-toggle formControlName="onlyAvailableWines" i18n>Only available wines</mat-slide-toggle>
+    <mat-slide-toggle class="hide-label-on-small" formControlName="onlyAvailableWines" i18n
+                      i18n-matTooltip matTooltip="Only available wines">Only available wines
+    </mat-slide-toggle>
   </div>
 </form>
