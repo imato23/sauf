@@ -7,7 +7,6 @@ import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MatListItem, MatListItemAvatar, MatListItemLine, MatListItemTitle, MatNavList} from '@angular/material/list';
 import {WineListFilterComponent} from "../wine-list-filter/wine-list-filter.component";
-import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatFabButton} from "@angular/material/button";
 import {WineListFilter} from "../shared/models/wine-list.filter.model";
@@ -24,7 +23,6 @@ import {WineListFilter} from "../shared/models/wine-list.filter.model";
     NgIf,
     MatNavList,
     MatListItem,
-    MatToolbar,
     MatIcon,
     NgForOf,
     MatFabButton,

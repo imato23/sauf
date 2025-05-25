@@ -210,6 +210,9 @@
       <trans-unit id="5355602255553685976" datatype="html">
         <source>AppSubTitle</source>
       </trans-unit>
+      <trans-unit id="7455195759792437363" datatype="html">
+        <source>Wine Name</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

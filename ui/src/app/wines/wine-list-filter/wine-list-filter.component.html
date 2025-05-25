@@ -4,13 +4,13 @@
       <!-- wine name filter -->
       <mat-form-field appearance="outline" class="wine-name-filter" floatLabel="always" i18n-matTooltip
                       matTooltip="Name" subscriptSizing="dynamic">
-        <mat-label i18n>Name</mat-label>
+        <mat-label i18n>Wine Name</mat-label>
         <input formControlName="wineName" i18n-placeholder matInput placeholder="Search" trim="blur" type="search">
       </mat-form-field>
 
       <!-- only available wines filter -->
       <div class="only-available-wines-filter">
-        <mat-slide-toggle class="hide-label-on-small" formControlName="onlyAvailableWines" i18n
+        <mat-slide-toggle formControlName="onlyAvailableWines" i18n
                           i18n-matTooltip matTooltip="Only available wines">Only available wines
         </mat-slide-toggle>
       </div>

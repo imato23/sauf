@@ -1,9 +1,10 @@
 form {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
+  align-items: center;
+  flex-wrap: nowrap;
   width: 100%;
 }
 
@@ -12,73 +13,48 @@ mat-form-field {
   --mat-form-field-container-vertical-padding: 6px;
 }
 
-//@media (max-width: 600px) {
-//  #mat-mdc-slide-toggle-0-label {
-//    display: none;
-//  }
-//
-//  .filter-label {
-//    display: none;
-//  }
-//
-//
-//}
-
-//@media (min-width: 600px) {
-//  .producer-filter .mat-badge-content {
-//    display: none;
-//  }
-//  .category-filter .mat-badge-content {
-//    display: none;
-//  }
-//}
-
-
-form {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-
 .filter-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   margin-top: 10px;
   width: 100%;
   padding: 10px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .filter-row-1 {
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  flex: 0 1 auto;
+  gap: 10px;
+  flex: 1 1 auto;
   max-width: 100%;
 }
 
 .filter-row-2 {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
   max-width: 100%;
+  flex: 1 1 auto;
 }
 
 .wine-name-filter {
-  flex: 1 0 auto;
-  max-width: 200px;
+  flex: 1 1 auto;
 }
 
 .producer-filter {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
 }
 
 .category-filter {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
 }
 
 .only-available-wines-filter {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
