@@ -2,10 +2,16 @@
 .mygrid {
   display: grid;
   grid-template-columns: 40% 60%;
-  gap: 20px;
+  width: 100%;
 
   @media (max-width: 599px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 600px) {
+    .form {
+      padding-left: 20px;
+    }
   }
 }
 
@@ -26,9 +32,10 @@
 }
 
 .form {
+  width: 100%;
+
   mat-form-field {
     width: 100%;
-    padding-right: 20px;
     margin-bottom: 16px;
   }
 }
