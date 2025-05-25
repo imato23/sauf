@@ -1,9 +1,7 @@
 <div class="page-container">
   <div class="toolbar-container">
-    <mat-toolbar>
-      <app-wine-list-filter (filterChanged)="onFilterChanged($event)"
-                            style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%"></app-wine-list-filter>
-    </mat-toolbar>
+    <app-wine-list-filter (filterChanged)="onFilterChanged($event)"
+                          style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%"></app-wine-list-filter>
   </div>
 
   <div class="content-container">

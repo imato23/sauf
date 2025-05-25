@@ -6,9 +6,15 @@
 }
 
 .storage-field {
-  flex-grow: 1;
+  flex: 1 1 auto;
 }
 
 .custom-error {
   margin-bottom: 1rem;
 }
+
+.form-field {
+  min-width: 1px !important;
+}
+
+

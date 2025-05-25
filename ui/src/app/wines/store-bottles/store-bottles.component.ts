@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormArray,
@@ -7,14 +7,14 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { StorageLocation } from '../shared/models/storage-location.model';
-import { VintageInfoService } from '../shared/services/vintage-info.service';
-import { duplicateStorageLocationsValidator } from '../shared/validators/duplicate-storage-locations.validator';
-import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatIcon } from '@angular/material/icon';
-import { MatInput } from '@angular/material/input';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { NgForOf, NgIf } from '@angular/common';
+import {StorageLocation} from '../shared/models/storage-location.model';
+import {VintageInfoService} from '../shared/services/vintage-info.service';
+import {duplicateStorageLocationsValidator} from '../shared/validators/duplicate-storage-locations.validator';
+import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatIcon} from '@angular/material/icon';
+import {MatInput} from '@angular/material/input';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-store-bottles',

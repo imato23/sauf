@@ -337,6 +337,10 @@
         <source>AppSubTitle</source>
         <target state="new">Sortiert alle unsere Flaschen</target>
       </trans-unit>
+      <trans-unit id="7455195759792437363" datatype="html">
+        <source>Wine Name</source>
+        <target state="new">Wein Name</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
