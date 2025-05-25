@@ -10,29 +10,27 @@ import {WineListFilter} from "../shared/models/wine-list.filter.model";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatTooltip} from "@angular/material/tooltip";
-import {MatBadge} from "@angular/material/badge";
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   imports: [
     FormsModule,
     MatInput,
     MatLabel,
     MatSelect,
+    MatSlideToggle,
+    MatTooltip,
     NgForOf,
     MatFormField,
     MatOption,
     AsyncPipe,
     ReactiveFormsModule,
     NgxTrimDirectiveModule,
-    MatSlideToggle,
-    MatFormField,
-    MatTooltip,
-    MatBadge,
+
   ],
   selector: 'app-wine-list-filter',
   styleUrl: './wine-list-filter.component.scss',
-  templateUrl: './wine-list-filter.component.html',
-  encapsulation: ViewEncapsulation.None
+  templateUrl: './wine-list-filter.component.html'
 })
 export class WineListFilterComponent implements OnInit {
   @Output() filterChanged: EventEmitter<WineListFilter> = new EventEmitter<WineListFilter>();
@@ -58,14 +56,6 @@ export class WineListFilterComponent implements OnInit {
         console.info(filter);
         this.emitFilter(filter);
       })
-  }
-
-  public get isProducerFilterSet(): boolean {
-    return this.wineListFilterFormGroup.get('producer')!.value !== 'all';
-  }
-
-  public get isCategoryFilterSet(): boolean {
-    return this.wineListFilterFormGroup.get('category')!.value !== 'all';
   }
 
   ngOnInit(): void {
