@@ -53,7 +53,6 @@ export class WineListFilterComponent implements OnInit {
     this.wineListFilterFormGroup.valueChanges
       .pipe(debounceTime(500), takeUntilDestroyed())
       .subscribe((filter: WineListFilter) => {
-        console.info(filter);
         this.emitFilter(filter);
       })
   }
