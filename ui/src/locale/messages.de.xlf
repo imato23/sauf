@@ -341,6 +341,10 @@
         <source>Wine Name</source>
         <target state="new">Wein Name</target>
       </trans-unit>
+      <trans-unit id="5654346214096598640" datatype="html">
+        <source>Theme:</source>
+        <target state="new">Design:</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

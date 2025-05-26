@@ -213,6 +213,9 @@
       <trans-unit id="7455195759792437363" datatype="html">
         <source>Wine Name</source>
       </trans-unit>
+      <trans-unit id="5654346214096598640" datatype="html">
+        <source>Theme:</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

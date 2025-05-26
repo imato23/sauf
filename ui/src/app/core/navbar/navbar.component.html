@@ -4,7 +4,9 @@
       <button (click)="drawer.toggle()" class="drawer-button" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <img alt="" class="logo" src="assets/app-icons/bottle-light/app-icon-72-72.png">
+      <img
+        [ngSrc]="`assets/app-icons/${isDarkMode() ?  'bottle-light' : 'bottle-dark'}/app-icon-72-72.png`"
+        alt="logo" height="36" width="36">
       <div class="title" i18n>AppTitle</div>
       <div class="sub-title" i18n>AppSubTitle</div>
     </div>

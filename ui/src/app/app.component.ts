@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {NavbarComponent} from "./core/navbar/navbar.component";
+import {ThemeService} from "./settings/shared/services/theme.service";
+import {Theme} from "./settings/shared/models/theme.enum";
 
 /**
  * Represents the root component of the application.
@@ -27,4 +29,11 @@ import {NavbarComponent} from "./core/navbar/navbar.component";
 })
 export class AppComponent {
   title = 'S.A.U.F.';
+
+  constructor(private themeService: ThemeService) {
+    const theme: Theme = themeService.loadThemeFromLocalStorage();
+    this.themeService.applyTheme(theme);
+
+  }
+
 }

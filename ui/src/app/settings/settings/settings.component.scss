@@ -1,0 +1,15 @@
+.settings-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.label {
+  flex: 0 0 auto;
+}
+
+.theme-value {
+  flex: 0 0 auto;
+}

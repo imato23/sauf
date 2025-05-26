@@ -1,0 +1,22 @@
+<div class="page-container">
+  <div class="toolbar-container">
+    <mat-toolbar>
+      <span i18n>Settings</span>
+      <span class="toolbar-spacer"></span>
+      <button (click)="onSave()" [disabled]="!settingsFormGroup.valid" aria-label="Save" i18n-matTooltip
+              mat-icon-button matTooltip="Save changes">
+        <mat-icon>save</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+
+  <div class="content-container">
+    <form [formGroup]="settingsFormGroup" class="settings-container">
+      <label class="label" i18n>Theme:</label>
+      <mat-button-toggle-group
+        class="theme-value" formControlName="theme">
+        <mat-button-toggle *ngFor="let theme of themeValues" [value]="theme">{{ theme }}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </form>
+  </div>
+</div>
