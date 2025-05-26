@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
+import {Component, computed, inject, OnDestroy, Signal, signal, ViewChild, WritableSignal} from '@angular/core';
 import {MatDrawer, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material/sidenav';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
@@ -7,6 +7,8 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {VersionComponent} from "../version/version.component";
+import {ThemeService} from "../../settings/shared/services/theme.service";
+import {NgOptimizedImage} from "@angular/common";
 
 /**
  * NavbarComponent is responsible for rendering a navigation bar with responsive behavior
@@ -44,16 +46,16 @@ import {VersionComponent} from "../version/version.component";
     RouterLink,
     MatSidenav,
     MatIconButton,
-    VersionComponent
+    VersionComponent,
+    NgOptimizedImage
   ],
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnDestroy {
   @ViewChild('drawer', {static: true})
   drawer!: MatDrawer;
-
+  protected isDarkMode: Signal<boolean> = computed(() => this.themeService.isDarkMode());
   protected readonly isMobile: WritableSignal<boolean> = signal(true);
-
   private readonly mobileQuery: MediaQueryList;
   private readonly mobileQueryListener: () => void;
 
@@ -61,7 +63,7 @@ export class NavbarComponent implements OnDestroy {
    * Constructor initializes the state for mobile query checking. It sets up a listener to detect
    * changes in media query matching for screens with a max-width of 600 px.
    */
-  constructor() {
+  constructor(private themeService: ThemeService) {
     const media: MediaMatcher = inject(MediaMatcher);
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
