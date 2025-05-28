@@ -1,4 +1,4 @@
-<div>
+<div class="webcam-dialog-container">
   <h2 i18n mat-dialog-title>Capture Image</h2>
   <mat-dialog-content>
     <ng-container *ngIf="!webcamImage" class="column-container">
@@ -6,11 +6,11 @@
               [trigger]="triggerObservable" [width]="webcamWidth"></webcam>
     </ng-container>
     <ng-container *ngIf="webcamImage">
-      <img [src]="webcamImage.imageAsDataUrl" alt="Webcam Image" class="captured-image" />
+      <img [src]="webcamImage.imageAsDataUrl" alt="Webcam Image" class="captured-image"/>
     </ng-container>
   </mat-dialog-content>
 
-  <mat-dialog-actions>
+  <mat-dialog-actions align="center">
     <ng-container *ngIf="!webcamImage">
       <button (click)="onTriggerSnapshot()" mat-icon-button>
         <mat-icon>camera</mat-icon>

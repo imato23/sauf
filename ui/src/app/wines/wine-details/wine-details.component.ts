@@ -142,7 +142,12 @@ export class WineDetailsComponent implements OnInit {
   }
 
   public onCaptureImage(): void {
-    const dialogRef = this.dialog.open(ImageCapturingComponent);
+    const dialogRef = this.dialog.open(ImageCapturingComponent, {
+      width: '100vw',
+      height: '100vh',
+      maxWidth: '100vw',
+      panelClass: 'fullscreen-dialog'
+    });
 
     dialogRef.afterClosed().subscribe((result: WebcamImage) => {
       if (result) {
