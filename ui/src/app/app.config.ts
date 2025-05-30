@@ -1,8 +1,9 @@
-import {ApplicationConfig, provideZoneChangeDetection} from '@angular/core';
+import {ApplicationConfig, inject, provideAppInitializer, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
 import {provideHttpClient} from "@angular/common/http";
+import {ConfigService} from "./core/shared/config.service";
 
 /**
  * Application configuration object used to set up the providers for the application.
@@ -12,6 +13,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({eventCoalescing: true}),
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(),
+    provideAppInitializer(() => {
+      const configService: ConfigService = inject(ConfigService);
+      return configService.load();
+    })
   ]
 };

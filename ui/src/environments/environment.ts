@@ -2,7 +2,9 @@
  * Represents the configuration for the application's environment settings.
  *
  * @property {string} apiUrl - The base URL of the API used for network requests.
+ * Is initially empty and will be filled on application start by environment variable "API_URL", which must exist
  */
 export const environment = {
-  apiUrl: 'https://sauf.home.imato.de:3000'
+  production: true,
+  apiUrl: ''
 };

@@ -10,4 +10,9 @@ RUN npm run build --localize --configuration=production
 FROM nginx:latest
 COPY --from=build /app/dist/ui/browser  /usr/share/nginx/html
 COPY nginx_conf/nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]
+
 EXPOSE 443
