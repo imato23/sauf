@@ -9,7 +9,7 @@ import { classes } from '@automapper/classes';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ envFilePath: '/etc/sauf/environment.env' }),
+    //ConfigModule.forRoot({ envFilePath: '/etc/sauf/environment.env' }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
