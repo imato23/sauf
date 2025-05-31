@@ -3,6 +3,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.interface';
 import * as fs from 'node:fs';
+import { ConfigService } from '@nestjs/config';
+
 //import { version } from '../package.json';
 
 const httpsOptions: HttpsOptions = {
@@ -10,8 +12,28 @@ const httpsOptions: HttpsOptions = {
   cert: fs.readFileSync('/etc/ssl/sauf.home.imato.de_cert.pem'),
 };
 
+/**
+ * Throws an exception if not all required environment variables are set.
+ * @param configService - The config service
+ */
+function ensureRequiredEnvironmentVariablesAreSet(
+  configService: ConfigService,
+): void {
+  const requiredEnvironmentVariables = ['MONGODB_URI'];
+  requiredEnvironmentVariables.forEach((variableName: string) => {
+    if (!configService.get(variableName)) {
+      throw new Error(
+        `The required environment variable ${variableName} is not set.`,
+      );
+    }
+  });
+}
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { httpsOptions });
+  const app = await NestFactory.create(AppModule, {});
+
+  const configService = app.get(ConfigService);
+  ensureRequiredEnvironmentVariablesAreSet(configService);
 
   app.enableCors();
 
