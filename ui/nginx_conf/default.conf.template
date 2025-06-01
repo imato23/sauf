@@ -21,7 +21,7 @@ server {
     # This block forwards all /api/ requests to the backend service running on sauf-api:3000
     # Headers are set to maintain the original host and client IP for proper request handling
     location /api/ {
-        proxy_pass http://sauf-api:3000/;
+        proxy_pass ${API_URL2}; # http://sauf-api:3000/
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
