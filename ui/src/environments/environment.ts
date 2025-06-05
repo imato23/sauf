@@ -6,5 +6,5 @@
  */
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:3000' // Is not used for productive environment, see nginx config
+    apiUrl: '' // Is not used for productive environment, see nginx config
 };
