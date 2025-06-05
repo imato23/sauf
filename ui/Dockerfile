@@ -3,7 +3,7 @@ FROM node:22 AS build
 WORKDIR /app
 COPY . .
 
-RUN npm install npm@10 && npm install -g @angular/cli && npm install
+RUN npm install npm@11 && npm install -g @angular/cli && npm install
 RUN npm run build --localize --configuration=production
 
 # Stage 1: serve app with nginx server
