@@ -1,0 +1,46 @@
+{
+  "name": "S.A.U.F.",
+  "short_name": "S.A.U.F.",
+  "description": "Verwaltung für den privaten Weinkeller"
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+ "icons": [
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-72-72.png",
+       "sizes": "72x72",
+       "type": "image/png",
+       "purpose": "maskable any"
+     },
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-96-96.png",
+       "sizes": "96x96",
+       "type": "image/png",
+       "purpose": "maskable any"
+     },
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-128-128.png",
+       "sizes": "128x128",
+       "type": "image/png",
+       "purpose": "maskable any"
+     },
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-144-144.png",
+       "sizes": "144x144",
+       "type": "image/png",
+       "purpose": "maskable any"
+     },
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-192-192.png",
+       "sizes": "192x192",
+       "type": "image/png",
+       "purpose": "maskable any"
+     },
+     {
+       "src": "assets/app-icons/bottle-dark/app-icon-512-512.png",
+       "sizes": "512x512",
+       "type": "image/png",
+       "purpose": "maskable any"
+     }
+   ]
+}
