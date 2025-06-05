@@ -1,0 +1,33 @@
+map $http_accept_language $lang {
+    default de;
+    "~*^([a-z]{2})" $1;
+}
+
+server {
+    listen 443 ssl;
+    ssl_certificate /etc/ssl/sauf.home.imato.de_cert.pem;
+    ssl_certificate_key /etc/ssl/sauf.home.imato.de_key.pem;
+    root /usr/share/nginx/html;
+
+    # Redirect "/" to appropriate language
+    rewrite ^/$ /$lang permanent;
+
+    # German-Specific Routing
+    location /de {
+        try_files $uri /de/index.html =404;
+    }
+
+    # API Proxy Configuration
+    # This block forwards all /api/ requests to the backend service
+    # Headers are set to maintain the original host and client IP for proper request handling
+    location /api/ {
+        proxy_pass ${API_URL};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Redirect everything else to German
+    location / {
+        return 301 /de;
+    }
+}

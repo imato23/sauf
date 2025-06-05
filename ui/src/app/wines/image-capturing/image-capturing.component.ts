@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { WebcamImage, WebcamModule } from 'ngx-webcam';
-import { Observable, Subject } from 'rxjs';
-import { MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
-import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
-import { NgIf } from '@angular/common';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {WebcamImage, WebcamModule} from 'ngx-webcam';
+import {Observable, Subject} from 'rxjs';
+import {MatDialogRef} from '@angular/material/dialog';
+import {MatIcon} from '@angular/material/icon';
+import {MatIconButton} from '@angular/material/button';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-image-capturing',
@@ -13,17 +13,15 @@ import { NgIf } from '@angular/common';
     MatIcon,
     MatIconButton,
     NgIf,
-    MatDialogActions,
-    MatDialogContent,
-    MatDialogTitle,
+
   ],
   templateUrl: './image-capturing.component.html',
   styleUrl: './image-capturing.component.scss',
 })
 export class ImageCapturingComponent implements OnInit {
   public webcamImage: WebcamImage | null = null;
-  public webcamWidth = window.innerWidth - 300;
-  public webcamHeight = window.innerHeight - 300;
+  public webcamWidth = 1600;
+  public webcamHeight = 1200;
   private trigger: Subject<void> = new Subject<void>();
 
   constructor(public dialogRef: MatDialogRef<ImageCapturingComponent>) {
@@ -34,7 +32,16 @@ export class ImageCapturingComponent implements OnInit {
     return this.trigger.asObservable();
   }
 
+  @HostListener('window:resize')
+  setFullscreenSize() {
+    this.webcamWidth = Math.round(window.innerWidth * 0.9);
+    this.webcamHeight = Math.round(window.innerHeight * 0.9);
+
+    console.log(`Webcam Width: ${this.webcamWidth}, Height: ${this.webcamHeight}`);
+  }
+
   ngOnInit(): void {
+    this.setFullscreenSize();
   }
 
   public onTriggerSnapshot(): void {

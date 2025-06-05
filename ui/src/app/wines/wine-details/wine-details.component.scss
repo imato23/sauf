@@ -1,5 +1,6 @@
+@use '@angular/material' as mat;
 
-.mygrid {
+.content-container-grid {
   display: grid;
   grid-template-columns: 40% 60%;
   width: 100%;
@@ -39,3 +40,6 @@
     margin-bottom: 16px;
   }
 }
+
+
+

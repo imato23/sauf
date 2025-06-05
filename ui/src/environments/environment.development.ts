@@ -2,5 +2,6 @@
  * @fileOverview Defines the configuration settings for the application's environment.
  */
 export const environment = {
-  apiUrl: 'https://localhost:3000'
+  production: false,
+  apiUrl: 'http://localhost:3000'
 };
