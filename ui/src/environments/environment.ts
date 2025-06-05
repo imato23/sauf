@@ -6,5 +6,5 @@
  */
 export const environment = {
   production: true,
-  apiUrl: ''
+  apiUrl: '' // Is not used for productive environment, see nginx config
 };
