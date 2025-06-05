@@ -5,6 +5,6 @@
  * Is initially empty and will be filled on application start by environment variable "API_URL", which must exist
  */
 export const environment = {
-  production: true,
-  apiUrl: '' // Is not used for productive environment, see nginx config
+    production: true,
+    apiUrl: 'http://localhost:3000' // Is not used for productive environment, see nginx config
 };
