@@ -1,7 +1,7 @@
 {
   "name": "S.A.U.F.",
   "short_name": "S.A.U.F.",
-  "description": "Verwaltung für den privaten Weinkeller"
+  "description": "Verwaltung für den privaten Weinkeller",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
