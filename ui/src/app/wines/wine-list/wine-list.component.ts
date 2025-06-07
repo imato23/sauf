@@ -3,7 +3,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {Wine} from '../shared/models/wine.model';
 import {WineService} from '../shared/services/wine.service';
-import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MatListItem, MatListItemAvatar, MatListItemLine, MatListItemTitle, MatNavList} from '@angular/material/list';
 import {WineListFilterComponent} from "../wine-list-filter/wine-list-filter.component";
@@ -21,11 +21,9 @@ import {map} from "rxjs/operators";
     MatListItemAvatar,
     MatListItemLine,
     WineListFilterComponent,
-    NgIf,
     MatNavList,
     MatListItem,
     MatIcon,
-    NgForOf,
     MatFabButton
   ],
   selector: 'app-wine-list',
