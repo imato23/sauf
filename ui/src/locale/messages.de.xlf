@@ -265,10 +265,6 @@
         <source>Loading wines...</source>
         <target>Lade Weine...</target>
       </trans-unit>
-      <trans-unit id="8489656809304962643" datatype="html">
-        <source>Capture Image</source>
-        <target>Bild aufnehmen</target>
-      </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
         <source>
           <x id="ICU"
@@ -344,6 +340,36 @@
       <trans-unit id="5654346214096598640" datatype="html">
         <source>Theme:</source>
         <target state="new">Design:</target>
+      </trans-unit>
+      <trans-unit id="2190953401292467398" datatype="html">
+        <source>{VAR_PLURAL_2, plural, =1 {
+          <x id="INTERPOLATION"/>
+          record ({VAR_PLURAL, plural, =1 {
+          <x id="INTERPOLATION_1"/>
+          bottle} other {
+          <x id="INTERPOLATION_1"/>
+          bottles}}) found} other {
+          <x id="INTERPOLATION"/>
+          records ({VAR_PLURAL_1, plural, =1 {
+          <x id="INTERPOLATION_1"/>
+          bottle} other {
+          <x id="INTERPOLATION_1"/>
+          bottles}}) found}}
+        </source>
+        <target>{VAR_PLURAL_2, plural, =1 {Es wurde
+          <x id="INTERPOLATION"/>
+          Datensatz ({VAR_PLURAL, plural, =1 {
+          <x id="INTERPOLATION_1"/>
+          Flasche} other {
+          <x id="INTERPOLATION_1"/>
+          Flaschen}}) gefunden} other {Es wurden
+          <x id="INTERPOLATION"/>
+          Datensätze ({VAR_PLURAL_1, plural, =1 {
+          <x id="INTERPOLATION_1"/>
+          Flasche} other {
+          <x id="INTERPOLATION_1"/>
+          Flaschen}}) gefunden}}
+        </target>
       </trans-unit>
     </body>
   </file>

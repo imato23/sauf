@@ -7,6 +7,12 @@
   <div class="content-container">
     <ng-container *ngIf=" wines$ | async as wines; else loading">
       <ng-container *ngIf="wines.length > 0; else noData">
+        @if (bottleCountSum$ | async; as bottleCountSum) {
+          <b i18n>
+            {wines.length, plural, =1 {{{ wines.length }} record ({bottleCountSum, plural, =1 {{{ bottleCountSum }} bottle} other {{{ bottleCountSum }} bottles}}) found} other {{{ wines.length }} records ({bottleCountSum, plural, =1 {{{ bottleCountSum }} bottle} other {{{ bottleCountSum }} bottles}}) found}}
+          </b>
+        }
+
         <mat-nav-list *ngFor="let wine of wines$ | async">
           <mat-list-item [routerLink]="['/wines', 'view-wine', wine.id]">
             <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
