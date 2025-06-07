@@ -1,6 +1,6 @@
 {
   "name": "sauf-ui",
-  "version": "2.1.2",
+  "version": "2.3.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^20.0.1",
     "@angular/platform-browser-dynamic": "^20.0.1",
     "@angular/router": "^20.0.1",
+    "@angular/service-worker": "^20.0.1",
     "@schematics/angular": "^20.0.1",
     "ngx-trim-directive": "^3.0.1",
     "ngx-webcam": "^0.4.1",

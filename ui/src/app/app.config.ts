@@ -1,8 +1,9 @@
-import {ApplicationConfig, inject, provideAppInitializer, provideZoneChangeDetection} from '@angular/core';
+import {ApplicationConfig, inject, isDevMode, provideAppInitializer, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
 import {provideHttpClient} from "@angular/common/http";
+import {provideServiceWorker} from '@angular/service-worker';
 import {ConfigService} from "./core/shared/config.service";
 
 /**
@@ -17,6 +18,10 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => {
       const configService: ConfigService = inject(ConfigService);
       return configService.load();
+    }),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ]
 };
