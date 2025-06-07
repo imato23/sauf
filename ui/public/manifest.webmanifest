@@ -51,9 +51,9 @@
      "form_factor": "wide"
    },
    {
-     "src": "assets/screenshots/mobile.png",
-     "sizes": "293x656",
-     "type": "image/png"
+     "src": "assets/screenshots/mobile.jpg",
+     "sizes": "1080x1802",
+     "type": "image/jpg"
    }
  ]
 
