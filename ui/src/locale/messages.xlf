@@ -148,9 +148,6 @@
       <trans-unit id="8425178159112737562" datatype="html">
         <source>Storages</source>
       </trans-unit>
-      <trans-unit id="8489656809304962643" datatype="html">
-        <source>Capture Image</source>
-      </trans-unit>
       <trans-unit id="2448292389386167912" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
       </trans-unit>
@@ -215,6 +212,9 @@
       </trans-unit>
       <trans-unit id="5654346214096598640" datatype="html">
         <source>Theme:</source>
+      </trans-unit>
+      <trans-unit id="2190953401292467398" datatype="html">
+        <source>{VAR_PLURAL_2, plural, =1 {<x id="INTERPOLATION"/> record ({VAR_PLURAL, plural, =1 {<x id="INTERPOLATION_1"/> bottle} other {<x id="INTERPOLATION_1"/> bottles}}) found} other {<x id="INTERPOLATION"/> records ({VAR_PLURAL_1, plural, =1 {<x id="INTERPOLATION_1"/> bottle} other {<x id="INTERPOLATION_1"/> bottles}}) found}}</source>
       </trans-unit>
     </body>
   </file>

@@ -10,6 +10,7 @@ import {WineListFilterComponent} from "../wine-list-filter/wine-list-filter.comp
 import {MatIcon} from "@angular/material/icon";
 import {MatFabButton} from "@angular/material/button";
 import {WineListFilter} from "../shared/models/wine-list.filter.model";
+import {map} from "rxjs/operators";
 
 @Component({
   imports: [
@@ -25,7 +26,7 @@ import {WineListFilter} from "../shared/models/wine-list.filter.model";
     MatListItem,
     MatIcon,
     NgForOf,
-    MatFabButton,
+    MatFabButton
   ],
   selector: 'app-wine-list',
   styleUrl: './wine-list.component.scss',
@@ -34,13 +35,15 @@ import {WineListFilter} from "../shared/models/wine-list.filter.model";
 export class WineListComponent {
   public wines$: Observable<Wine[]> = of([]);
   public dummyAvatar: string = 'assets/no-wine-photo-avatar.png';
-
   @Output() filterChanged: EventEmitter<WineListFilter> = new EventEmitter<WineListFilter>();
+  protected bottleCountSum$: Observable<number> = of(0);
 
   constructor(private wineService: WineService) {
   }
 
   public onFilterChanged(filter: WineListFilter) {
     this.wines$ = this.wineService.getWines(filter);
+    this.bottleCountSum$ = this.wines$.pipe(
+      map(wines => wines.reduce((sum, wine) => sum + (wine.bottleCount || 0), 0)));
   }
 }

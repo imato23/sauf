@@ -5,32 +5,35 @@
   </div>
 
   <div class="content-container">
-    <ng-container *ngIf=" wines$ | async as wines; else loading">
-      <ng-container *ngIf="wines.length > 0; else noData">
-        <mat-nav-list *ngFor="let wine of wines$ | async">
-          <mat-list-item [routerLink]="['/wines', 'view-wine', wine.id]">
-            <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
-                 matListItemAvatar/>
-            <h2 matListItemTitle> {{ wine.name }}</h2>
-            <span i18n matListItemLine>
+    @if (wines$ | async; as wines) {
+      @if (wines.length > 0) {
+        @if (bottleCountSum$ | async; as bottleCountSum) {
+          <b i18n>
+            {wines.length, plural, =1 {{{ wines.length }} record ({bottleCountSum, plural, =1 {{{ bottleCountSum }} bottle} other {{{ bottleCountSum }} bottles}}) found} other {{{ wines.length }} records ({bottleCountSum, plural, =1 {{{ bottleCountSum }} bottle} other {{{ bottleCountSum }} bottles}}) found}}
+          </b>
+        }
+        <mat-nav-list>
+          @for (wine of wines$ | async; track wine.id) {
+            <mat-list-item [routerLink]="['/wines', 'view-wine', wine.id]">
+              <img [src]="wine.image ? wine.image : dummyAvatar" alt="Wine Picture" class="wine-image"
+                   matListItemAvatar/>
+              <h2 matListItemTitle> {{ wine.name }}</h2>
+              <span i18n matListItemLine>
               {{ wine.producer }}
-              - {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+                - {wine.category, select, RedWine {RedWine} WhiteWine {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
             </span>
-            <span class="bottle-count" i18n matListItemLine>
+              <span class="bottle-count" i18n matListItemLine>
               {wine.bottleCount, plural, =1 {{{ wine.bottleCount }} Bottle} other {{{ wine.bottleCount }} Bottles}}
             </span>
-          </mat-list-item>
+            </mat-list-item>
+          }
         </mat-nav-list>
-      </ng-container>
-    </ng-container>
-
-    <ng-template #loading>
+      } @else {
+        <h3 i18n>There are no matching data records available</h3>
+      }
+    } @else {
       <h3 i18n>Loading wines...</h3>
-    </ng-template>
-
-    <ng-template #noData>
-      <h3 i18n>There are no matching data records available</h3>
-    </ng-template>
+    }
   </div>
 
   <div class="floating-action-button">
