@@ -1,24 +1,22 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { BottleHistoryEntryDto } from './dtos/bottle-history-entry.dto';
-import { BottleHistoryService } from './bottle-history.service';
-import { WineListFilterDto } from './dtos/wine-list-filter.dto';
+import { HistoryService } from './history.service';
+import { HistoryFilterDto } from './dtos/history-filter.dto';
 
 @Controller('history')
 export class HistoryController {
-  constructor(private bottleHistoryService: BottleHistoryService) {}
+  constructor(private historyService: HistoryService) {}
 
   @Get()
   async getHistory(
     @Query('wineName') wineName: string,
     @Query('producer') producer: string,
   ): Promise<BottleHistoryEntryDto[]> {
-    const filter: WineListFilterDto = {
+    const filter: HistoryFilterDto = {
       wineName: wineName,
       producer: producer,
-      category: null,
-      onlyAvailableWines: false,
     };
 
-    return this.bottleHistoryService.getHistory(filter);
+    return this.historyService.getHistory(filter);
   }
 }

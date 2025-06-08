@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { VintageInfosService } from './vintage-infos.service';
-import { BottleHistoryService } from './bottle-history.service';
+import { BottleLogService } from './bottle-log.service';
 import { WinesService } from './wines.service';
 import { StorageLocationDto } from './dtos/storage-location.dto';
 import { StorageLocation } from './schemas/storage-location.schema';
@@ -11,7 +11,7 @@ import { VintageInfoDto } from './dtos/vintage-Info.dto';
 export class StorageLocationsService {
   constructor(
     private vintageInfosService: VintageInfosService,
-    private bottleHistoryService: BottleHistoryService,
+    private bottleLogService: BottleLogService,
     private winesService: WinesService,
   ) {}
 
@@ -36,7 +36,7 @@ export class StorageLocationsService {
 
     vintageInfo.storageLocations.splice(storageLocationIndexToRemove, 1);
 
-    this.bottleHistoryService.logBottlesRemoved(vintageInfo, 1);
+    this.bottleLogService.logBottlesRemoved(vintageInfo, 1);
 
     return await this.vintageInfosService.updateVintageInfo(
       wineId,

@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { BottleHistoryEntryDto } from './bottle-history-entry.dto';
+import { BottleHistoryEntryDto } from '../../history/dtos/bottle-history-entry.dto';
 import { StorageLocationDto } from './storage-location.dto';
 import { CreateBottleHistoryEntryDto } from './create-bottle-history-entry.dto';
 

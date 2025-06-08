@@ -8,7 +8,7 @@ import { VintageInfoDto } from '../dtos/vintage-Info.dto';
 import { StorageLocation } from '../schemas/storage-location.schema';
 import { StorageLocationDto } from '../dtos/storage-location.dto';
 import { BottleHistoryEntry } from '../schemas/bottle-history.schema';
-import { BottleHistoryEntryDto } from '../dtos/bottle-history-entry.dto';
+import { BottleHistoryEntryDto } from '../../history/dtos/bottle-history-entry.dto';
 import { UpdateVintageInfoDto } from '../dtos/update-vintage-info.dto';
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { WinesService } from './wines.service';
-import { BottleHistoryService } from './bottle-history.service';
+import { BottleLogService } from './bottle-log.service';
 import { UpdateWineDto } from './dtos/update-wine.dto';
 import { WineDto } from './dtos/wine.dto';
 import { VintageInfoDto } from './dtos/vintage-Info.dto';
@@ -12,7 +12,7 @@ export class VintageInfosService {
   constructor(
     @InjectMapper() private readonly mapper: Mapper,
     private wineService: WinesService,
-    private bottleHistoryService: BottleHistoryService,
+    private bottleLogService: BottleLogService,
   ) {}
 
   async getAllVintageInfos(wineId: string): Promise<VintageInfoDto[]> {
@@ -67,7 +67,7 @@ export class VintageInfosService {
     const addedBottlesCount: number = vintageInfo.storageLocations.length;
 
     if (addedBottlesCount > 0) {
-      this.bottleHistoryService.logBottlesAdded(vintageInfo, addedBottlesCount);
+      this.bottleLogService.logBottlesAdded(vintageInfo, addedBottlesCount);
     }
 
     wine.vintageInfos.push(<VintageInfoDto>(<unknown>vintageInfo));
@@ -170,10 +170,10 @@ export class VintageInfosService {
 
     if (difference > 0) {
       // new bottles count > old bottles count => bottles have been added
-      this.bottleHistoryService.logBottlesAdded(oldVintageInfo, difference);
+      this.bottleLogService.logBottlesAdded(oldVintageInfo, difference);
     } else {
       // new bottles count < old bottles count => bottles have been removed
-      this.bottleHistoryService.logBottlesRemoved(
+      this.bottleLogService.logBottlesRemoved(
         oldVintageInfo,
         Math.abs(difference),
       );
