@@ -140,7 +140,7 @@ export class VintageInfosService {
     }
 
     const index: number = wine.vintageInfos.findIndex(
-      (x) => x.vintage === vintage,
+      (x) => x.vintage === +vintage,
     );
 
     if (index === -1) {
