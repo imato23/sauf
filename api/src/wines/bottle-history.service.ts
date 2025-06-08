@@ -4,8 +4,9 @@ import { CreateBottleHistoryEntryDto } from './dtos/create-bottle-history-entry.
 import { BottleActionDto } from './dtos/bottle-action.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Wine } from './schemas/wine.schema';
-import { Model } from 'mongoose';
+import { Model, PipelineStage } from 'mongoose';
 import { BottleHistoryEntryDto } from './dtos/bottle-history-entry.dto';
+import { WineListFilterDto } from './dtos/wine-list-filter.dto';
 
 @Injectable()
 export class BottleHistoryService {
@@ -13,21 +14,43 @@ export class BottleHistoryService {
     @InjectModel(Wine.name) private readonly wineModel: Model<Wine>,
   ) {}
 
-  async getHistory(): Promise<BottleHistoryEntryDto[]> {
-    return this.wineModel.aggregate([
+  async getHistory(
+    filter: WineListFilterDto,
+  ): Promise<BottleHistoryEntryDto[]> {
+    const pipeline: PipelineStage[] = [];
+    const matchStage: Record<string, any> = {};
+
+    if (filter?.wineName) {
+      matchStage['name'] = { $regex: new RegExp(filter.wineName, 'i') };
+    }
+
+    if (filter?.producer) {
+      matchStage['producer'] = filter.producer;
+    }
+
+    if (Object.keys(matchStage).length > 0) {
+      pipeline.push({ $match: matchStage });
+    }
+
+    // Aggregation Pipeline
+    pipeline.push(
       { $unwind: '$vintageInfos' },
       { $unwind: '$vintageInfos.history' },
       {
         $project: {
+          _id: 0,
           producer: '$producer',
           wineName: '$name',
+          category: '$category',
           date: '$vintageInfos.history.date',
           action: '$vintageInfos.history.action',
           bottleCount: '$vintageInfos.history.bottleCount',
         },
       },
       { $sort: { date: -1 } },
-    ]);
+    );
+
+    return this.wineModel.aggregate(pipeline).exec();
   }
 
   logBottlesRemoved(

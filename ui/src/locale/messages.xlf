@@ -235,6 +235,9 @@
       <trans-unit id="3972366190860153161" datatype="html">
         <source>Date/Time</source>
       </trans-unit>
+      <trans-unit id="6696013729539857290" datatype="html">
+        <source>Wine</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

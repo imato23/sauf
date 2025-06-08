@@ -1,6 +1,8 @@
 <div class="page-container">
   <div class="toolbar-container">
-    <mat-toolbar><input></mat-toolbar>
+    <app-wine-list-filter (filterChanged)="onFilterChanged($event)" [categoryFilterEnabled]="false"
+                          [onlyAvailableWinesFilterEnabled]="false"
+                          class="wine-list-filter"></app-wine-list-filter>
   </div>
   <div class="content-container">
     @if (history$ | async; as history) {
@@ -11,8 +13,14 @@
             <td mat-cell *matCellDef="let entry"> {{ entry.date | date:'short' }}</td>
           </ng-container>
 
+          <ng-container matColumnDef="wineName+producer">
+            <th mat-header-cell *matHeaderCellDef i18n>Wine</th>
+            <td mat-cell *matCellDef="let entry"> {{ entry.wineName }}<br/>{{ entry.producer }}
+            </td>
+          </ng-container>
+
           <ng-container matColumnDef="wineName">
-            <th mat-header-cell *matHeaderCellDef i18n>Wine Name</th>
+            <th mat-header-cell *matHeaderCellDef i18n>Wine</th>
             <td mat-cell *matCellDef="let entry"> {{ entry.wineName }}</td>
           </ng-container>
 

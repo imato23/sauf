@@ -429,6 +429,10 @@
         <source>Date/Time</source>
         <target state="new">Datum/Zeit</target>
       </trans-unit>
+      <trans-unit id="6696013729539857290" datatype="html">
+        <source>Wine</source>
+        <target state="new">Wein</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
