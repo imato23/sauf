@@ -9,11 +9,13 @@
       </mat-form-field>
 
       <!-- only available wines filter -->
-      <div class="only-available-wines-filter">
-        <mat-slide-toggle formControlName="onlyAvailableWines" i18n
-                          i18n-matTooltip matTooltip="Only available wines">Only available wines
-        </mat-slide-toggle>
-      </div>
+      @if (onlyAvailableWinesFilterEnabled) {
+        <div class="only-available-wines-filter">
+          <mat-slide-toggle formControlName="onlyAvailableWines" i18n
+                            i18n-matTooltip matTooltip="Only available wines">Only available wines
+          </mat-slide-toggle>
+        </div>
+      }
     </div>
 
     <div class="filter-row-2">
@@ -33,21 +35,24 @@
       </mat-form-field>
 
       <!-- category filter -->
-      <mat-form-field appearance="outline" class="category-filter"
-                      i18n-matTooltip
-                      matTooltip="Category" subscriptSizing="dynamic">
-        <mat-label class="filter-label" i18n>Category</mat-label>
-        <mat-select formControlName="category" panelWidth="">
-          <mat-option i18n value="all">All</mat-option>
-          @for (category of allWineCategories$ | async; track category) {
-            <mat-option [value]="category" i18n>
-              {category,
-                select, RedWine {RedWine} WhiteWine
-                {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
-            </mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
+      @if (categoryFilterEnabled) {
+        <mat-form-field appearance="outline" class="category-filter"
+                        i18n-matTooltip
+                        matTooltip="Category" subscriptSizing="dynamic">
+          <mat-label class="filter-label" i18n>Category</mat-label>
+          <mat-select formControlName="category" panelWidth="">
+            <mat-option i18n value="all">All</mat-option>
+            @for (category of allWineCategories$ | async; track category) {
+              <mat-option [value]="category" i18n>
+                {category,
+                  select, RedWine {RedWine} WhiteWine
+                  {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      }
+
     </div>
   </div>
 </form>

@@ -1,7 +1,7 @@
 import { BottleActionDto } from './bottle-action.dto';
 import { AutoMap } from '@automapper/classes';
 
-export class BottleHistoryEntryDto {
+export class CreateBottleHistoryEntryDto {
   @AutoMap()
   readonly date: Date;
 

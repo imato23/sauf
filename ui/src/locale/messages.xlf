@@ -210,6 +210,34 @@
       <trans-unit id="2190953401292467398" datatype="html">
         <source>{VAR_PLURAL_2, plural, =1 {<x id="INTERPOLATION"/> record ({VAR_PLURAL, plural, =1 {<x id="INTERPOLATION_1"/> bottle} other {<x id="INTERPOLATION_1"/> bottles}}) found} other {<x id="INTERPOLATION"/> records ({VAR_PLURAL_1, plural, =1 {<x id="INTERPOLATION_1"/> bottle} other {<x id="INTERPOLATION_1"/> bottles}}) found}}</source>
       </trans-unit>
+      <trans-unit id="6438310831509795505" datatype="html">
+        <source>Loading history...</source>
+      </trans-unit>
+      <trans-unit id="2198254587014082786" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> bottle removed} other {<x id="INTERPOLATION"/> bottles removed}}</source>
+      </trans-unit>
+      <trans-unit id="5818251561674331662" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> bottle added} other {<x id="INTERPOLATION"/> bottles added}}</source>
+      </trans-unit>
+      <trans-unit id="2101550251608050840" datatype="html">
+        <source>
+          <x id="START_BLOCK_IF" equiv-text="@if (entry.action === &apos;BottlesAdded&apos;) {"/>
+          <x id="ICU" equiv-text="{entry.bottleCount, plural, =1 {{{ entry.bottleCount }} bottle added} other {{{ entry.bottleCount }} bottles added}}" xid="956291766690270361"/>
+          <x id="CLOSE_BLOCK_IF" equiv-text="}"/>
+          <x id="START_BLOCK_ELSE" equiv-text="@else {"/>
+          <x id="ICU_1" equiv-text="{entry.bottleCount, plural, =1 {{{ entry.bottleCount }} bottle removed} other {{{ entry.bottleCount }} bottles removed}}" xid="357367400647150805"/>
+          <x id="CLOSE_BLOCK_ELSE" equiv-text="}"/>
+        </source>
+      </trans-unit>
+      <trans-unit id="9216117865911519658" datatype="html">
+        <source>Action</source>
+      </trans-unit>
+      <trans-unit id="3972366190860153161" datatype="html">
+        <source>Date/Time</source>
+      </trans-unit>
+      <trans-unit id="6696013729539857290" datatype="html">
+        <source>Wine</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

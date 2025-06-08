@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
@@ -32,6 +32,8 @@ import {MatTooltip} from "@angular/material/tooltip";
   templateUrl: './wine-list-filter.component.html'
 })
 export class WineListFilterComponent implements OnInit {
+  @Input() onlyAvailableWinesFilterEnabled: boolean = true;
+  @Input() categoryFilterEnabled: boolean = true;
   @Output() filterChanged: EventEmitter<WineListFilter> = new EventEmitter<WineListFilter>();
 
   public wineListFilterFormGroup: UntypedFormGroup;

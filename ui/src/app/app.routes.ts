@@ -4,7 +4,8 @@ import {WineListComponent} from './wines/wine-list/wine-list.component';
 import {WineDetailsComponent} from './wines/wine-details/wine-details.component';
 import {VintageDetailsComponent} from './wines/vintage-details/vintage-details.component';
 import {RemoveBottleComponent} from './wines/remove-bottle/remove-bottle.component';
-import {SettingsComponent} from "./settings/settings/settings.component";
+import {EditSettingsComponent} from "./settings/edit-settings/edit-settings.component";
+import {HistoryListComponent} from "./history/history-list/history-list.component";
 
 /**
  * Defines the routes for the application.
@@ -36,9 +37,15 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'history', children: [
+      {path: 'history-list', component: HistoryListComponent},
+      {path: '', redirectTo: 'history-list', pathMatch: 'full'},
+    ]
+  },
+  {
     path: 'settings', children: [
-      {path: 'settings', component: SettingsComponent},
-      {path: '', redirectTo: 'settings', pathMatch: 'full'},
+      {path: 'edit-settings', component: EditSettingsComponent},
+      {path: '', redirectTo: 'edit-settings', pathMatch: 'full'},
     ]
   },
   {path: '', redirectTo: '/wines/wine-list', pathMatch: 'full'},

@@ -6,10 +6,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { WinesModule } from './wines/wines.module';
 import { AutomapperModule } from '@automapper/nestjs';
 import { classes } from '@automapper/classes';
+import { HistoryModule } from './history/history.module';
 
 @Module({
   imports: [
-    //ConfigModule.forRoot({ envFilePath: '/etc/sauf/environment.env' }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
@@ -21,6 +21,7 @@ import { classes } from '@automapper/classes';
       strategyInitializer: classes(),
     }),
     WinesModule,
+    HistoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
