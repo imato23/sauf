@@ -1,13 +1,7 @@
-import { BottleActionDto } from './bottle-action.dto';
-import { AutoMap } from '@automapper/classes';
-
 export class BottleHistoryEntryDto {
-  @AutoMap()
+  readonly producer: string;
+  readonly wineName: string;
   readonly date: Date;
-
-  @AutoMap()
-  readonly action: BottleActionDto;
-
-  @AutoMap()
+  readonly action: string;
   readonly bottleCount: number;
 }
