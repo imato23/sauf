@@ -1,14 +1,16 @@
 <h3 i18n>Vintages</h3>
-<mat-nav-list *ngFor="let vintageInfo of wine.vintageInfos">
-  <mat-list-item [routerLink]="['/wines', 'view-vintage', wine.id, vintageInfo.vintage]">
-    <div class="vintage-list">
-      <h3>{{ vintageInfo.vintage }}</h3>
-      <div i18n>{vintageInfo.bottleCount,
-        plural, =1 {{{ vintageInfo.bottleCount }} Bottle} other
-        {{{ vintageInfo.bottleCount }}
-        Bottles}}</div>
-    </div>
-  </mat-list-item>
+<mat-nav-list>
+  @for (vintageInfo of wine.vintageInfos; track vintageInfo.vintage) {
+    <mat-list-item [routerLink]="['/wines', 'view-vintage', wine.id, vintageInfo.vintage]">
+      <div class="vintage-list">
+        <h3>{{ vintageInfo.vintage }}</h3>
+        <div i18n>{vintageInfo.bottleCount,
+          plural, =1 {{{ vintageInfo.bottleCount }} Bottle} other
+          {{{ vintageInfo.bottleCount }}
+          Bottles}}</div>
+      </div>
+    </mat-list-item>
+  }
 </mat-nav-list>
 <button [disabled]="!wine.id" i18n
         mat-button routerLink="/wines/add-vintage/{{wine.id}}">Add vintage

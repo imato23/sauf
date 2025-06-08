@@ -4,7 +4,6 @@ import {Observable, Subject} from 'rxjs';
 import {MatDialogRef} from '@angular/material/dialog';
 import {MatIcon} from '@angular/material/icon';
 import {MatIconButton} from '@angular/material/button';
-import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-image-capturing',
@@ -12,8 +11,6 @@ import {NgIf} from '@angular/common';
     WebcamModule,
     MatIcon,
     MatIconButton,
-    NgIf,
-
   ],
   templateUrl: './image-capturing.component.html',
   styleUrl: './image-capturing.component.scss',

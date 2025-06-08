@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, map, Observable, switchMap } from 'rxjs';
-import { Wine } from '../shared/models/wine.model';
-import { StorageInfo } from '../shared/models/storage-info.model';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { WineService } from '../shared/services/wine.service';
-import { VintageInfoService } from '../shared/services/vintage-info.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { VintageInfo } from '../shared/models/vintage-info.model';
-import { RemoveBottleDialogComponent } from '../remove-bottle-dialog/remove-bottle-dialog.component';
-import { MatToolbar } from '@angular/material/toolbar';
-import { MatIcon } from '@angular/material/icon';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { MatDivider } from '@angular/material/divider';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { MatActionList, MatListItem } from '@angular/material/list';
+import {Component, OnInit} from '@angular/core';
+import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
+import {Wine} from '../shared/models/wine.model';
+import {StorageInfo} from '../shared/models/storage-info.model';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {WineService} from '../shared/services/wine.service';
+import {VintageInfoService} from '../shared/services/vintage-info.service';
+import {MatDialog} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {VintageInfo} from '../shared/models/vintage-info.model';
+import {RemoveBottleDialogComponent} from '../remove-bottle-dialog/remove-bottle-dialog.component';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatIcon} from '@angular/material/icon';
+import {AsyncPipe} from '@angular/common';
+import {MatDivider} from '@angular/material/divider';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatActionList, MatListItem} from '@angular/material/list';
 
 @Component({
   selector: 'app-remove-bottle',
@@ -28,8 +28,7 @@ import { MatActionList, MatListItem } from '@angular/material/list';
     MatActionList,
     MatListItem,
     MatIconButton,
-    NgForOf,
-    NgIf,
+
   ],
   templateUrl: './remove-bottle.component.html',
   styleUrl: './remove-bottle.component.scss',
@@ -63,7 +62,7 @@ export class RemoveBottleComponent implements OnInit {
 
   public showRemoveBottleDialog(storageInfo: StorageInfo): void {
     const dialogRef = this.dialog.open(RemoveBottleDialogComponent, {
-      data: { row: storageInfo.row, shelf: storageInfo.shelf },
+      data: {row: storageInfo.row, shelf: storageInfo.shelf},
     });
 
     dialogRef.afterClosed().subscribe((removalApproved: boolean) => {
@@ -74,10 +73,10 @@ export class RemoveBottleComponent implements OnInit {
       this.vintageInfoService.removeBottle(
         this.wineId,
         storageInfo.vintage as number,
-        { row: storageInfo.row, shelf: storageInfo.shelf }).subscribe(() => {
+        {row: storageInfo.row, shelf: storageInfo.shelf}).subscribe(() => {
         this.refreshToken$.next(undefined);
         this.snackBar.open($localize`The wine bottle has been removed.`,
-          undefined, { duration: 2000 });
+          undefined, {duration: 2000});
       });
     });
   }

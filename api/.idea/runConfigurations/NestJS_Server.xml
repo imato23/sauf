@@ -1,5 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="NestJS Server" type="NodeJSConfigurationType" application-parameters="src/main.ts" path-to-js-file="node_modules/.bin/ts-node" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="MONGODB_URL" value="mongodb://localhost:27017/sauf " />
+    </envs>
     <method v="2" />
   </configuration>
 </component>

@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angul
 import {FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
-import {AsyncPipe, NgForOf} from "@angular/common";
+import {AsyncPipe} from "@angular/common";
 import {WineService} from "../shared/services/wine.service";
 import {debounceTime, Observable} from "rxjs";
 import {NgxTrimDirectiveModule} from "ngx-trim-directive";
@@ -20,7 +20,6 @@ import {MatTooltip} from "@angular/material/tooltip";
     MatSelect,
     MatSlideToggle,
     MatTooltip,
-    NgForOf,
     MatFormField,
     MatOption,
     AsyncPipe,

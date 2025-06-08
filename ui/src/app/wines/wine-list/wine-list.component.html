@@ -1,9 +1,7 @@
 <div class="page-container">
   <div class="toolbar-container">
-    <app-wine-list-filter (filterChanged)="onFilterChanged($event)"
-                          style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%"></app-wine-list-filter>
+    <app-wine-list-filter (filterChanged)="onFilterChanged($event)" class="wine-list-filter"></app-wine-list-filter>
   </div>
-
   <div class="content-container">
     @if (wines$ | async; as wines) {
       @if (wines.length > 0) {

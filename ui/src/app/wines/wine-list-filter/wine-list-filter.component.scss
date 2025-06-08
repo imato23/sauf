@@ -58,3 +58,10 @@ mat-form-field {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.wine-list-filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}

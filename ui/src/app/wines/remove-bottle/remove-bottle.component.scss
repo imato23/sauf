@@ -8,3 +8,12 @@
 .custom-flex-grow {
   flex: 1 1 auto;
 }
+
+.storage-locations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
