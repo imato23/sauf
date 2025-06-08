@@ -15,8 +15,7 @@
   <!--suppress CssUnknownProperty -->
   <mat-sidenav-container [style.marginTop.px]="isMobile() ? 56 : 0" class="sidenav-container">
     <mat-sidenav #drawer [fixedInViewport]="isMobile()" [mode]="isMobile() ? 'over' : 'side'" fixedTopGap="56">
-      <div
-        style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 100%">
+      <div class="sidenav-content">
         <mat-nav-list>
           <a [routerLink]="['/wines']" class="nav-item" mat-list-item routerLinkActive="router-link-active">
             <mat-icon class="icon" matListItemIcon>wine_bar</mat-icon>

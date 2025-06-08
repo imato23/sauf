@@ -15,8 +15,7 @@
       @if (bottlesAvailable$ | async) {
         @for (storageInfo of storageInfo$ | async; track storageInfo.vintage) {
           <mat-list-item>
-            <div
-              style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; width: 100%;">
+            <div class="storage-locations">
               <div>
                 {{ storageInfo.vintage }}
               </div>

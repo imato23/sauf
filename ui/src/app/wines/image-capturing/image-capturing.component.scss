@@ -1,5 +1,3 @@
-@use '@angular/material' as mat;
-
 .webcam-dialog-container {
   display: flex;
   flex-direction: column;
@@ -8,13 +6,29 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  //width: 100vw * 0.9;
-  //height: 100vh * 0.9;
 }
 
-//webcam {
-//  max-width: 100vw;
-//  max-height: 100vh;
-//  object-fit: contain;
-//}
+.webcam-dialog {
+  flex: 0 0 auto;
+  align-content: space-between;
+  align-self: center;
+  flex-direction: column;
+  display: flex;
+}
 
+.actions {
+  flex: 0 0 auto;
+  align-content: center;
+  align-self: center;
+  flex-direction: row;
+}
+
+.image {
+  flex: 1 1 auto;
+}
+
+.captured-image {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
