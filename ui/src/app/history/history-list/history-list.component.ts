@@ -19,7 +19,7 @@ import {WineListFilterComponent} from "../../wines/wine-list-filter/wine-list-fi
 import {WineListFilter} from "../../wines/shared/models/wine-list.filter.model";
 
 @Component({
-  selector: 'app-history',
+  selector: 'app-history-list',
   imports: [
     AsyncPipe,
     MatTable,
@@ -35,10 +35,10 @@ import {WineListFilter} from "../../wines/shared/models/wine-list.filter.model";
     DatePipe,
     WineListFilterComponent
   ],
-  templateUrl: './history.component.html',
-  styleUrl: './history.component.scss'
+  templateUrl: './history-list.component.html',
+  styleUrl: './history-list.component.scss'
 })
-export class HistoryComponent implements OnInit, OnDestroy {
+export class HistoryListComponent implements OnInit, OnDestroy {
   public history$: Observable<BottleHistoryEntry[]> = of([]);
   public displayedColumns: string[] = [];
   private mql!: MediaQueryList;

@@ -11,7 +11,7 @@ import {Theme} from "../shared/models/theme.enum";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-edit-settings',
   imports: [
     MatButtonToggleGroup,
     MatButtonToggle,
@@ -23,11 +23,11 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatIconButton,
     NgForOf
   ],
-  templateUrl: './settings.component.html',
-  styleUrl: './settings.component.scss'
+  templateUrl: './edit-settings.component.html',
+  styleUrl: './edit-settings.component.scss'
 })
 
-export class SettingsComponent {
+export class EditSettingsComponent {
   protected settingsFormGroup!: UntypedFormGroup;
 
   constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private themeService: ThemeService) {
