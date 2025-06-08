@@ -5,6 +5,7 @@ import {WineDetailsComponent} from './wines/wine-details/wine-details.component'
 import {VintageDetailsComponent} from './wines/vintage-details/vintage-details.component';
 import {RemoveBottleComponent} from './wines/remove-bottle/remove-bottle.component';
 import {SettingsComponent} from "./settings/settings/settings.component";
+import {HistoryComponent} from "./history/history/history.component";
 
 /**
  * Defines the routes for the application.
@@ -34,6 +35,12 @@ export const routes: Routes = [
       {path: 'remove-bottle/:wineId', component: RemoveBottleComponent},
       {path: '', redirectTo: 'wine-list', pathMatch: 'full'},
     ],
+  },
+  {
+    path: 'history', children: [
+      {path: 'history', component: HistoryComponent},
+      {path: '', redirectTo: 'history', pathMatch: 'full'},
+    ]
   },
   {
     path: 'settings', children: [

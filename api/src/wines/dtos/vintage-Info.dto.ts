@@ -1,6 +1,7 @@
 import { AutoMap } from '@automapper/classes';
 import { BottleHistoryEntryDto } from './bottle-history-entry.dto';
 import { StorageLocationDto } from './storage-location.dto';
+import { CreateBottleHistoryEntryDto } from './create-bottle-history-entry.dto';
 
 export class VintageInfoDto {
   @AutoMap()
@@ -24,5 +25,5 @@ export class VintageInfoDto {
   readonly storageLocations: StorageLocationDto[];
 
   @AutoMap(() => BottleHistoryEntryDto)
-  history: BottleHistoryEntryDto[];
+  history: CreateBottleHistoryEntryDto[];
 }

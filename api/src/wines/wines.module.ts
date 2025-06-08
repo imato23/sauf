@@ -13,12 +13,14 @@ import { StorageLocationsService } from './storage-locations.service';
 import { VintageInfosService } from './vintage-infos.service';
 import { BottleHistoryService } from './bottle-history.service';
 import { WineProfile } from './mapper-profiles/wine-profile';
+import { HistoryController } from './history.controller';
 
 @Module({
   controllers: [
     WinesController,
     VintageInfosController,
     StorageLocationsController,
+    HistoryController,
   ],
   imports: [
     MongooseModule.forFeature([{ name: Wine.name, schema: WineSchema }]),
