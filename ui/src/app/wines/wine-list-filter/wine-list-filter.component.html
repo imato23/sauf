@@ -24,9 +24,11 @@
         <mat-label class="filter-label" i18n>Producer</mat-label>
         <mat-select formControlName="producer" panelWidth="">
           <mat-option i18n value="all">All</mat-option>
-          <mat-option *ngFor="let producer of allProducers$ | async" [value]="producer">
-            {{ producer }}
-          </mat-option>
+          @for (producer of allProducers$| async; track producer) {
+            <mat-option [value]="producer">
+              {{ producer }}
+            </mat-option>
+          }
         </mat-select>
       </mat-form-field>
 
@@ -37,11 +39,13 @@
         <mat-label class="filter-label" i18n>Category</mat-label>
         <mat-select formControlName="category" panelWidth="">
           <mat-option i18n value="all">All</mat-option>
-          <mat-option *ngFor="let category of allWineCategories$ |async" [value]="category" i18n>
-            {category,
-              select, RedWine {RedWine} WhiteWine
-              {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
-          </mat-option>
+          @for (category of allWineCategories$ | async; track category) {
+            <mat-option [value]="category" i18n>
+              {category,
+                select, RedWine {RedWine} WhiteWine
+                {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+            </mat-option>
+          }
         </mat-select>
       </mat-form-field>
     </div>

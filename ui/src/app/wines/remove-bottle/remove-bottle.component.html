@@ -11,39 +11,30 @@
   </div>
 
   <div class="content-container">
-    <mat-action-list *ngIf="(bottlesAvailable$ | async); else noBottlesAvailable">
-      <ng-container *ngFor="let storageInfo of storageInfo$ | async">
-        <mat-list-item>
-          <div
-            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; width: 100%;">
-            <div>
-              {{ storageInfo.vintage }}
-            </div>
-            <div style="display: flex; flex-direction: column;">
-              <div style="display: flex; flex-direction: row">
-                <div i18n>Row:</div>
-                <div>{{ storageInfo.row }}</div>
+    <mat-action-list>
+      @if (bottlesAvailable$ | async) {
+        @for (storageInfo of storageInfo$ | async; track storageInfo.vintage) {
+          <mat-list-item>
+            <div
+              style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; width: 100%;">
+              <div>
+                {{ storageInfo.vintage }}
               </div>
-              <div style="display: flex; flex-direction: row">
-                <div i18n>Shelf:</div>
-                <div>{{ storageInfo.shelf }}</div>
+              <div i18n>{storageInfo.bottleCount,
+                plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}
+              </div>
+              <div>
+                <button (click)="showRemoveBottleDialog(storageInfo)"
+                        mat-flat-button>Entnehmen
+                </button>
               </div>
             </div>
-            <div i18n>{storageInfo.bottleCount,
-              plural, =1 {{{ storageInfo.bottleCount }} Bottle} other {{{ storageInfo.bottleCount }} Bottles}}
-            </div>
-            <div>
-              <button (click)="showRemoveBottleDialog(storageInfo)"
-                      mat-flat-button>Entnehmen
-              </button>
-            </div>
-          </div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-      </ng-container>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        }
+      } @else {
+        <div i18n>There are not bottles.</div>
+      }
     </mat-action-list>
-    <ng-template #noBottlesAvailable i18n>
-      There are not bottles.
-    </ng-template>
   </div>
 </div>

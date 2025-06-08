@@ -33,69 +33,87 @@
       </div>
 
       <!-- form -->
-      <form *ngIf="(wine$ | async) as wine; else loading" [formGroup]="wineFormGroup" class="form">
-        <h3 i18n>Common Data</h3>
-        <mat-form-field>
-          <mat-label i18n>Name</mat-label>
-          <input formControlName="name" matInput required trim="blur">
-          <mat-error *ngIf="nameField?.errors?.['required']" i18n>Name is required.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label i18n>Category</mat-label>
-          <mat-select formControlName="category" required>
-            <mat-option *ngFor="let category of categories$ | async" [value]="category" i18n>{category,
-              select, RedWine {RedWine} WhiteWine
-              {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="categoryField?.errors?.['required']" i18n>Category is required.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label i18n>Producer</mat-label>
-          <input [matAutocomplete]="producerAutocomplete" formControlName="producer" matInput required
-                 trim="blur">
-          <mat-autocomplete #producerAutocomplete="matAutocomplete">
-            <mat-option *ngFor="let producer of producers$|async" [value]="producer">
-              {{ producer }}
-            </mat-option>
-          </mat-autocomplete>
-          <mat-error *ngIf="producerField?.errors?.['required']" i18n>Producer is required.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label i18n>Country</mat-label>
-          <input [matAutocomplete]="countryAutocomplete" formControlName="country" matInput required
-                 trim="blur">
-          <mat-autocomplete #countryAutocomplete="matAutocomplete">
-            <mat-option *ngFor="let country of countries$|async" [value]="country">
-              {{ country }}
-            </mat-option>
-          </mat-autocomplete>
-          <mat-error *ngIf="countryField?.errors?.['required']" i18n>Country is required.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label i18n>Region</mat-label>
-          <input [matAutocomplete]="regionAutocomplete" formControlName="region" matInput required
-                 trim="blur">
-          <mat-autocomplete #regionAutocomplete="matAutocomplete">
-            <mat-option *ngFor="let region of regions$|async" [value]="region">
-              {{ region }}
-            </mat-option>
-          </mat-autocomplete>
-          <mat-error *ngIf="regionField?.errors?.['required']" i18n>Region is required.
-          </mat-error>
-        </mat-form-field>
+      @if (wine$ | async; as wine) {
+        <form [formGroup]="wineFormGroup" class="form">
+          <h3 i18n>Common Data</h3>
+          <mat-form-field>
+            <mat-label i18n>Name</mat-label>
+            <input formControlName="name" matInput required trim="blur">
+            @if (nameField?.errors?.['required']) {
+              <mat-error i18n>Name is required.
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label i18n>Category</mat-label>
+            <mat-select formControlName="category" required>
+              @for (category of categories$ | async; track category) {
+                <mat-option [value]="category" i18n>{category,
+                  select, RedWine {RedWine} WhiteWine
+                  {WhiteWine} RoseWine {RoseWine} SparklingWine {SparklingWine}}
+                </mat-option>
+              }
+            </mat-select>
+            @if (categoryField?.errors?.['required']) {
+              <mat-error i18n>Category is required.
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label i18n>Producer</mat-label>
+            <input [matAutocomplete]="producerAutocomplete" formControlName="producer" matInput required
+                   trim="blur">
+            <mat-autocomplete #producerAutocomplete="matAutocomplete">
+              @for (producer of producers$|async; track producer) {
+                <mat-option [value]="producer">
+                  {{ producer }}
+                </mat-option>
+              }
+            </mat-autocomplete>
+            @if (producerField?.errors?.['required']) {
+              <mat-error i18n>Producer is required.
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label i18n>Country</mat-label>
+            <input [matAutocomplete]="countryAutocomplete" formControlName="country" matInput required
+                   trim="blur">
+            <mat-autocomplete #countryAutocomplete="matAutocomplete">
+              @for (country of countries$|async; track country) {
+                <mat-option [value]="country">
+                  {{ country }}
+                </mat-option>
+              }
+            </mat-autocomplete>
+            @if (countryField?.errors?.['required']) {
+              <mat-error i18n>Country is required.
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label i18n>Region</mat-label>
+            <input [matAutocomplete]="regionAutocomplete" formControlName="region" matInput required
+                   trim="blur">
+            <mat-autocomplete #regionAutocomplete="matAutocomplete">
+              @for (region of regions$|async; track region) {
+                <mat-option [value]="region">
+                  {{ region }}
+                </mat-option>
+              }
+            </mat-autocomplete>
+            @if (regionField?.errors?.['required']) {
+              <mat-error i18n>Region is required.
+              </mat-error>
+            }
+          </mat-form-field>
 
-        <!-- vintages -->
-        <app-vintage-list [wine]="wine"></app-vintage-list>
-      </form>
-
-      <ng-template #loading i18n>
-        Loading wine...
-      </ng-template>
+          <!-- vintages -->
+          <app-vintage-list [wine]="wine"></app-vintage-list>
+        </form>
+      } @else {
+        <div i18n>Loading wine...</div>
+      }
     </div>
   </div>
 </div>

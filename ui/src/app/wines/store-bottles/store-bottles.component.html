@@ -1,6 +1,7 @@
 <div [formGroup]="vintageDetailsFormGroup">
   <div formArrayName="storageLocations">
-    <div *ngFor="let storageLocationFormGroup of storageLocationsFormArray.controls; index as storageLocationIndex">
+    @for (storageLocationFormGroup of storageLocationsFormArray.controls; track storageLocationIndex; let
+      storageLocationIndex = $index) {
       <div [formGroupName]="storageLocationIndex">
         <div class="storage">
           <mat-form-field class="storage-field">
@@ -21,18 +22,23 @@
           </div>
         </div>
       </div>
-    </div>
+    }
 
-    <mat-error *ngIf="storageLocationsFormArray.errors?.['duplicateStorageLocations']"
-               class="custom-error"
-               i18n>
-      One or more storage locations have been entered more than once.
-    </mat-error>
-    <mat-error *ngIf="vintageDetailsFormGroup.errors?.['storageLocationOccupied']"
-               class="custom-error"
-               i18n>
-      One of the entered storage locations is already occupied.
-    </mat-error>
+    @if (storageLocationsFormArray.errors?.['duplicateStorageLocations']) {
+      <mat-error
+        class="custom-error"
+        i18n>
+        One or more storage locations have been entered more than once.
+      </mat-error>
+    }
+
+    @if (vintageDetailsFormGroup.errors?.['storageLocationOccupied']) {
+      <mat-error
+        class="custom-error"
+        i18n>
+        One of the entered storage locations is already occupied.
+      </mat-error>
+    }
 
     <button (click)="onAddStorageLocation()"
             color="accent"

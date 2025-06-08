@@ -1,6 +1,6 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
-import { VintageInfo } from '../shared/models/vintage-info.model';
+import {AfterContentChecked, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Observable, of, tap} from 'rxjs';
+import {VintageInfo} from '../shared/models/vintage-info.model';
 import {
   AbstractControl,
   AbstractControlOptions,
@@ -9,18 +9,18 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { VintageInfoService } from '../shared/services/vintage-info.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { StorageLocationOccupiedValidator } from '../shared/validators/storage-location-occupied.validator';
-import { AsyncPipe, Location, NgIf } from '@angular/common';
-import { MatIcon } from '@angular/material/icon';
-import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
-import { MatIconButton } from '@angular/material/button';
-import { MatToolbar } from '@angular/material/toolbar';
-import { StoreBottlesComponent } from '../store-bottles/store-bottles.component';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {VintageInfoService} from '../shared/services/vintage-info.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {StorageLocationOccupiedValidator} from '../shared/validators/storage-location-occupied.validator';
+import {AsyncPipe, Location} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
+import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
+import {MatIconButton} from '@angular/material/button';
+import {MatToolbar} from '@angular/material/toolbar';
+import {StoreBottlesComponent} from '../store-bottles/store-bottles.component';
 
 @Component({
   selector: 'app-vintage-details',
@@ -30,7 +30,6 @@ import { StoreBottlesComponent } from '../store-bottles/store-bottles.component'
     MatFormField,
     MatMenu,
     RouterLink,
-    NgIf,
     AsyncPipe,
     ReactiveFormsModule,
     MatMenuItem,
@@ -109,7 +108,7 @@ export class VintageDetailsComponent implements OnInit, AfterContentChecked {
       });
     }
 
-    this.snackBar.open($localize`Changes have been saved.`, undefined, { duration: 2000 });
+    this.snackBar.open($localize`Changes have been saved.`, undefined, {duration: 2000});
   }
 
   public onDelete(): void {
@@ -118,7 +117,7 @@ export class VintageDetailsComponent implements OnInit, AfterContentChecked {
     }
 
     this.vintageInfoService.removeVintageInfo(this.wineId, this.vintage).subscribe(() => {
-      this.snackBar.open($localize`Vintage info has been deleted.`, undefined, { duration: 2000 });
+      this.snackBar.open($localize`Vintage info has been deleted.`, undefined, {duration: 2000});
       this.location.back();
     });
   }

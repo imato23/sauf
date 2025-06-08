@@ -11,7 +11,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog} from '@angular/material/dialog';
 import {WineService} from '../shared/services/wine.service';
 import {WineCategory} from '../shared/models/wine-category.model';
-import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {MatTooltip} from '@angular/material/tooltip';
 import {MatIconButton, MatMiniFabButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
@@ -36,12 +36,10 @@ import {VintageListComponent} from "../vintage-list/vintage-list.component";
     MatInput,
     MatMiniFabButton,
     MatMenuTrigger,
-    NgIf,
     MatMenuItem,
     NgxTrimDirectiveModule,
     MatOption,
     MatMenu,
-    NgForOf,
     MatAutocomplete,
     MatAutocompleteTrigger,
     MatError,

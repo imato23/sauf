@@ -85,8 +85,8 @@
       <trans-unit id="422107326661915292" datatype="html">
         <source>Shelf</source>
       </trans-unit>
-      <trans-unit id="4412312126303507662" datatype="html">
-        <source> Loading vintage info... </source>
+      <trans-unit id="7737687671664441411" datatype="html">
+        <source>Loading vintage info...</source>
       </trans-unit>
       <trans-unit id="4839518956105289794" datatype="html">
         <source>Category is required. </source>
@@ -139,16 +139,10 @@
       <trans-unit id="7390089133712514743" datatype="html">
         <source>Vintage is to small. </source>
       </trans-unit>
-      <trans-unit id="7580760277293545627" datatype="html">
-        <source>Row:</source>
-      </trans-unit>
-      <trans-unit id="8097713860185267783" datatype="html">
-        <source>Shelf:</source>
-      </trans-unit>
       <trans-unit id="8425178159112737562" datatype="html">
         <source>Storages</source>
       </trans-unit>
-      <trans-unit id="2448292389386167912" datatype="html">
+      <trans-unit id="8701332833322117780" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {<x id="INTERPOLATION"/> Bottle} other {<x id="INTERPOLATION"/> Bottles}}</source>
       </trans-unit>
       <trans-unit id="8856905278208146821" datatype="html">
@@ -168,11 +162,11 @@
       <trans-unit id="9105440141588395297" datatype="html">
         <source>Vintage <x id="INTERPOLATION" equiv-text="{{ vintage }}"/></source>
       </trans-unit>
-      <trans-unit id="950930723334427991" datatype="html">
-        <source> Loading wine... </source>
+      <trans-unit id="8417234424817587859" datatype="html">
+        <source>Loading wine...</source>
       </trans-unit>
-      <trans-unit id="988836184229160109" datatype="html">
-        <source> There are not bottles. </source>
+      <trans-unit id="7367126496974481800" datatype="html">
+        <source>There are not bottles.</source>
       </trans-unit>
       <trans-unit id="2275328567992347600" datatype="html">
         <source>Page not found</source>

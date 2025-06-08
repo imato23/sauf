@@ -1,12 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {
-  ReactiveFormsModule,
-  UntypedFormArray,
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  ValidationErrors,
-  Validators,
-} from '@angular/forms';
+import {ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators,} from '@angular/forms';
 import {StorageLocation} from '../shared/models/storage-location.model';
 import {VintageInfoService} from '../shared/services/vintage-info.service';
 import {duplicateStorageLocationsValidator} from '../shared/validators/duplicate-storage-locations.validator';
@@ -14,7 +7,6 @@ import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatIcon} from '@angular/material/icon';
 import {MatInput} from '@angular/material/input';
 import {MatButton, MatIconButton} from '@angular/material/button';
-import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-store-bottles',
@@ -26,9 +18,7 @@ import {NgForOf, NgIf} from '@angular/common';
     MatInput,
     MatLabel,
     MatIconButton,
-    MatButton,
-    NgIf,
-    NgForOf,
+    MatButton
   ],
   templateUrl: './store-bottles.component.html',
   styleUrl: './store-bottles.component.scss',
@@ -74,17 +64,10 @@ export class StoreBottlesComponent implements OnInit {
     this.storageLocationsFormArray.removeAt(index);
   }
 
-  public getStorageLocationErrors(index: number): ValidationErrors | null {
-    const storageLocationFormGroup: UntypedFormGroup = this.storageLocationsFormArray.controls[index] as UntypedFormGroup;
-    return storageLocationFormGroup.errors;
-  }
-
   private buildStorageLocationFormGroup(storageLocation: StorageLocation): UntypedFormGroup {
-    const formGroup: UntypedFormGroup = this.formBuilder.group({
+    return this.formBuilder.group({
       row: [storageLocation.row, [Validators.required, Validators.min(1)]],
       shelf: [storageLocation.shelf, [Validators.required, Validators.min(1)]],
     });
-
-    return formGroup;
   }
 }
